@@ -8,29 +8,26 @@ INCS			:= includes
 # Subdirectories
 SRCS_DIR		:= $(shell find $(SRCS) -type d)
 OBJS_DIR		:= $(addprefix $(OBJS)/,$(SRCS_DIR))
-INCS_DIR		:= $(INCS)
 
 # Paths
 LIBS_PATH		:= libs/
 
 # Libraries
-#LIBS		:= -Llibs/ -lft -llst
-#LIBS			:= -L$(LIBS_PATH) -lft -llst
-LFT				:= -L$(LIBS_PATH) -lft
-LLST			:= -L$(LIBS_PATH) -llst
+LFT				:= -Llibs -lft
+LLST			:= -Llibs -llst
 
-LIBRARIES		:= $(LFT) $(LLST)
+LIBRARIES		:= $(LLST) $(LFT)
 
 # Files
-SRCS_FILES		:= $(shell find $(SRCS_DIR) -type f)
+SRCS_FILES		:= $(shell find $(SRCS_DIR) -type f -name "main.c" -o -name "ft_*.c")
 OBJS_FILES		:= $(SRCS_FILES:%.c=$(OBJS)/%.o)
-INCS_FILES		:= $(shell find $(INCS_DIR) -type f)
+INCS_FILES		:= $(shell find $(INCS)/ -type f -name "*.h")
 
 # Compiler and shell
 CC				:= gcc
 CFLAGS			:= -Werror -Wall -Wextra
 SIZE			:= $(shell echo "$(shell tput cols) - 16" | bc)
-INCLUDES		:= -I$(INCS_DIR)
+INCLUDES		:= -I$(INCS)
 
 # Colors
 RED				= \033[31;1m
@@ -67,7 +64,6 @@ clean :
 
 fclean :
 	make -C libs fclean
-	rm $(NAME)
 
 re : fclean all
 
