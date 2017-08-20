@@ -25,7 +25,7 @@ INCS_FILES		:= $(shell find $(INCS)/ -type f -name "*.h")
 
 # Compiler and shell
 CC				:= gcc
-CFLAGS			:= -Werror -Wall -Wextra
+CFLAGS			:= -Werror -Wall -Wextra -g
 SIZE			:= $(shell echo "$(shell tput cols) - 16" | bc)
 INCLUDES		:= -I$(INCS)
 
@@ -64,6 +64,7 @@ clean :
 
 fclean :
 	make -C libs fclean
+	rm lem-in
 
 re : fclean all
 
