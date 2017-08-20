@@ -15,7 +15,11 @@ LIBS_PATH		:= libs/
 
 # Libraries
 #LIBS		:= -Llibs/ -lft -llst
-LIBS			:= -L$(LIBS_PATH) -lft -llst
+#LIBS			:= -L$(LIBS_PATH) -lft -llst
+LFT				:= -L$(LIBS_PATH) -lft
+LLST			:= -L$(LIBS_PATH) -llst
+
+LIBRARIES		:= $(LFT) $(LLST)
 
 # Files
 SRCS_FILES		:= $(shell find $(SRCS_DIR) -type f)
@@ -26,7 +30,7 @@ INCS_FILES		:= $(shell find $(INCS_DIR) -type f)
 CC				:= gcc
 CFLAGS			:= -Werror -Wall -Wextra
 SIZE			:= $(shell echo "$(shell tput cols) - 16" | bc)
-INCLUDES		:= -I/$(INCS_DIR)
+INCLUDES		:= -I$(INCS_DIR)
 
 # Colors
 RED				= \033[31;1m
@@ -51,13 +55,12 @@ all :
 
 $(NAME) : $(OBJS_FILES)
 	make -C libs
-	#$(CC) $(CFLAGS) -o $@ $(INCLUDES) $(OBJS_FILES) -Llibs/ -lft
-	$(CC) $(FLAGS) -o $@ $(INCLUDES) $(OBJS_FILES) $(LIBS)
+	$(CC) $(FLAGS) -o $@ $(INCLUDES) $(OBJS_FILES) $(LIBRARIES)
 	printf "\033[K"
 	$(PRINT_OK) $(NAME)
 
 $(OBJS)/%.o : %.c
-	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@ $(LIBS)&& $(PRINT_KO) $< || exit
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@ && $(PRINT_KO) $< || exit
 
 clean :
 	make -C libs clean
