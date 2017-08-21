@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 00:31:35 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/20 20:03:01 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/21 18:09:54 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,6 @@ typedef struct			s_anthill
 */
 t_anthill		*anthill(void);
 void			ft_add_room(const char *name);
+void			ft_del_room(node src);
+void			ft_del_singl(void);
 #endif

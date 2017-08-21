@@ -19,7 +19,7 @@ LLST			:= -Llibs -llst
 LIBRARIES		:= $(LLST) $(LFT)
 
 # Files
-SRCS_FILES		:= $(shell find $(SRCS_DIR) -type f -name "main.c" -o -name "ft_*.c")
+SRCS_FILES		:= $(shell find $(SRCS) -type f -name "main.c" -o -name "ft_*.c")
 OBJS_FILES		:= $(SRCS_FILES:%.c=$(OBJS)/%.o)
 INCS_FILES		:= $(shell find $(INCS)/ -type f -name "*.h")
 
@@ -48,10 +48,11 @@ PRINT_OK        = printf "  [$(GREEN)✓$(END_C)]   $(GREEN)%s$(END_C)\n"
 $(shell mkdir -p $(OBJS) $(OBJS_DIR))
 
 all :
+	make -C libs
 	make -j $(NAME)
 
 $(NAME) : $(OBJS_FILES)
-	make -C libs
+	#make -C libs
 	$(CC) $(FLAGS) -o $@ $(INCLUDES) $(OBJS_FILES) $(LIBRARIES)
 	printf "\033[K"
 	$(PRINT_OK) $(NAME)
