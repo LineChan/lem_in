@@ -14,4 +14,9 @@
 
 void		ft_del_singl(void)
 {
+	t_anthill	*ptr;
+
+	ptr = ft_singleton();
+	ft_list_foreach(ptr->list, &ft_del_room);
+	ft_memdel((void **)&ptr);
 }
