@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 01:28:27 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/21 17:56:46 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/22 11:33:29 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int			main(void)
 #if 1
 	ft_add_room("1st room");
 	ft_add_room("2nd room");
-	node it;
+	t_lst *it;
 	it = ANTHILL.next;
 	while (it != &ANTHILL)
 	{
