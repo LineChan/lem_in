@@ -9,5 +9,6 @@ Sources :
 	
 British Colombia pdf : 
 	- Iterative deepening and IDA* : http://www.cs.ubc.ca/~mack/CS322/lectures/2-Search6.pdf
+	- Multiple Path Pruning, Iterative Deepening and IDA* : http://www.cs.ubc.ca/~mack/CS322/lectures/2-Search7.pdf
 
 
