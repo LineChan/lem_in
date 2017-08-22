@@ -13,5 +13,6 @@ University of British Colombia pdf :
 Geek for geeks website :
 	- Iterative Deepening Search http://www.geeksforgeeks.org/iterative-deepening-searchids-iterative-deepening-depth-first-searchiddfs/
 
+Path finding algorithm visualisation : https://qiao.github.io/PathFinding.js/visual/
 
 
