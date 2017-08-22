@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_del_singl.c                                     :+:      :+:    :+:   */
+/*   ft_add_shortest_path.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 15:05:38 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/22 20:24:22 by mvillemi         ###   ########.fr       */
+/*   Created: 2017/08/22 19:31:07 by mvillemi          #+#    #+#             */
+/*   Updated: 2017/08/22 19:35:29 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 /*
-** Clean each list before freeing their head
+** Add a possible shortest path the list
 */
-void		ft_del_singl_anthill(void)
+void			ft_add_shortest_path(void)
 {
-	t_anthill		*ptr;
+	t_result		*new;
 
-	ptr = anthill();
-	ft_lst_foreach(&(ptr->room_head), &ft_del_room);
-	ft_memdel((void **)&ptr);
-}
-
-void		ft_del_singl_shortest_path(void)
-{
-	t_shortest_path		*ptr;
-
-	ptr = shortest_path();
-	ft_lst_foreach(&(ptr->result_head), &ft_del_shortest_path);
-	ft_memdel((void **)&ptr);
+	if (!(new = ft_memalloc(sizeof(t_result))))
+		EXIT_FAIL("Failed memory allocation");
+	INIT_LST_HEAD(new->lst_head);
 }

@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_del_singl.c                                     :+:      :+:    :+:   */
+/*   ft_remove_shortest_path.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/21 15:05:38 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/22 20:24:22 by mvillemi         ###   ########.fr       */
+/*   Created: 2017/08/22 19:40:57 by mvillemi          #+#    #+#             */
+/*   Updated: 2017/08/22 20:35:54 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
+
 /*
-** Clean each list before freeing their head
+** Free all the rooms on a given path
+**
+** 1st parameter : shortest path to be removed
 */
-void		ft_del_singl_anthill(void)
+void		ft_del_shortest_path(t_result *path)
 {
-	t_anthill		*ptr;
-
-	ptr = anthill();
-	ft_lst_foreach(&(ptr->room_head), &ft_del_room);
-	ft_memdel((void **)&ptr);
-}
-
-void		ft_del_singl_shortest_path(void)
-{
-	t_shortest_path		*ptr;
-
-	ptr = shortest_path();
-	ft_lst_foreach(&(ptr->result_head), &ft_del_shortest_path);
-	ft_memdel((void **)&ptr);
+	ft_lst_del(&(path->lst));
+	ft_lst_foreach(&(path->room_head), &ft_del_room);
+	ft_memdel((void **)path);
 }

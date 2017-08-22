@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 16:45:05 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/20 20:03:35 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/22 20:11:41 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ void			ft_add_room(const char *name)
 	INIT_LST_HEAD(new->lst);
 	new->name = ft_strdup(name);
 	new->ref = ref++;
-	ft_lst_add_prev(&new->lst, &(anthill()->lst_head));
+	ft_lst_add_prev(&new->lst, &(anthill()->room_head));
 }
