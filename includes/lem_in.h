@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 00:31:35 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/22 20:30:49 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/23 00:24:28 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define START			(anthill()->start_ref)
 # define END			(anthill()->end_ref)
 
+# define C_RESULT(it)	CONTAINEROF(it, t_result, lst)
 # define SHORTEST_PATH	(shortest_path()->result_head)
 # define SP_NB		(shortest_path()->shortest_path_nb)
 /*
@@ -57,6 +58,7 @@ typedef struct			s_shortest_path
 
 typedef struct			s_result
 {
+	int		ref;
 	t_lst	lst;
 	t_lst	room_head;
 }						t_result;

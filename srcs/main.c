@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 01:28:27 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/22 20:20:02 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/23 00:42:24 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,22 +25,21 @@ int			main(void)
 #if 1
 	ft_add_room("1st room");
 	ft_add_room("2nd room");
-	//ft_add_shortest_path();
-	t_lst *it;
+	ft_add_shortest_path();
+	ft_lst_moveto_prev(ANTHILL.next, (SHORTEST_PATH.next)->next);
+	t_lst	*it;
 	it = ANTHILL.next;
 	while (it != &ANTHILL)
 	{
-		ft_printf("room's name : %s\n", R_NAME(it));
+		ft_printf("%s\n", C_ROOM(it)->name);
 		it = it->next;
 	}
-	it = ANTHILL.next;
-	while (it != &ANTHILL)
-	{
-		ft_printf("room's name : %s\n", R_NAME(it));
-		it = it->next;
-	}
+	//it = SHORTEST_PATH.next;
+	it = SHORTEST_PATH.next;
+	ft_printf("shortest path ref : %d\n", C_RESULT(it)->ref);
+	//ft_printf("%s", C_ROOM(C_RESULT(it->next)));
 #endif
 	ft_del_singl_anthill();
-	ft_del_singl_shortest_path();
+	//ft_del_singl_shortest_path();
 	return (0);
 }
