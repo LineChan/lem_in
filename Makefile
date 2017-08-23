@@ -28,6 +28,7 @@ CC				:= gcc
 CFLAGS			:= -Werror -Wall -Wextra -g
 SIZE			:= $(shell echo "$(shell tput cols) - 16" | bc)
 INCLUDES		:= -I$(INCS)
+RM				:= rm -rf
 
 # Colors
 RED				= \033[31;1m
@@ -48,11 +49,10 @@ PRINT_OK        = printf "  [$(GREEN)✓$(END_C)]   $(GREEN)%s$(END_C)\n"
 $(shell mkdir -p $(OBJS) $(OBJS_DIR))
 
 all :
-	make -C libs
 	make -j $(NAME)
 
 $(NAME) : $(OBJS_FILES)
-	#make -C libs
+	make -C libs
 	$(CC) $(FLAGS) -o $@ $(INCLUDES) $(OBJS_FILES) $(LIBRARIES)
 	printf "\033[K"
 	$(PRINT_OK) $(NAME)
@@ -64,8 +64,9 @@ clean :
 	make -C libs clean
 
 fclean :
+	$(RM) lem-in
+	$(RM) lem-in.dSYM
 	make -C libs fclean
-	rm lem-in
 
 re : fclean all
 

@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 00:31:35 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/23 00:24:28 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/23 16:38:54 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,6 @@ void				ft_del_singl_anthill(void);
 void				ft_del_singl_shortest_path(void);
 void				ft_add_room(const char *name);
 void				ft_add_shortest_path(void);
-void				ft_del_shortest_path(t_result *path);
+void				ft_del_shortest_path(t_lst *path);
 void				ft_del_room(t_lst *src);
 #endif

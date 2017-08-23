@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 15:05:38 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/22 20:24:22 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/23 16:39:10 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void		ft_del_singl_shortest_path(void)
 	t_shortest_path		*ptr;
 
 	ptr = shortest_path();
-	ft_lst_foreach(&(ptr->result_head), &ft_del_shortest_path);
-	ft_memdel((void **)&ptr);
+	//ft_lst_foreach(&(ptr->result_head), &ft_del_shortest_path);
+	ft_printf("shortest_path is head ? %d\n", ft_lst_is_head(&ptr->result_head));
+	//ft_memdel((void **)&ptr);
 }
