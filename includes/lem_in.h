@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 00:31:35 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/23 16:38:54 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/24 16:33:04 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # define END			(anthill()->end_ref)
 
 # define C_RESULT(it)	CONTAINEROF(it, t_result, lst)
+# define PATH_REF(it)	(C_RESULT(it)->ref)
 # define SHORTEST_PATH	(shortest_path()->result_head)
 # define SP_NB		(shortest_path()->shortest_path_nb)
 /*
@@ -73,4 +74,6 @@ void				ft_add_room(const char *name);
 void				ft_add_shortest_path(void);
 void				ft_del_shortest_path(t_lst *path);
 void				ft_del_room(t_lst *src);
+
+int					ft_parse(char *line);
 #endif

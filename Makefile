@@ -60,6 +60,10 @@ $(NAME) : $(OBJS_FILES)
 $(OBJS)/%.o : %.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@ && $(PRINT_KO) $< || exit
 
+l :
+	$(RM) lem-in
+	make $(NAME)
+
 clean :
 	make -C libs clean
 

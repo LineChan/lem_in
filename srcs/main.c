@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 01:28:27 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/23 17:00:25 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/24 17:01:02 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,24 @@
 
 int			main(void)
 {
+#if 1
+	char	*line;
+
+	while ((line = ft_gnt(0, '\n')))
+	{
+		if (!ft_parse(line))
+		{
+			ft_del_singl_anthill();
+			return (0);
+		}
+	}
+#endif
+	ft_del_singl_anthill();
+	ft_del_singl_shortest_path();
+	return (0);
+}
+
+/*
 	ft_printf("ROOM_NB : %d\tANT_NB : %d\tTUBE_NB : %d\tSTART : %d\tEND : %d SHORTEST_PATH : %d\n", ROOM_NB, ANT_NB, TUBE_NB, START, END, SP_NB);
 	ROOM_NB = 10;
 	ANT_NB = 4;
@@ -22,40 +40,23 @@ int			main(void)
 	END = 9;
 	SP_NB = 4;
 	ft_printf("ROOM_NB : %d\tANT_NB : %d\tTUBE_NB : %d\tSTART : %d\tEND : %d SHORTEST_PATH : %d\n", ROOM_NB, ANT_NB, TUBE_NB, START, END, SP_NB);
-#if 1
 	ft_add_room("1st room");
 	ft_add_room("2nd room");
+	ft_add_room("3rd room");
 
-#if 0
 	ft_add_shortest_path();
-	ft_lst_moveto_prev(ANTHILL.next, &C_RESULT(SHORTEST_PATH.next)->room_head);
+	ft_add_shortest_path();
+	ft_add_shortest_path();
+	ft_add_shortest_path();
+#if 1
+	ft_lst_moveto_prev(ANTHILL.next->next, &C_RESULT(SHORTEST_PATH.next)->room_head);
+	ft_lst_moveto_prev(ANTHILL.next, &C_RESULT(SHORTEST_PATH.next->next)->room_head);
 	ft_printf("shortest path ref : %d\n", C_RESULT(SHORTEST_PATH.next)->ref);
-	ft_del_shortest_path(SHORTEST_PATH.next);
 #endif
-
-	ft_printf("AHTILL.next : %s\n", C_ROOM(ANTHILL.next)->name);
-	ft_printf("AHTILL.next->next : %s\n\n\n", C_ROOM(ANTHILL.next->next)->name);
-	t_lst		*it;
-	it = ANTHILL.next;
-	ft_printf("it : %s\n", R_NAME(it));
-	ft_del_room(it);
-	ft_printf("AHTILL.next : %s\n", C_ROOM(ANTHILL.next)->name);
+#if 0
+	ft_printf("\nAHTILL.next : %s\n", C_ROOM(ANTHILL.next)->name);
+	ft_printf("AHTILL.next->next : %s\n\n", C_ROOM(ANTHILL.next->next)->name);
 	ft_del_room(ANTHILL.next);
-#if 0
-	t_lst		*it;
-	it = C_RESULT(SHORTEST_PATH.next)->room_head.next;
-	ft_printf("name : %s\n", C_ROOM(it)->name);
-	ft_del_shortest_path(
+	ft_printf("AHTILL.next : %s\n", C_ROOM(ANTHILL.next)->name);
 #endif
-#endif
-	//ft_del_singl_anthill();
-	//ft_del_singl_shortest_path();
-	return (0);
-}
-#if 0
-
-	ft_printf("shortest path ref : %d\n", C_RESULT(SHORTEST_PATH.next)->ref);
-	ft_lst_moveto_prev(ANTHILL.next, &C_RESULT(SHORTEST_PATH.next)->room_head);
-	it = C_RESULT(SHORTEST_PATH.next)->room_head.next;
-	ft_printf("name : %s\n", C_ROOM(it)->name);
-#endif
+*/
