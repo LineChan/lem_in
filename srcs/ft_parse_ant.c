@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 23:01:57 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/25 17:57:08 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/25 20:34:41 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,18 @@
 **
 ** 1st parameter : line to check
 */
-int				ft_parse_ant(char *line)
+void			ft_parse_ant(void)
 {
+	int			nb;
+	char		*line;
+
 	ft_printf("      {YELLOW:START} : ft_parse_ant\n");
 	while ((line = ft_fgnt("test.txt", '\n')))
 		if (!ft_parse_new_line(line))
 			break ;
-	ft_parse_nb(&line);
+	nb = ft_parse_nb(&line);
+	while ((line = ft_fgnt("test.txt", '\n')))
+		if (!ft_parse_new_line(line))
+			break ;
 	ft_printf("      {YELLOW:END  } : ft_parse_ant ---> '%s'\n", line);
-	return (1);
 }

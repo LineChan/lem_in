@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 16:16:33 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/25 12:35:00 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/25 20:51:38 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,9 @@
 */
 int				ft_parse(void)
 {
-	char	*line;
-
-	line = NULL;
-	if (!ft_parse_ant(line))
-		ft_exit (1);
+	ft_printf("{YELLOW:START : ft_parse {GREEN:OK}\n");
+	ft_parse_ant();
+	ft_parse_room_list();
 	/*
 	int		nb;
 
@@ -34,6 +32,6 @@ int				ft_parse(void)
 		EXIT_FAIL("ft_parse : nb == 0");
 	}
 	*/
-	ft_printf("{YELLOW:END : ft_parse {GREEN:OK}\n");
+	ft_printf("{YELLOW:END   : ft_parse {GREEN:OK}\n");
 	return (0);
 }

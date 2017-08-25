@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_exit.c                                          :+:      :+:    :+:   */
+/*   ft_parse_room_name.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/25 12:12:05 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/25 18:38:52 by mvillemi         ###   ########.fr       */
+/*   Created: 2017/08/25 21:03:25 by mvillemi          #+#    #+#             */
+/*   Updated: 2017/08/25 21:14:50 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
 /*
-** Exit lem_in after freeing the memory and send and error message
-**
-** 1st parameter : Error reference
+** Check if it is a room's name
 */
-#if 1
-static const 		t_error g_error[] =
+void			ft_parse_room_name(char **line)
 {
-	{"Parsing error : not an integer"},
-};
-#endif
-
-void			ft_exit(int ref)
-{
-	ft_del_singl_anthill();
-	ft_del_singl_shortest_path();
-	EXIT_FAIL(g_error[--ref].message);
+	ft_printf("           {YELLOW:START} : ft_parse_room_name ---> '%s'\n", line);
+	ft_parse_first_letter(line);
+	ft_printf("           {YELLOW:END  } : ft_parse_room_name ---> '%s'\n", line);
 }
