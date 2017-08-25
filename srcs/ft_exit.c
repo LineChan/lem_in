@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse.c                                         :+:      :+:    :+:   */
+/*   ft_exit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/24 16:16:33 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/25 12:35:00 by mvillemi         ###   ########.fr       */
+/*   Created: 2017/08/25 12:12:05 by mvillemi          #+#    #+#             */
+/*   Updated: 2017/08/25 13:32:05 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
 /*
-** Parse stdin, return 1 if the input is correct
+** Exit lem_in after freeing the memory and send and error message
 **
-** 1st parameter : line to parse
+** 1st parameter : Error reference
 */
-int				ft_parse(void)
+#if 1
+static const 		t_error g_error[] =
 {
-	char	*line;
+	{"Parsing error : ant"},
+};
+#endif
 
-	line = NULL;
-	if (!ft_parse_ant(line))
-		ft_exit (1);
-	/*
-	int		nb;
-
-	nb = 0;
-	if (!nb)
-	{
-		ft_del_singl_anthill();
-		EXIT_FAIL("ft_parse : nb == 0");
-	}
-	*/
-	ft_printf("{YELLOW:END : ft_parse {GREEN:OK}\n");
-	return (0);
+void			ft_exit(int ref)
+{
+	ft_del_singl_anthill();
+	ft_del_singl_shortest_path();
+	EXIT_FAIL(g_error[--ref].message);
 }

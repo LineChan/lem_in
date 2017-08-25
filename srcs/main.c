@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 01:28:27 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/24 17:01:02 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/25 12:42:13 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 
 int			main(void)
 {
-#if 1
-	char	*line;
+	int		ret;
 
-	while ((line = ft_gnt(0, '\n')))
+	ft_exit(1);
+	ret = ft_parse();
+
+#if 0
+	while ((line = ft_fgnt("test.txt", '\n')))
 	{
-		if (!ft_parse(line))
+		if (!(ft_parse(line)))
 		{
 			ft_del_singl_anthill();
 			return (0);
