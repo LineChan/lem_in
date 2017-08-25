@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 01:28:27 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/25 12:42:13 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/25 17:12:41 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int			main(void)
 {
 	int		ret;
 
-	ft_exit(1);
 	ret = ft_parse();
 
 #if 0

@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 23:12:08 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/25 11:55:06 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/25 17:40:20 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,13 @@
 */
 int				ft_parse_new_line(char *line)
 {
-	ft_printf("        {YELLOW:START} : ft_parse_new_line \n");
-	ft_printf("line : '%s'\n", line);
-	getchar();
+	ft_printf("        {YELLOW:START} : ft_parse_new_line ---> '%s'\n", line);
 	if ((ft_strlen(line)))
 	{
 		ft_printf("        {YELLOW:END} new_line: {RED:KO}\n");
 		return (0);
 	}
 	ft_printf("        {YELLOW:END} new_line: {GREEN:OK}\n");
+	getchar();
 	return (1);
 }

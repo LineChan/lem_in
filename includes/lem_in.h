@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 00:31:35 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/25 13:34:23 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/25 17:57:10 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,5 @@ void				ft_exit(const int ret);
 int					ft_parse(void);
 int					ft_parse_ant(char *line);
 int					ft_parse_new_line(char *line);
+int					ft_parse_nb(char **line);
 #endif
