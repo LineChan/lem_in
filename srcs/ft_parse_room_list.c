@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 20:35:24 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/25 21:18:34 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/25 23:28:17 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,10 @@
 /*
 ** Check if the line is a room
 */
-void			ft_parse_room_list(void)
+void			ft_parse_room_list(char **line)
 {
-	char		*line;
-
-	ft_printf("{YELLOW:START} : ft_parse_room_list\n");
-	line = ft_fgnt("test.txt", '\n');
-	ft_parse_room_id(&line);
+	//*line = ft_fgnt("test.txt", '\n');
+	ft_printf("{YELLOW:START} : ft_parse_room_list ---> '%s'\n", *line);
+	ft_parse_room_id(line);
 	ft_printf("{YELLOW:END  } : ft_parse_room_list\n");
 }

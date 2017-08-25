@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 21:03:25 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/25 21:14:50 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/26 00:58:10 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,11 @@
 */
 void			ft_parse_room_name(char **line)
 {
-	ft_printf("           {YELLOW:START} : ft_parse_room_name ---> '%s'\n", line);
-	ft_parse_first_letter(line);
-	ft_printf("           {YELLOW:END  } : ft_parse_room_name ---> '%s'\n", line);
+	size_t		size;
+
+	ft_printf("           {YELLOW:START} : ft_parse_room_name ---> '%s'\n", *line);
+	ft_parse_first_letter(*line);
+	size = ft_parse_letter(*line);
+	ft_add_room(*line, size);
+	ft_printf("           {YELLOW:END  } : ft_parse_room_name ---> '%s'\n", R_NAME(ANTHILL.prev));
 }

@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 16:16:33 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/25 20:51:38 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/25 23:26:37 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,12 @@
 */
 int				ft_parse(void)
 {
+	char	*line;
+
 	ft_printf("{YELLOW:START : ft_parse {GREEN:OK}\n");
-	ft_parse_ant();
-	ft_parse_room_list();
+	ft_parse_ant(&line);
+	ft_printf("IN BETWEEN : '%s'\n", line);
+	ft_parse_room_list(&line);
 	/*
 	int		nb;
 

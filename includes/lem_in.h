@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 00:31:35 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/25 21:22:58 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/26 01:01:59 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,18 +78,19 @@ t_anthill			*anthill(void);
 t_shortest_path		*shortest_path(void);
 void				ft_del_singl_anthill(void);
 void				ft_del_singl_shortest_path(void);
-void				ft_add_room(const char *name);
+void				ft_add_room(const char *name, size_t size);
 void				ft_add_shortest_path(void);
 void				ft_del_shortest_path(t_lst *path);
 void				ft_del_room(t_lst *src);
 void				ft_exit(const int ret);
 
 int					ft_parse(void);
-void				ft_parse_ant(void);
-void				ft_parse_room_list(void);
+void				ft_parse_ant(char **line);
+void				ft_parse_room_list(char **line);
 void				ft_parse_room_id(char **line);
 void				ft_parse_room_name(char **line);
-void				ft_parse_first_letter(char **line);
+void				ft_parse_first_letter(char *line);
+size_t				ft_parse_letter(char *line);
 int					ft_parse_new_line(char *line);
 int					ft_parse_nb(char **line);
 #endif
