@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 00:31:35 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/26 16:45:29 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/26 22:35:07 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@
 # define C_ROOM(it)		CONTAINEROF(it, t_room, lst)
 # define R_REF(it)		(C_ROOM(it)->ref)
 # define R_NAME(it)		(C_ROOM(it)->name)
-// ROOM_NAME_SIZE
+# define R_SIZE(it)		(C_ROOM(it)->name_size)
+# define R_X(it)		(C_ROOM(it)->x)
+# define R_Y(it)		(C_ROOM(it)->y)
 # define ANTHILL		(anthill()->room_head)
 # define ROOM_NB		(anthill()->room_nb)
 # define ANT_NB			(anthill()->ant_nb)
@@ -44,6 +46,8 @@ typedef struct			s_room
 {
 	int			ref;
 	int			parent;
+	int			x;
+	int			y;
 	char		*name;
 	size_t		name_size;
 	t_lst		lst;
@@ -85,12 +89,12 @@ void				ft_del_room(t_lst *src);
 void				ft_exit(const int ret);
 
 int					ft_parse(void);
-int					ft_parse_ant(char **line);
+void				ft_parse_ant(char **line);
 int					ft_parse_room_list(char **line);
-int					ft_parse_room_id(char **line);
-size_t				ft_parse_room_name(char **line);
+int					ft_parse_room_id(char *line, char *cursor);
+int					ft_parse_room_name(char *line);
 int					ft_parse_first_letter(char *line);
-size_t				ft_parse_letter(char *line);
-int					ft_parse_new_line(char *line);
-int					ft_parse_nb(char **line);
+int					ft_parse_letter(char *line);
+int					ft_parse_new_line(char **line);
+int					ft_parse_nb(char **cursor);
 #endif

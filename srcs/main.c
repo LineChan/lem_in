@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 01:28:27 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/26 16:39:53 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/26 21:44:15 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ int			main(void)
 {
 	int		ret;
 
-	ret = ft_parse();
+	if ((ret = ft_parse()))
+		ft_exit(1);
 
 #if 0
 	while ((line = ft_fgnt("test.txt", '\n')))
@@ -28,9 +29,14 @@ int			main(void)
 		}
 	}
 #endif
+	t_lst		*it;
+	it = &ANTHILL;
 	ft_printf("ANT_NB : %d\n", ANT_NB);
-	ft_printf("R_NAME() : %s\n", R_NAME(ANTHILL.next));
-	ft_printf("R_NAME() : %s\n", R_NAME(ANTHILL.next->next));
+	it = it->next;
+	ft_printf("R_NAME() : %s\n", R_NAME(it));
+	it = it->next;
+	ft_printf("R_NAME() : %s\n", R_NAME(it));
+	ft_printf("ROOM_NB : %d\n", ROOM_NB);
 	ft_del_singl_anthill();
 	ft_del_singl_shortest_path();
 	return (0);
