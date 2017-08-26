@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 20:50:22 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/26 00:22:37 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/26 02:08:56 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,12 @@
 */
 void			ft_parse_room_id(char **line)
 {
+	size_t		len;
 	ft_printf("       {YELLOW:START} : ft_parse_room_id ---> '%s'\n", *line);
-	ft_parse_room_name(line);
+	len = ft_parse_room_name(line);
+	*line += --len;
+	if (!(*(++*line) == ' '))
+		ft_exit(3);
+	ft_parse_nb(line);
 	ft_printf("       {YELLOW:START} : ft_parse_room_id ---> '%s'\n", *line);
 }
