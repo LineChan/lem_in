@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 16:16:33 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/26 16:45:01 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/26 17:14:28 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 /*
 ** Parse stdin, return 1 if the input is correct
-**
-** 1st parameter : line to parse
 */
 int				ft_parse(void)
 {
