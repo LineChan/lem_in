@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 00:31:35 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/26 14:28:02 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/26 16:45:29 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,11 +85,11 @@ void				ft_del_room(t_lst *src);
 void				ft_exit(const int ret);
 
 int					ft_parse(void);
-void				ft_parse_ant(char **line);
-void				ft_parse_room_list(char **line);
-void				ft_parse_room_id(char **line);
+int					ft_parse_ant(char **line);
+int					ft_parse_room_list(char **line);
+int					ft_parse_room_id(char **line);
 size_t				ft_parse_room_name(char **line);
-void				ft_parse_first_letter(char *line);
+int					ft_parse_first_letter(char *line);
 size_t				ft_parse_letter(char *line);
 int					ft_parse_new_line(char *line);
 int					ft_parse_nb(char **line);
