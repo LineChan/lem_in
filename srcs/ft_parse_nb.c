@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 17:15:32 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/25 18:56:33 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/26 14:17:12 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 /*
 ** Check if there is a number
+**
+** 1st parameter : line to be checked
 */
 int				ft_parse_nb(char **line)
 {
@@ -22,19 +24,35 @@ int				ft_parse_nb(char **line)
 
 	nb = 0;
 	sign = 1;
-	ft_printf("          {YELLOW:START  } : ft_parse_nb ---> %s\n", *line);
-	if (**line == '-' && ft_isdigit(*(++*line)))
+	ft_printf("          {YELLOW:START  } : ft_parse_nb ---> '%s'\n", *line);
+	if (**line == '-')
 		sign *= -1;
-	if (**line == '+')
+	if ((**line == '-') || (**line == '+'))
 		++*line;
-	while (**line != ' ' && ft_isdigit(*(*line)))
+	if (!ft_isdigit(**line))
+		ft_exit(1);
+	while (ft_isdigit(**line))
+		nb = (nb << 3) + (nb << 1) + *(*line)++ - 48;
+	if (!ft_isspace(**line))
 	{
-		nb = nb * 10 + **line - 48;
-		if (((nb > INT_MAX) && !IS_NEG(sign))
-				|| (((nb - 1) > INT_MAX) && IS_NEG(sign)))
+		if (**line != 0 ||
+				((nb > 2147483647) || ((nb > 2147483648) && (sign == -1))))
 			ft_exit(1);
-		++*line;
 	}
-	ft_printf("          {YELLOW:END    } : ft_parse_nb ---> %s {GREEN:OK}\n", *line);
-	return (nb * sign);
+	ft_printf("          {YELLOW:END    } : ft_parse_nb ---> '%d'\n", nb * sign);
+	return ((int)nb * sign);
 }
+/*
+while (ft_isdigit(**s))
+	nb = (nb << 3) + (nb << 1) + *(*s)++ - 48;
+if (!ft_isspace(**s))
+{
+	if (**s != 0 ||
+			((nb > 2147483647) || ((nb > 2147483648) && (sign == -1))))
+		EXIT_FAIL("Error (not an integer)");
+}
+return ((int)nb * sign);
+
+ft_printf("          {YELLOW:END    } : ft_parse_nb ---> '%d' {GREEN:OK}\n", nb * sign);
+return ((int)nb * sign);
+*/

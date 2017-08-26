@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 12:12:05 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/26 01:42:26 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/26 14:28:00 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static const 		t_error g_error[] =
 	{"Parsing error : not an integer"},
 	{"Parsing error : first letter room name"},
 	{"Parsing error : no space"},
+	{"Parsing error : not an ant"},
 };
 #endif
 
