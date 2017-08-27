@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 20:50:22 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/26 22:35:05 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/28 00:01:17 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,27 @@
 **
 ** 1st parameter : line to be checked
 */
-int					ft_parse_room_id(char *line, char *cursor)
+size_t				ft_parse_room_id(char *cursor,
+									int *x,
+									int *y)
 {
-	int		len;
+	size_t		len;
 
-	ft_printf("----{YELLOW:START} ft_parse_room_id --> '%s'\n", line);
-	if (!(len = ft_parse_room_name(line)))
-		return (0);
-	cursor = line + len;
-	ft_parse_nb(&cursor);
-	if (++*cursor != ' ') 
+	ft_printf("----{YELLOW:START} ft_parse_room_id --> '%s'\n", cursor);
+	if (!(len = ft_parse_room_name(cursor)))
 	{
-		ft_exit(3);
+	ft_printf("----{YELLOW:END  } ft_parse_room_id --> '%s' {RED:KO}\n", cursor);
+		ft_exit(6);
+		return (0);
 	}
-	ft_printf("----{YELLOW:END  } ft_parse_room_id --> '%s'\n", cursor);
-	ft_printf("----{YELLOW:END  } ft_parse_room_id --> '%s'\n", R_NAME(ANTHILL.prev));
-	//ft_add_room(*line, len);
+	//cursor = line + len;
+	cursor += ++len;
+	if (*cursor++ != ' ') 
+		ft_exit(3);
+	*x = ft_parse_nb(&cursor);
+	if (*cursor++ != ' ') 
+		ft_exit(3);
+	*y = ft_parse_nb(&cursor);
+	ft_printf("----{YELLOW:END  } ft_parse_room_id --> '%s' {GREEN:OK}\n", cursor);
 	return (len);
 }

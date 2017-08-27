@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_new_line.c                                :+:      :+:    :+:   */
+/*   ft_parse_comment.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/24 23:12:08 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/27 22:48:29 by mvillemi         ###   ########.fr       */
+/*   Created: 2017/08/27 20:16:19 by mvillemi          #+#    #+#             */
+/*   Updated: 2017/08/27 23:46:51 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
 /*
-** Check if the line is a new line
+** Check if the line 
 **
-** 1st paremter : line to be check
+** 1st parameter : line to be checked
 */
-int				ft_parse_new_line(char **line)
+int				ft_parse_comment(char *line)
 {
-	while ((*line = ft_fgnt("test.txt", '\n')))
-	{
-		if (ft_strlen(*line))
-			return (0);
-	}
-	return (1);
+	ft_printf("----{YELLOW:START} ft_parse_comment --> '%s'\n", line);
+	ft_printf("----{YELLOW:END  } ft_parse_comment --> '%s'\n", line);
+	return (0);
 }

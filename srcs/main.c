@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 01:28:27 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/26 21:44:15 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/28 00:04:03 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int			main(void)
 {
-	int		ret;
+	int			ret;
+	t_lst		*it;
 
 	if ((ret = ft_parse()))
 		ft_exit(1);
@@ -29,13 +30,12 @@ int			main(void)
 		}
 	}
 #endif
-	t_lst		*it;
 	it = &ANTHILL;
 	ft_printf("ANT_NB : %d\n", ANT_NB);
 	it = it->next;
-	ft_printf("R_NAME() : %s\n", R_NAME(it));
+	ft_printf("R_NAME() : %s X: %d Y: %d\n", R_NAME(it), R_X(it), R_Y(it));
 	it = it->next;
-	ft_printf("R_NAME() : %s\n", R_NAME(it));
+	ft_printf("R_NAME() : %s X: %d Y: %d\n", R_NAME(it), R_X(it), R_Y(it));
 	ft_printf("ROOM_NB : %d\n", ROOM_NB);
 	ft_del_singl_anthill();
 	ft_del_singl_shortest_path();

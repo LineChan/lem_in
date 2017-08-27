@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 21:03:25 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/26 22:32:46 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/27 23:34:29 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ int				ft_parse_room_name(char *line)
 	}
 	ft_printf("--------{YELLOW:END  } ft_parse_room_name --> '%s'  {GREEN:OK}\n", line);
 		getchar();
-	return (ft_parse_letter(++line) + 1);
+	return (ft_parse_letter(++line));
 }
