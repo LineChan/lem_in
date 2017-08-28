@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 23:12:08 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/28 17:22:08 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/29 01:04:36 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 */
 int				ft_parse_new_line(char **line)
 {
-	while ((*line = ft_fgnt("test.txt", '\n')))
+	while (ft_parse_gnt_and_save(line))
 	{
 		if (ft_strlen(*line))
 			return (0);

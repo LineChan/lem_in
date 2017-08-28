@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 01:28:27 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/28 12:58:45 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/29 01:13:10 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int			main(void)
 {
 	int			ret;
 
+	FD = open("input.txt", O_CREAT | O_RDWR);
 	if ((ret = ft_parse()))
 		ft_exit(1);
 

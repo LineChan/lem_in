@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 16:16:33 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/28 17:26:21 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/29 00:26:18 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int				ft_parse(void)
 	int		depth;
 
 	depth = 0;
+	line = NULL;
 	ft_parse_ant(&line, depth + 1);
 	depth ^= depth;
 	ft_parse_room_list(&line, depth + 1);

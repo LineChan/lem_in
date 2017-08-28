@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 00:31:35 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/28 18:31:51 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/29 01:12:58 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # define R_X(it)		(C_ROOM(it)->x)
 # define R_Y(it)		(C_ROOM(it)->y)
 # define ANTHILL		(anthill()->room_head)
+# define FD				(anthill()->fd)
 # define ROOM_NB		(anthill()->room_nb)
 # define ANT_NB			(anthill()->ant_nb)
 # define TUBE_NB		(anthill()->tube_nb)
@@ -55,6 +56,7 @@ typedef struct			s_room
 
 typedef struct			s_anthill
 {
+	int			fd;
 	int			room_nb;
 	int			ant_nb;
 	int			tube_nb;
@@ -102,4 +104,5 @@ int					ft_parse_letter(char *line, int depth);
 int					ft_parse_new_line(char **line);
 int					ft_parse_nb(char **cursor, int depth);
 int					ft_parse_comment(char *line, int depth);
+int					ft_parse_gnt_and_save(char **line);
 #endif
