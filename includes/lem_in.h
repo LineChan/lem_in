@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 00:31:35 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/28 14:39:52 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/28 18:31:51 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,16 +88,18 @@ void				ft_del_shortest_path(t_lst *path);
 void				ft_del_room(t_lst *src);
 void				ft_exit(const int ret);
 void				ft_print_room_list(t_lst *head);
-
+void				ft_print_parsing(const int depth,
+									const char *name,
+									const char *line);
 int					ft_parse(void);
-void				ft_parse_ant(char **line);
-int					ft_parse_room_list(char **line);
-size_t				ft_parse_room_id(char *line, int *x, int *y);
-int					ft_parse_room_name(char *line);
-void				ft_parse_first_letter(char *line);
-int					ft_parse_letter(char *line);
+void				ft_parse_ant(char **line, int depth);
+int					ft_parse_room_list(char **line, int depth);
+int					ft_parse_tube_list(char **line, int depth);
+size_t				ft_parse_room_id(char *line, int *x, int *y, int depth);
+int					ft_parse_room_name(char *line, int depth);
+void				ft_parse_first_letter(char *line, int depth);
+int					ft_parse_letter(char *line, int depth);
 int					ft_parse_new_line(char **line);
-int					ft_parse_nb(char **cursor);
-int					ft_parse_comment(char *line);
-int					ft_parse_tube_list(char **line);
+int					ft_parse_nb(char **cursor, int depth);
+int					ft_parse_comment(char *line, int depth);
 #endif

@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 16:16:33 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/28 14:49:30 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/28 17:26:21 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,13 @@
 int				ft_parse(void)
 {
 	char	*line;
+	int		depth;
 
-	ft_parse_ant(&line);
-	ft_parse_room_list(&line);
-	ft_parse_tube_list(&line);
+	depth = 0;
+	ft_parse_ant(&line, depth + 1);
+	depth ^= depth;
+	ft_parse_room_list(&line, depth + 1);
+	depth ^= depth;
+	ft_parse_tube_list(&line, depth + 1);
 	return (0);
 }

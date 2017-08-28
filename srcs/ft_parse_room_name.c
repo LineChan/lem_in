@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 21:03:25 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/28 14:15:35 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/28 18:43:28 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,9 @@
 **
 ** 1st parameter : line to be checked
 */
-int				ft_parse_room_name(char *line)
+int				ft_parse_room_name(char *line, int depth)
 {
-	ft_printf("--------{YELLOW:START} ft_parse_room_name --> '%s'  \n", line);
-	ft_parse_first_letter(line);
-	ft_printf("--------{YELLOW:END  } ft_parse_room_name --> '%s'  {GREEN:OK}\n", line);
-		getchar();
-	return (ft_parse_letter(++line));
+	ft_print_parsing(depth, "room_name", "");
+	ft_parse_first_letter(line, depth + 1);
+	return (ft_parse_letter(++line, depth + 1));
 }

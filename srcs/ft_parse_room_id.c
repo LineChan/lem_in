@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 20:50:22 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/28 14:14:09 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/28 18:42:20 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,20 @@
 ** 1st parameter : line to be checked
 */
 size_t				ft_parse_room_id(char *cursor,
-									int *x,
-									int *y)
+										int *x,
+										int *y,
+										int depth)
 {
 	size_t		len;
 
-	ft_printf("----{YELLOW:START} ft_parse_room_id --> '%s'\n", cursor);
-	len = ft_parse_room_name(cursor);
+	ft_print_parsing(depth, "room_id", cursor);
+	len = ft_parse_room_name(cursor, depth + 1);
 	cursor += ++len;
 	if (*cursor++ != ' ' || (*cursor == ' ')) 
 		ft_exit(3);
-	*x = ft_parse_nb(&cursor);
+	*x = ft_parse_nb(&cursor, depth + 1);
 	if (*cursor++ != ' ' || (*cursor == ' ')) 
 		ft_exit(3);
-	*y = ft_parse_nb(&cursor);
-	ft_printf("----{YELLOW:END  } ft_parse_room_id --> '%s' {GREEN:OK}\n", cursor);
+	*y = ft_parse_nb(&cursor, depth + 1);
 	return (len);
 }

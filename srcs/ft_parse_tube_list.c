@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 14:40:10 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/28 15:13:44 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/28 18:36:28 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@
 **
 ** 1st parameter : line to be checked
 */
-int				ft_parse_tube_list(char **line)
+int				ft_parse_tube_list(char **line, int depth)
 {
+	ft_print_parsing(depth, "tube_list", *line);
 	if (!*line)
 		ft_exit(8);
 	return (1);

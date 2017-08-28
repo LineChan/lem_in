@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 20:35:24 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/28 15:13:47 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/28 18:39:21 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,18 @@
 **
 ** 1st parameter : line to be checked
 */
-int				ft_parse_room_list(char **line)
+int				ft_parse_room_list(char **line, int depth)
 {
 	int			ret;
 	int			x;
 	int			y;
 
+	ft_print_parsing(depth, "room_list", "");
 	ret = 1;
-	ft_printf("{YELLOW:START} ft_parse_room_list --> '%s'\n", *line);
 	if (!*line)
 		ft_exit(6);
 	//while (--ret >= 0)
 	{
-		ft_printf("--{YELLOW:START} ft_parse_room_list --> '%s'\n", *line);
 		while (ret && *line)
 		{
 #if 0
@@ -47,7 +46,7 @@ int				ft_parse_room_list(char **line)
 		}
 #endif
 		//if (!ret)
-			ret = ft_parse_room_id(*line, &x, &y);
+			ret = ft_parse_room_id(*line, &x, &y, depth + 1);
 			/*
 			if (!(ret = (int)ft_parse_room_id(*line, &x, &y )))
 				ft_exit(6);
@@ -64,8 +63,6 @@ int				ft_parse_room_list(char **line)
 			ret ^= ret;
 		}
 #endif
-		ft_printf("--{YELLOW:END  } ft_parse_room_list --> '%s'\n", *line);
 	}
-	ft_printf("{YELLOW:END  } ft_parse_room_list --> '%s'\n", *line);
 	return (0);
 }

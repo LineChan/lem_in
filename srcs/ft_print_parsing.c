@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_first_letter.c                            :+:      :+:    :+:   */
+/*   ft_print_parsing.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/25 21:07:24 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/28 18:47:54 by mvillemi         ###   ########.fr       */
+/*   Created: 2017/08/28 18:27:23 by mvillemi          #+#    #+#             */
+/*   Updated: 2017/08/28 18:47:52 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
 /*
-** Check if there is a first letter
+** Print parsing
 **
-** 1st parameter : line to be checked
+** 1st parameter : recursivity depth
+** 2nd parameter : function's name
 */
-void				ft_parse_first_letter(char *line, int depth)
+void			ft_print_parsing(const int depth, 
+									const char *name,
+									const char *line)
 {
-	ft_print_parsing(depth, "first_letter", "");
-	if (!((ft_isascii(*line)) && (*line != 'L')
-				&& (*line != '#') && *line))
-		ft_exit(6);
+	fprintf(stderr, "%*s", depth * 3, "");
+	if (line && ft_strlen(line))
+		ft_fprintf(2, "< {YELLOW:%s} > ---> %s\n", name, line);
+	else
+		ft_fprintf(2, "< {YELLOW:%s} > \n", name);
 }

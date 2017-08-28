@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/27 20:16:19 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/27 23:46:51 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/28 18:36:55 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,8 @@
 **
 ** 1st parameter : line to be checked
 */
-int				ft_parse_comment(char *line)
+int				ft_parse_comment(char *line, int depth)
 {
-	ft_printf("----{YELLOW:START} ft_parse_comment --> '%s'\n", line);
-	ft_printf("----{YELLOW:END  } ft_parse_comment --> '%s'\n", line);
+	ft_print_parsing(depth, "comment", line);
 	return (0);
 }
