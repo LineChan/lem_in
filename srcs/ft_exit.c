@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 12:12:05 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/28 13:47:05 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/28 14:47:37 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static const 		t_error g_error[] =
 	{"Parsing error : end of file"},
 	{"Parsing error : rooms' list"},
 	{"Parsing error : not an int"},
+	{"Parsing error : no tube list"},
 };
 #endif
 

@@ -6,14 +6,16 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 20:35:24 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/28 14:09:43 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/28 15:13:47 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
 /*
-** Check if the line is a room
+** Set up the rooms' list
+**
+** 1st parameter : line to be checked
 */
 int				ft_parse_room_list(char **line)
 {

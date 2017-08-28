@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse.c                                         :+:      :+:    :+:   */
+/*   ft_parse_tube_list.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/24 16:16:33 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/28 14:49:30 by mvillemi         ###   ########.fr       */
+/*   Created: 2017/08/28 14:40:10 by mvillemi          #+#    #+#             */
+/*   Updated: 2017/08/28 15:13:44 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
 /*
-** Parse stdin, return 1 if the input is correct
+** Set up the adjency list with the tubes' list
+**
+** 1st parameter : line to be checked
 */
-int				ft_parse(void)
+int				ft_parse_tube_list(char **line)
 {
-	char	*line;
-
-	ft_parse_ant(&line);
-	ft_parse_room_list(&line);
-	ft_parse_tube_list(&line);
-	return (0);
+	if (!*line)
+		ft_exit(8);
+	return (1);
 }
