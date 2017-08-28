@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 00:31:35 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/28 00:01:11 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/28 14:16:38 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,13 +87,14 @@ void				ft_add_shortest_path(void);
 void				ft_del_shortest_path(t_lst *path);
 void				ft_del_room(t_lst *src);
 void				ft_exit(const int ret);
+void				ft_print_room_list(t_lst *head);
 
 int					ft_parse(void);
 void				ft_parse_ant(char **line);
 int					ft_parse_room_list(char **line);
 size_t				ft_parse_room_id(char *line, int *x, int *y);
 int					ft_parse_room_name(char *line);
-int					ft_parse_first_letter(char *line);
+void					ft_parse_first_letter(char *line);
 int					ft_parse_letter(char *line);
 int					ft_parse_new_line(char **line);
 int					ft_parse_nb(char **cursor);

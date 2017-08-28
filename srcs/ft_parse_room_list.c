@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 20:35:24 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/28 00:06:00 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/28 14:09:43 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,36 +28,40 @@ int				ft_parse_room_list(char **line)
 	//while (--ret >= 0)
 	{
 		ft_printf("--{YELLOW:START} ft_parse_room_list --> '%s'\n", *line);
+		while (ret && *line)
+		{
+#if 0
 		if (**line == '#')
 		{
 			if (*(*line + 1) == '#')
 			{
 				ret = (int)ft_parse_comment(*line);
 			}
-#if 0
 			else if ( /* command*/)
 			{
 			}
 			
-#endif
+			ret = 0;
 		}
-		if (!ret)
-		{
+#endif
+		//if (!ret)
+			ret = ft_parse_room_id(*line, &x, &y);
+			/*
 			if (!(ret = (int)ft_parse_room_id(*line, &x, &y )))
 				ft_exit(6);
+				*/
 			ft_add_room(*line, ret);
 			++ROOM_NB;
 			R_X(ANTHILL.prev) = x;
 			R_Y(ANTHILL.prev) = y;
+			ft_parse_new_line(line);
 		}
+#if 0
 		else
 		{
 			ret ^= ret;
 		}
-		//ft_printf("{YELLOW:IN   } ft_parse_room_list --> '%s'\n", *line);
-		ft_parse_new_line(line);
-		//ft_printf("{YELLOW:IN   } ft_parse_room_list --> '%s'\n", *line);
-		//ft_printf("--{YELLOW:START} ft_parse_room_list --> '%s'\n", *line);
+#endif
 		ft_printf("--{YELLOW:END  } ft_parse_room_list --> '%s'\n", *line);
 	}
 	ft_printf("{YELLOW:END  } ft_parse_room_list --> '%s'\n", *line);

@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 16:39:30 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/26 01:29:28 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/28 13:02:51 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,11 @@ void			ft_del_room(t_lst *src)
 
 	ptr = C_ROOM(src);
 	ft_printf("      {GREEN:start del_room}\n");
-	if (ft_lst_is_head(src))
+	if (!ptr)
 	{
 		ft_printf("      No room to del\n   {GREEN:end del_room}\n");
 		return ;
 	}
-	//ft_printf("      R_NAME(src) : %s\n", C_ROOM(src)->name);
 	ft_memdel((void **)&(ptr->name));
 	ft_lst_del(src);
 	ft_memdel((void **)&ptr);

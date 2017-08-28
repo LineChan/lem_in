@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_room_name.c                               :+:      :+:    :+:   */
+/*   ft_print_room_list.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/25 21:03:25 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/28 14:15:35 by mvillemi         ###   ########.fr       */
+/*   Created: 2017/08/28 12:51:46 by mvillemi          #+#    #+#             */
+/*   Updated: 2017/08/28 12:54:45 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
 /*
-** Check if it is a room's name
+** Print a rooms' list
 **
-** 1st parameter : line to be checked
+** 1st parameter : head of the list to be printed
 */
-int				ft_parse_room_name(char *line)
+void			ft_print_room_list(t_lst *head)
 {
-	ft_printf("--------{YELLOW:START} ft_parse_room_name --> '%s'  \n", line);
-	ft_parse_first_letter(line);
-	ft_printf("--------{YELLOW:END  } ft_parse_room_name --> '%s'  {GREEN:OK}\n", line);
-		getchar();
-	return (ft_parse_letter(++line));
+	t_lst	*it;
+
+	it = head->next;
+	while (it != head)
+	{
+		ft_printf("Name : '%s', ref : %d, x : %d, y : %d\n", R_NAME(it), R_REF(it), R_X(it), R_Y(it));
+		it = it->next;
+	}
 }
