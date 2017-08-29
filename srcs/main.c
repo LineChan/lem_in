@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 01:28:27 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/29 01:13:10 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/29 18:11:45 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,11 @@ int			main(void)
 		}
 	}
 #endif
+	ft_printf("FD : %d, ROOM_NB : %d, ANT_NB : %D, TUBE_NB : %d, START_REF :%d,END_REF : %d\n", FD, ROOM_NB, ANT_NB, TUBE_NB, START_REF, END_REF);
 	ft_print_room_list(&ANTHILL);
 	ft_del_singl_anthill();
 	ft_del_singl_shortest_path();
+	close(FD);
 	return (0);
 }
 

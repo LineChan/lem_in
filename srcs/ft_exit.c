@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 12:12:05 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/28 14:47:37 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/29 17:12:15 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 **
 ** 1st parameter : Error reference
 */
-#if 1
 static const 		t_error g_error[] =
 {
 	{"Parsing error : ant entry"},
@@ -28,8 +27,9 @@ static const 		t_error g_error[] =
 	{"Parsing error : rooms' list"},
 	{"Parsing error : not an int"},
 	{"Parsing error : no tube list"},
+	{"Parsing error : duplicated start room"},
+	{"Parsing error : duplicated end room"},
 };
-#endif
 
 void			ft_exit(int ref)
 {

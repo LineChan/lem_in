@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 00:31:35 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/29 01:12:58 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/29 18:15:37 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,22 @@
 # define ROOM_NB		(anthill()->room_nb)
 # define ANT_NB			(anthill()->ant_nb)
 # define TUBE_NB		(anthill()->tube_nb)
-# define START			(anthill()->start_ref)
-# define END			(anthill()->end_ref)
+# define START_REF		(anthill()->start_ref)
+# define END_REF		(anthill()->end_ref)
 
 # define C_RESULT(it)	CONTAINEROF(it, t_result, lst)
 # define PATH_REF(it)	(C_RESULT(it)->ref)
 # define SHORTEST_PATH	(shortest_path()->result_head)
 # define SP_NB		(shortest_path()->shortest_path_nb)
+
+/*
+** Flags
+*/
+# define FLAG_START		0x1
+# define FLAG_END		0x10
+# define COMMAND_START	(exist_already & FLAG_START)
+# define COMMAND_END	(exist_already & FLAG_END)
+
 /*
 ** Structures
 */
@@ -84,7 +93,10 @@ t_anthill			*anthill(void);
 t_shortest_path		*shortest_path(void);
 void				ft_del_singl_anthill(void);
 void				ft_del_singl_shortest_path(void);
-void				ft_add_room(const char *name, size_t size);
+void				ft_add_room(const char *name,
+								const size_t size,
+								const int x,
+								const int y);
 void				ft_add_shortest_path(void);
 void				ft_del_shortest_path(t_lst *path);
 void				ft_del_room(t_lst *src);
@@ -103,6 +115,6 @@ void				ft_parse_first_letter(char *line, int depth);
 int					ft_parse_letter(char *line, int depth);
 int					ft_parse_new_line(char **line);
 int					ft_parse_nb(char **cursor, int depth);
-int					ft_parse_comment(char *line, int depth);
+void				ft_parse_command(char **line, int depth);
 int					ft_parse_gnt_and_save(char **line);
 #endif
