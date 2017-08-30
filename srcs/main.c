@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 01:28:27 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/29 18:11:45 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/30 12:57:05 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,9 @@ int			main(void)
 {
 	int			ret;
 
-	FD = open("input.txt", O_CREAT | O_RDWR);
+	FD = open("input.txt", O_CREAT | O_RDWR | O_TRUNC);
 	if ((ret = ft_parse()))
 		ft_exit(1);
-
-#if 0
-	while ((line = ft_fgnt("test.txt", '\n')))
-	{
-		if (!(ft_parse(line)))
-		{
-			ft_del_singl_anthill();
-			return (0);
-		}
-	}
-#endif
 	ft_printf("FD : %d, ROOM_NB : %d, ANT_NB : %D, TUBE_NB : %d, START_REF :%d,END_REF : %d\n", FD, ROOM_NB, ANT_NB, TUBE_NB, START_REF, END_REF);
 	ft_print_room_list(&ANTHILL);
 	ft_del_singl_anthill();

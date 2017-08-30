@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/26 00:30:45 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/28 18:45:30 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/30 14:07:07 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int					ft_parse_letter(char *line, int depth)
 
 	ft_print_parsing(depth, "parse_letter", "");
 	count = 0;
-	while (ft_isascii(*line) && (*line != ' '))
+	while (ft_isalpha(*line) || (*line == '_') || ft_isdigit(*line))
 	{
 		++line;
 		++count;

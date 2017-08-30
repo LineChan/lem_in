@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 12:12:05 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/29 17:12:15 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/30 15:41:54 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ static const 		t_error g_error[] =
 	{"Parsing error : no tube list"},
 	{"Parsing error : duplicated start room"},
 	{"Parsing error : duplicated end room"},
+	{"Failed memory allocation"},
 };
 
 void			ft_exit(int ref)

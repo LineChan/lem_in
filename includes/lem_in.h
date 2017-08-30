@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 00:31:35 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/29 18:15:37 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/30 15:41:55 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 # define C_RESULT(it)	CONTAINEROF(it, t_result, lst)
 # define PATH_REF(it)	(C_RESULT(it)->ref)
 # define SHORTEST_PATH	(shortest_path()->result_head)
-# define SP_NB		(shortest_path()->shortest_path_nb)
+# define SP_NB			(shortest_path()->shortest_path_nb)
 
 /*
 ** Flags
@@ -51,6 +51,7 @@ typedef struct			s_error
 {
 	const char		message[100];
 }						t_error;
+
 
 typedef struct			s_room
 {
@@ -91,6 +92,7 @@ typedef struct			s_result
 */
 t_anthill			*anthill(void);
 t_shortest_path		*shortest_path(void);
+int					**adjancy(const int ref_1, const int ref_2);
 void				ft_del_singl_anthill(void);
 void				ft_del_singl_shortest_path(void);
 void				ft_add_room(const char *name,
@@ -109,12 +111,12 @@ int					ft_parse(void);
 void				ft_parse_ant(char **line, int depth);
 int					ft_parse_room_list(char **line, int depth);
 int					ft_parse_tube_list(char **line, int depth);
-size_t				ft_parse_room_id(char *line, int *x, int *y, int depth);
+int					ft_parse_room_id(char *line, int *x, int *y, int depth);
 int					ft_parse_room_name(char *line, int depth);
 void				ft_parse_first_letter(char *line, int depth);
 int					ft_parse_letter(char *line, int depth);
 int					ft_parse_new_line(char **line);
 int					ft_parse_nb(char **cursor, int depth);
-void				ft_parse_command(char **line, int depth);
+int					ft_parse_command(char **line, int depth);
 int					ft_parse_gnt_and_save(char **line);
 #endif

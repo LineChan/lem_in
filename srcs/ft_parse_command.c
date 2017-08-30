@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/27 20:16:19 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/29 18:17:26 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/30 13:25:40 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void		ft_parse_start_end(char *line, int depth)
 	ft_add_room(line, ret, x, y);
 }
 
-void			ft_parse_command(char **line, int depth)
+int				ft_parse_command(char **line, int depth)
 {
 	static int			exist_already = 0;
 
@@ -41,6 +41,7 @@ void			ft_parse_command(char **line, int depth)
 		ft_parse_new_line(line);
 		ft_parse_start_end(*line, depth + 1);
 		START_REF = R_REF(ANTHILL.prev);
+		return (1);
 	} 
 	if (!ft_strcmp((*line + 2), "END"))
 	{
@@ -51,5 +52,7 @@ void			ft_parse_command(char **line, int depth)
 		ft_parse_new_line(line);
 		ft_parse_start_end(*line, depth + 1);
 		END_REF = R_REF(ANTHILL.prev);
+		return (1);
 	}
+	return (0);
 }

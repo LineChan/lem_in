@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 20:50:22 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/29 17:55:13 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/30 14:05:53 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,20 @@
 **
 ** 1st parameter : line to be checked
 */
-size_t				ft_parse_room_id(char *line,
+int					ft_parse_room_id(char *line,
 										int *x,
 										int *y,
 										int depth)
 {
-	size_t		len;
+	int			len;
 
 	ft_print_parsing(depth, "room_id", line);
 	len = ft_parse_room_name(line, depth + 1);
 	line += ++len;
-	if (*line++ != ' ' || (*line == ' ')) 
+	ft_print_parsing(depth, "room_id", line);
+	if (*line == '-')
+		return (-1);
+	if ((*line++ != ' ') || (*line == ' ')) 
 		ft_exit(3);
 	*x = ft_parse_nb(&line, depth + 1);
 	if (*line++ != ' ' || (*line == ' ')) 
