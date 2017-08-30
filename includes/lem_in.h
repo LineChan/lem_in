@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 00:31:35 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/30 15:41:55 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/30 17:43:01 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@
 # define SHORTEST_PATH	(shortest_path()->result_head)
 # define SP_NB			(shortest_path()->shortest_path_nb)
 
+# define MATRIX			(matrix())
 /*
 ** Flags
 */
@@ -92,9 +93,21 @@ typedef struct			s_result
 */
 t_anthill			*anthill(void);
 t_shortest_path		*shortest_path(void);
-int					**adjancy(const int ref_1, const int ref_2);
+int					**matrix(void);
+int					ft_get_matrix(const int ref_1, const int ref_2);
+void				ft_set_matrix(const int ref_1,
+									const int ref_2,
+									const int value);
+void				ft_del_matrix(void);
+/*
+int					adjancy(const int ref_1,
+								const int ref_2,
+								const int set,
+								const int value);
+								*/
 void				ft_del_singl_anthill(void);
 void				ft_del_singl_shortest_path(void);
+void				ft_del_everything(void);
 void				ft_add_room(const char *name,
 								const size_t size,
 								const int x,

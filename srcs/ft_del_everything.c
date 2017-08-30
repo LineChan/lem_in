@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_singl.c                                         :+:      :+:    :+:   */
+/*   ft_del_everything.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/20 16:10:13 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/30 17:27:51 by mvillemi         ###   ########.fr       */
+/*   Created: 2017/08/30 17:43:21 by mvillemi          #+#    #+#             */
+/*   Updated: 2017/08/30 17:44:44 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
 /*
-** Singleton functions
+** Free all allocated structures so the program can exit properly
 */
-t_anthill		*anthill(void)
+void			ft_del_everything(void)
 {
-	static t_anthill	*ptr = 0;
-
-	if (!ptr && (ptr = ft_memalloc(sizeof(t_anthill))))
-		INIT_LST_HEAD(ptr->room_head);
-	return (ptr);
-}
-
-t_shortest_path		*shortest_path(void)
-{
-	static t_shortest_path	*ptr = 0;
-
-	if (!ptr && (ptr = ft_memalloc(sizeof(t_shortest_path))))
-		INIT_LST_HEAD(ptr->result_head);
-	return (ptr);
+	ft_del_matrix();
+	ft_del_singl_anthill();
+	ft_del_singl_shortest_path();
 }

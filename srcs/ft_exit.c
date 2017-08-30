@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 12:12:05 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/30 15:41:54 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/30 17:45:24 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ static const 		t_error g_error[] =
 
 void			ft_exit(int ref)
 {
-	ft_del_singl_anthill();
-	ft_del_singl_shortest_path();
+	ft_del_everything();
 	EXIT_FAIL(g_error[--ref].message);
 }

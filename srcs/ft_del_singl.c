@@ -6,13 +6,13 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/21 15:05:38 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/28 12:59:43 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/30 17:40:07 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 /*
-** Clean each list before freeing their head
+** Free all singletons
 */
 void		ft_del_singl_anthill(void)
 {
