@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_room_id.c                                 :+:      :+:    :+:   */
+/*   ft_parse_tube_id.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/25 20:50:22 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/31 15:28:10 by mvillemi         ###   ########.fr       */
+/*   Created: 2017/08/31 14:08:46 by mvillemi          #+#    #+#             */
+/*   Updated: 2017/08/31 15:13:14 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
-
 /*
-** Check if there is a room id
+** Check is the line is a tube id
 **
 ** 1st parameter : line to be checked
 */
-int					ft_parse_room_id(char *line,
-										int *x,
-										int *y,
-										int depth)
+int				ft_parse_tube_id(char *line,
+								int *ref_1,
+								int *ref_2,
+								int depth)
 {
 	int			len;
+	t_lst		*node_tmp;
 
-	ft_print_parsing(depth, "room_id", line);
-	len = ft_parse_room_name(line, depth + 1);
+	ft_print_parsing(depth, "tube_id", "");
+	len = 0;
+	while (*(line + len) != '-')
+		++len;
+	if (!(node_tmp = ft_parse_find_room(line, len)))
+		return (0);
+	*ref_1 = R_REF(node_tmp);
 	line += ++len;
-	if (*line == '-')
-		return (-1);
-	if ((*line++ != ' ') || (*line == ' ')) 
-		ft_exit(3);
-	*x = ft_parse_nb(&line, depth + 1);
-	if (*line++ != ' ' || (*line == ' ')) 
-		ft_exit(3);
-	*y = ft_parse_nb(&line, depth + 1);
-	return (len);
+	len ^= len;
+	while (*(line + len))
+		++len;
+	if (!(node_tmp = ft_parse_find_room(line, len)))
+		return (0);
+	*ref_2 = R_REF(node_tmp);
+	return (1);
 }

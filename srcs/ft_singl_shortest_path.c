@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_singl.c                                         :+:      :+:    :+:   */
+/*   ft_singl_shortest_path.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/20 16:10:13 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/30 17:27:51 by mvillemi         ###   ########.fr       */
+/*   Created: 2017/08/31 15:34:58 by mvillemi          #+#    #+#             */
+/*   Updated: 2017/08/31 15:37:27 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
 /*
-** Singleton functions
+** All shortest path related functions
 */
-t_anthill		*anthill(void)
-{
-	static t_anthill	*ptr = 0;
 
-	if (!ptr && (ptr = ft_memalloc(sizeof(t_anthill))))
-		INIT_LST_HEAD(ptr->room_head);
-	return (ptr);
-}
-
-t_shortest_path		*shortest_path(void)
+t_shortest_path			*shortest_path(void)
 {
-	static t_shortest_path	*ptr = 0;
+	static t_shortest_path		*ptr = 0;
 
 	if (!ptr && (ptr = ft_memalloc(sizeof(t_shortest_path))))
 		INIT_LST_HEAD(ptr->result_head);
 	return (ptr);
+}
+
+void					ft_del_singl_shortest_path(void)
+{
+	t_shortest_path				*ptr;
+
+	ptr = shortest_path();
+	ft_lst_foreach(&(ptr->result_head), &ft_del_shortest_path);
+	ft_memdel((void **)&ptr);
 }

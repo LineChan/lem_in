@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 01:28:27 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/30 17:45:11 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/31 15:15:39 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int			main(void)
 		ft_exit(1);
 	ft_printf("FD : %d, ROOM_NB : %d, ANT_NB : %D, TUBE_NB : %d, START_REF :%d,END_REF : %d\n", FD, ROOM_NB, ANT_NB, TUBE_NB, START_REF, END_REF);
 	ft_print_room_list(&ANTHILL);
-	ft_del_everything();
 	close(FD);
+	ft_del_everything();
 	return (0);
 }
 

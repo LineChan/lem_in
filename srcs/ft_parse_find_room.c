@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_letter.c                                  :+:      :+:    :+:   */
+/*   ft_parse_find_room.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/26 00:30:45 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/31 14:49:34 by mvillemi         ###   ########.fr       */
+/*   Created: 2017/08/31 13:37:06 by mvillemi          #+#    #+#             */
+/*   Updated: 2017/08/31 13:50:23 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
 /*
-** Check if there are letters in the input
+** Find a room according to its name
+**
+** 1st parameter : room name to find
+** 2nd parameter : name length
+** 3rd parameter : function to compare rooms' name
 */
-int					ft_parse_letter(char *line, int depth)
+t_lst			*ft_parse_find_room(const char *room_name,
+									const int len)
 {
-	size_t		count;
+	t_lst                *it;
 
-	ft_print_parsing(depth, "letter", "");
-	count = 0;
-	while (ft_isalpha(*line) || (*line == '_') || ft_isdigit(*line))
+	if (ft_lst_is_head(&ANTHILL))
+		return (0);
+	it = ANTHILL.next;
+	while (it != &ANTHILL)
 	{
-		++line;
-		++count;
+		if (!ft_strncmp(room_name, R_NAME(it), len))
+			return (it);
+		it = it->next;
 	}
-	return (count);
+	return (0);
 }

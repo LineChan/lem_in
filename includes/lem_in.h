@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 00:31:35 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/30 17:43:01 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/31 14:48:47 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,8 +123,9 @@ void				ft_print_parsing(const int depth,
 int					ft_parse(void);
 void				ft_parse_ant(char **line, int depth);
 int					ft_parse_room_list(char **line, int depth);
-int					ft_parse_tube_list(char **line, int depth);
+void				ft_parse_tube_list(char **line, int depth);
 int					ft_parse_room_id(char *line, int *x, int *y, int depth);
+int					ft_parse_tube_id(char *line, int *ref_1, int *ref_2, int depth);
 int					ft_parse_room_name(char *line, int depth);
 void				ft_parse_first_letter(char *line, int depth);
 int					ft_parse_letter(char *line, int depth);
@@ -132,4 +133,5 @@ int					ft_parse_new_line(char **line);
 int					ft_parse_nb(char **cursor, int depth);
 int					ft_parse_command(char **line, int depth);
 int					ft_parse_gnt_and_save(char **line);
+t_lst				*ft_parse_find_room(const char *room_name, const int len);
 #endif
