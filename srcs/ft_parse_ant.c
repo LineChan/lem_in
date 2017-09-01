@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 23:01:57 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/29 01:09:16 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/08/31 17:56:48 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,11 @@
 */
 void			ft_parse_ant(char **line, int depth)
 {
-	char		*cursor;
-
-	ft_print_parsing(depth, "parse_ant", *line);
-	ft_parse_new_line(line);
 	ft_parse_gnt_and_save(line);
-	cursor = *line;
-	if (IS_NEG((ANT_NB = ft_parse_nb(&cursor, depth + 1))))
+	ft_print_parsing(depth, "parse_ant", *line);
+	if (0 > (ANT_NB = ft_parse_nb(line, depth + 1)))
 		ft_exit(1);
-	*line += (*line) - cursor;
-	if (ft_strlen(cursor))
+	if (ft_strlen(*line))
 		ft_exit(1);
 	ft_parse_new_line(line);
 }

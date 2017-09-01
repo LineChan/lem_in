@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 00:31:35 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/31 14:48:47 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/01 16:36:58 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,6 @@ typedef struct			s_result
 t_anthill			*anthill(void);
 t_shortest_path		*shortest_path(void);
 int					**matrix(void);
-int					ft_get_matrix(const int ref_1, const int ref_2);
 void				ft_set_matrix(const int ref_1,
 									const int ref_2,
 									const int value);
@@ -120,6 +119,7 @@ void				ft_print_room_list(t_lst *head);
 void				ft_print_parsing(const int depth,
 									const char *name,
 									const char *line);
+void				ft_print_matrix(void);
 int					ft_parse(void);
 void				ft_parse_ant(char **line, int depth);
 int					ft_parse_room_list(char **line, int depth);
@@ -133,5 +133,7 @@ int					ft_parse_new_line(char **line);
 int					ft_parse_nb(char **cursor, int depth);
 int					ft_parse_command(char **line, int depth);
 int					ft_parse_gnt_and_save(char **line);
-t_lst				*ft_parse_find_room(const char *room_name, const int len);
+t_lst				*ft_find_room_with_name(t_lst *node, const char *room_name, const int len);
+
+void				ft_clear_unlinked_room(void);
 #endif

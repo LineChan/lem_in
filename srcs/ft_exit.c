@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 12:12:05 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/31 14:43:52 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/01 16:36:54 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static const 		t_error g_error[] =
 	{"Parsing error : duplicated start room"},
 	{"Parsing error : duplicated end room"},
 	{"Failed memory allocation"},
+	{"Error : END or START room not connected"},
 };
 
 void			ft_exit(int ref)
