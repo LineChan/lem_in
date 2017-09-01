@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 00:31:35 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/01 16:36:58 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/01 16:50:00 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,6 +134,7 @@ int					ft_parse_nb(char **cursor, int depth);
 int					ft_parse_command(char **line, int depth);
 int					ft_parse_gnt_and_save(char **line);
 t_lst				*ft_find_room_with_name(t_lst *node, const char *room_name, const int len);
+t_lst				*ft_find_room_with_ref(t_lst *node, const int len);
 
 void				ft_clear_unlinked_room(void);
 #endif
