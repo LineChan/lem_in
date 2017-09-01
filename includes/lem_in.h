@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 00:31:35 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/01 16:50:00 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/01 23:15:00 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 # define C_ROOM(it)		CONTAINEROF(it, t_room, lst)
 # define R_REF(it)		(C_ROOM(it)->ref)
+# define R_PARENT(it)	(C_ROOM(it)->parent)
 # define R_NAME(it)		(C_ROOM(it)->name)
 # define R_SIZE(it)		(C_ROOM(it)->name_size)
 # define R_X(it)		(C_ROOM(it)->x)
@@ -98,12 +99,6 @@ void				ft_set_matrix(const int ref_1,
 									const int ref_2,
 									const int value);
 void				ft_del_matrix(void);
-/*
-int					adjancy(const int ref_1,
-								const int ref_2,
-								const int set,
-								const int value);
-								*/
 void				ft_del_singl_anthill(void);
 void				ft_del_singl_shortest_path(void);
 void				ft_del_everything(void);
@@ -137,4 +132,5 @@ t_lst				*ft_find_room_with_name(t_lst *node, const char *room_name, const int l
 t_lst				*ft_find_room_with_ref(t_lst *node, const int len);
 
 void				ft_clear_unlinked_room(void);
+void				ft_IDDSF(void);
 #endif
