@@ -70,6 +70,7 @@ clean :
 fclean :
 	$(RM) lem-in
 	$(RM) lem-in.dSYM
+	$(RM) $(OBJS)
 	make -C libs fclean
 
 re : fclean all
