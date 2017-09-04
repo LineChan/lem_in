@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 00:31:35 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/04 13:35:40 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/04 15:01:01 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 # define C_ROOM(it)		CONTAINEROF(it, t_room, lst)
 # define R_REF(it)		(C_ROOM(it)->ref)
-# define R_VISITED(it)	(C_ROOM(it)->parent)
+//# define R_VISITED(it)	(C_ROOM(it)->parent)
 # define R_NAME(it)		(C_ROOM(it)->name)
 # define R_SIZE(it)		(C_ROOM(it)->name_size)
 # define R_X(it)		(C_ROOM(it)->x)
@@ -33,6 +33,7 @@
 
 # define C_RESULT(it)	CONTAINEROF(it, t_result, lst)
 # define PATH_REF(it)	(C_RESULT(it)->ref)
+# define PATH_LEN(it)	(C_RESULT(it)->len)
 # define SHORTEST_PATH	(shortest_path()->result_head)
 # define SP_NB			(shortest_path()->shortest_path_nb)
 
@@ -58,7 +59,7 @@ typedef struct			s_error
 typedef struct			s_room
 {
 	int			ref;
-	int			visited;
+	//int			visited;
 	int			x;
 	int			y;
 	char		*name;
@@ -86,6 +87,7 @@ typedef struct			s_shortest_path
 typedef struct			s_result
 {
 	int		ref;
+	int		len;
 	t_lst	lst;
 	t_lst	room_head;
 }						t_result;
@@ -114,6 +116,7 @@ void				ft_del_shortest_path(t_lst *path);
 void				ft_del_room(t_lst *src);
 void				ft_exit(const int ret);
 void				ft_clear_unlinked_room(void);
+void				ft_compute_shortest_path_nb(void);
 
 int					ft_parse(void);
 void				ft_parse_ant(char **line, int depth);
@@ -131,7 +134,9 @@ int					ft_parse_gnt_and_save(char **line);
 t_lst				*ft_find_room_with_name(t_lst *node, const char *room_name, const int len);
 t_lst				*ft_find_room_with_ref(t_lst *node, const int len);
 
-void				ft_IDDSF(void);
+void				ft_iddsf(void);
+//static int			ft_explore_adjacent(int ref, int limit);
+//static int			ft_dls(int ref, int limit);
 
 void				ft_print_matrix(void);
 void				ft_print_room_list(t_lst *head);

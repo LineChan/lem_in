@@ -1,48 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_clear_unlinked_room.c                           :+:      :+:    :+:   */
+/*   ft_compute_shortest_path_nb.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/31 16:52:21 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/04 14:09:07 by mvillemi         ###   ########.fr       */
+/*   Created: 2017/09/04 13:55:44 by mvillemi          #+#    #+#             */
+/*   Updated: 2017/09/04 14:36:41 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
 /*
-** Remove unlinked rooms from anthill
+** Compute the maximum number of shortest paths
 */
-void			ft_clear_unlinked_room(void)
+void			ft_compute_shortest_path_nb(void)
 {
+	int		count;
 	int		i;
-	int		j;
-	t_lst	*node_tmp;
 
 	i = 0;
-	j = 0;
+	count = 0;
 	while (i < ROOM_NB)
 	{
-		while (j < ROOM_NB)
-		{
-			if ((MATRIX[i][j] == 1) || (MATRIX[j][i] == 1))
-				break;
-			++j;
-			if (!(j ^ ROOM_NB))
-			{
-				node_tmp = ft_find_room_with_ref(&ANTHILL, i);
-				if (node_tmp)
-				{
-					if (!(R_REF(node_tmp) ^ END_REF) ||
-							!(R_REF(node_tmp) ^ START_REF))
-						ft_exit(12);
-					ft_del_room(node_tmp);
-				}
-			}
-		}
-		j ^= j;
+			if (MATRIX[START_REF][i])
+				++SP_NB;
 		++i;
 	}
+	i ^= i;
+	while (i < ROOM_NB)
+	{
+		if (MATRIX[END_REF][i])
+			++count;
+		++i;
+	}
+	SP_NB = MIN(SP_NB, count);
+	ft_fprintf(2, "compute shortest_path nb : %d\n", SP_NB);
 }

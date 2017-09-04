@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/30 17:28:10 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/04 13:35:37 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/04 14:47:40 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,11 @@ void				ft_reset_matrix(void)
 	{
 		while (j < ROOM_NB)
 		{
-			if (MATRIX[i][j] == 1)
+			if (MATRIX[i][j] == -1)
+			{
+				MATRIX[i][j] = 1;
 				MATRIX[j][i] = 1;
+			}
 			++j;
 		}
 		j ^= j;
