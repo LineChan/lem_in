@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/01 22:58:44 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/04 15:00:03 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/04 15:43:03 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,16 +83,20 @@ void			ft_iddsf(void)
 {
 	int		limit;
 	int		sp_nb;
+	int		room_nb;
 
 	limit = 0;
+	max_depth = ROOM_NB;
 	sp_nb = SP_NB;
 	while (sp_nb > 0)
 	{
-		while (limit < ROOM_NB)
+		while (limit < max_depth)
 		{
 			if (ft_dls(START_REF, limit))
 			{
 				ft_printf("{GREEN:PATH FOUND}\n");
+				room_nb = PATH_LEN(SHORTEST_PATH.prev);
+				ft_fprintf(2, "max_depth : %d\n", max_depth);
 				break ;
 			}
 			++limit;
