@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 00:31:35 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/01 23:15:00 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/04 13:35:40 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 # define C_ROOM(it)		CONTAINEROF(it, t_room, lst)
 # define R_REF(it)		(C_ROOM(it)->ref)
-# define R_PARENT(it)	(C_ROOM(it)->parent)
+# define R_VISITED(it)	(C_ROOM(it)->parent)
 # define R_NAME(it)		(C_ROOM(it)->name)
 # define R_SIZE(it)		(C_ROOM(it)->name_size)
 # define R_X(it)		(C_ROOM(it)->x)
@@ -58,7 +58,7 @@ typedef struct			s_error
 typedef struct			s_room
 {
 	int			ref;
-	int			parent;
+	int			visited;
 	int			x;
 	int			y;
 	char		*name;
@@ -95,10 +95,13 @@ typedef struct			s_result
 t_anthill			*anthill(void);
 t_shortest_path		*shortest_path(void);
 int					**matrix(void);
+
 void				ft_set_matrix(const int ref_1,
 									const int ref_2,
 									const int value);
 void				ft_del_matrix(void);
+void				ft_reset_matrix(void);
+
 void				ft_del_singl_anthill(void);
 void				ft_del_singl_shortest_path(void);
 void				ft_del_everything(void);
@@ -110,11 +113,8 @@ void				ft_add_shortest_path(void);
 void				ft_del_shortest_path(t_lst *path);
 void				ft_del_room(t_lst *src);
 void				ft_exit(const int ret);
-void				ft_print_room_list(t_lst *head);
-void				ft_print_parsing(const int depth,
-									const char *name,
-									const char *line);
-void				ft_print_matrix(void);
+void				ft_clear_unlinked_room(void);
+
 int					ft_parse(void);
 void				ft_parse_ant(char **line, int depth);
 int					ft_parse_room_list(char **line, int depth);
@@ -131,6 +131,12 @@ int					ft_parse_gnt_and_save(char **line);
 t_lst				*ft_find_room_with_name(t_lst *node, const char *room_name, const int len);
 t_lst				*ft_find_room_with_ref(t_lst *node, const int len);
 
-void				ft_clear_unlinked_room(void);
 void				ft_IDDSF(void);
+
+void				ft_print_matrix(void);
+void				ft_print_room_list(t_lst *head);
+void				ft_print_shortest_path_list(void);
+void				ft_print_parsing(const int depth,
+									const char *name,
+									const char *line);
 #endif
