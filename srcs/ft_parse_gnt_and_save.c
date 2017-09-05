@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 00:11:15 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/05 17:30:56 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/05 20:37:17 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 */
 int				ft_parse_gnt_and_save(char **line)
 {
-	*line = ft_fgnt("test.txt", '\n');
+	*line = ft_gnt(0 , '\n');
 	if (!*line)
 		return (0);
 	ft_fprintf(FD,"%s\n", *line);

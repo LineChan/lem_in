@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 16:20:16 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/05 16:17:13 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/05 23:01:46 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void			ft_ant_repartition()
 	move = 0;
 	while (finish != ANT_NB)
 	{
-		ft_printf("finish : %d\n", finish);
+		ft_fprintf(2, "finish : %d\n", finish);
 		it = SHORTEST_PATH.next;
 		while (it != &SHORTEST_PATH)
 		{
@@ -74,10 +74,10 @@ void			ft_ant_repartition()
 					ft_send_ant(&C_RESULT(it)->room_head, &current_ant);
 			}
 			it = it->next;
-			write(1, "\n", 1);
+			//write(1, "\n", 1);
 		}
 		++move;
-		ft_printf("move : %d\n", move);
-		getchar();
+		ft_print_output();
+		ft_fprintf(2, "move : %d\n", move);
 	}
 }

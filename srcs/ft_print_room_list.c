@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 12:51:46 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/05 16:17:19 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/05 21:40:57 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void			ft_print_room_list(t_lst *head)
 	it = head->next;
 	while (it != head)
 	{
-		ft_fprintf(1, "-%s- ", R_NAME(it));
+		ft_fprintf(2, "-%s- ", R_NAME(it));
 		it = it->next;
 	}
-	write(1, "\n", 1);
+	write(2, "\n", 1);
 }

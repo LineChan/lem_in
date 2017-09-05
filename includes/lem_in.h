@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 00:31:35 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/05 17:37:04 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/05 23:01:48 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,8 +137,6 @@ t_lst				*ft_find_room_with_name(t_lst *node, const char *room_name, const int l
 t_lst				*ft_find_room_with_ref(t_lst *node, const int len);
 
 void				ft_iddsf(void);
-//static int			ft_explore_adjacent(int ref, int limit);
-//static int			ft_dls(int ref, int limit);
 
 void				ft_print_matrix(void);
 void				ft_print_room_list(t_lst *head);
@@ -146,4 +144,5 @@ void				ft_print_shortest_path_list(void);
 void				ft_print_parsing(const int depth,
 									const char *name,
 									const char *line);
+void				ft_print_output(void);
 #endif
