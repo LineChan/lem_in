@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 00:31:35 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/04 15:01:01 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/05 15:00:12 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 
 # define C_ROOM(it)		CONTAINEROF(it, t_room, lst)
 # define R_REF(it)		(C_ROOM(it)->ref)
-//# define R_VISITED(it)	(C_ROOM(it)->parent)
 # define R_NAME(it)		(C_ROOM(it)->name)
 # define R_SIZE(it)		(C_ROOM(it)->name_size)
 # define R_X(it)		(C_ROOM(it)->x)
 # define R_Y(it)		(C_ROOM(it)->y)
+# define R_ANT(it)		(C_ROOM(it)->ant)
 # define ANTHILL		(anthill()->room_head)
 # define FD				(anthill()->fd)
 # define ROOM_NB		(anthill()->room_nb)
@@ -59,9 +59,9 @@ typedef struct			s_error
 typedef struct			s_room
 {
 	int			ref;
-	//int			visited;
 	int			x;
 	int			y;
+	int			ant;
 	char		*name;
 	size_t		name_size;
 	t_lst		lst;
@@ -117,6 +117,8 @@ void				ft_del_room(t_lst *src);
 void				ft_exit(const int ret);
 void				ft_clear_unlinked_room(void);
 void				ft_compute_shortest_path_nb(void);
+void				ft_ant_repartition(void);
+void				ft_copy_end_room_to_path(void);
 
 int					ft_parse(void);
 void				ft_parse_ant(char **line, int depth);

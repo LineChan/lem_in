@@ -1,40 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_compute_shortest_path_nb.c                      :+:      :+:    :+:   */
+/*   ft_copy_last_room_to_path.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/04 13:55:44 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/04 16:18:20 by mvillemi         ###   ########.fr       */
+/*   Created: 2017/09/05 13:58:31 by mvillemi          #+#    #+#             */
+/*   Updated: 2017/09/05 14:29:38 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
 /*
-** Compute the maximum number of shortest paths
+** Copy the END room to the end of the lastest path
 */
-void			ft_compute_shortest_path_nb(void)
+void				ft_copy_end_room_to_path(void)
 {
-	int		count;
-	int		i;
+	t_room		*new;
 
-	i = 0;
-	count = 0;
-	while (i < ROOM_NB)
-	{
-			if (MATRIX[START_REF][i])
-				++SP_NB;
-		++i;
-	}
-	i ^= i;
-	while (i < ROOM_NB)
-	{
-		if (MATRIX[END_REF][i])
-			++count;
-		++i;
-	}
-	SP_NB = MIN(SP_NB, count);
-	ft_fprintf(2, "compute shortest_path nb : %d\n", SP_NB);
+	if (!(new = ft_memalloc(sizeof(t_room))))
+		ft_exit(11);
+	new->name = ft_strndup(R_NAME(ANTHILL.prev), R_SIZE(ANTHILL.prev));
+	ft_memcpy(new, C_ROOM(ANTHILL.prev), R_SIZE(ANTHILL.prev));
+	ft_lst_add_prev(&new->lst, &C_RESULT(SHORTEST_PATH.prev)->room_head);
 }

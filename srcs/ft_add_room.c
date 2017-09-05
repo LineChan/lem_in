@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 16:45:05 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/30 16:37:00 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/05 15:00:11 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void			ft_add_room(const char *name,
 	t_room		*new;
 
 	if (!(new = ft_memalloc(sizeof(t_room))))
-		EXIT_FAIL("Failed memory allocation");
+		ft_exit(11);
 	INIT_LST_HEAD(new->lst);
 	++ROOM_NB;
 	new->name = ft_strndup(name, size);
@@ -32,5 +32,5 @@ void			ft_add_room(const char *name,
 	new->ref = ref++;
 	new->x = x;
 	new->y = y;
-	ft_lst_add_prev(&new->lst, &(anthill()->room_head));
+	ft_lst_add_prev(&new->lst, &ANTHILL);
 }

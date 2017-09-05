@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 20:50:22 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/31 15:28:10 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/04 16:17:58 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,7 @@ int					ft_parse_room_id(char *line,
 	if (*line++ != ' ' || (*line == ' ')) 
 		ft_exit(3);
 	*y = ft_parse_nb(&line, depth + 1);
+	if (ft_strlen(line))
+		ft_exit(6);
 	return (len);
 }
