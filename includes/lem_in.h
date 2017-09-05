@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 00:31:35 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/05 16:17:17 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/05 17:37:04 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@
 */
 # define FLAG_START		0x1
 # define FLAG_END		0x10
-# define COMMAND_START	(exist_already & FLAG_START)
-# define COMMAND_END	(exist_already & FLAG_END)
+# define COMMAND_START	(*flag & FLAG_START)
+# define COMMAND_END	(*flag & FLAG_END)
 
 /*
 ** Structures
@@ -131,7 +131,7 @@ void				ft_parse_first_letter(char *line, int depth);
 int					ft_parse_letter(char *line, int depth);
 int					ft_parse_new_line(char **line);
 int					ft_parse_nb(char **cursor, int depth);
-int					ft_parse_command(char **line, int depth);
+int					ft_parse_command(char **line, int depth, int *flag);
 int					ft_parse_gnt_and_save(char **line);
 t_lst				*ft_find_room_with_name(t_lst *node, const char *room_name, const int len);
 t_lst				*ft_find_room_with_ref(t_lst *node, const int len);

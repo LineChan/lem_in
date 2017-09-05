@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 20:35:24 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/31 16:11:33 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/05 17:38:28 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ int				ft_parse_room_list(char **line, int depth)
 	int			ret;
 	int			x;
 	int			y;
+	int			flag;
 
-	ft_print_parsing(depth, "room_list", "");
+	flag = 0;
+	ft_print_parsing(depth, "room_list", *line);
 	ret = 1;
 	if (!*line)
 		ft_exit(6);
@@ -33,7 +35,7 @@ int				ft_parse_room_list(char **line, int depth)
 		if (**line == '#')
 		{
 			if (*(*line + 1) == '#')
-				ft_parse_command(line, depth + 1);
+				ft_parse_command(line, depth + 1, &flag);
 			ret = 1;
 		}
 		if (!ret)
@@ -45,5 +47,7 @@ int				ft_parse_room_list(char **line, int depth)
 		}
 		ft_parse_new_line(line);
 	}
+	if (!((flag & FLAG_START) && (flag & FLAG_END)))
+		ft_exit(12);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 00:11:15 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/30 12:50:25 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/05 17:30:56 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int				ft_parse_gnt_and_save(char **line)
 		ft_parse_gnt_and_save(line);
 	if (*(*line) == '#' && (*(*line + 1) == '#'))
 	{
-		if (!ft_strcmp((*line + 2), "START") || !ft_strcmp((*line + 2), "END"))
+		if (!ft_strcmp((*line + 2), "start") || !ft_strcmp((*line + 2), "end"))
 			return (0);
 		ft_parse_gnt_and_save(line);
 	}

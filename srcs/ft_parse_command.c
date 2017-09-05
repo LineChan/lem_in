@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/27 20:16:19 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/30 13:25:40 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/05 17:36:39 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,28 +27,28 @@ static void		ft_parse_start_end(char *line, int depth)
 	ft_add_room(line, ret, x, y);
 }
 
-int				ft_parse_command(char **line, int depth)
+int				ft_parse_command(char **line, int depth, int *flag)
 {
-	static int			exist_already = 0;
+	//static int			exist_already = 0;
 
 	ft_print_parsing(depth, "command", *line);
-	if (!ft_strcmp((*line + 2), "START"))
+	if (!ft_strcmp((*line + 2), "start"))
 	{
 		ft_print_parsing((depth + 1), "START", "");
 		if (COMMAND_START)
 			ft_exit(9);
-		exist_already |= FLAG_START;
+		*flag |= FLAG_START;
 		ft_parse_new_line(line);
 		ft_parse_start_end(*line, depth + 1);
 		START_REF = R_REF(ANTHILL.prev);
 		return (1);
 	} 
-	if (!ft_strcmp((*line + 2), "END"))
+	if (!ft_strcmp((*line + 2), "end"))
 	{
 		ft_print_parsing((depth + 1), "END", "");
 		if (COMMAND_END)
 			ft_exit(10);
-		exist_already |= FLAG_END;
+		*flag |= FLAG_END;
 		ft_parse_new_line(line);
 		ft_parse_start_end(*line, depth + 1);
 		END_REF = R_REF(ANTHILL.prev);
