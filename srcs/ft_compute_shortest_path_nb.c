@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 13:55:44 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/04 16:18:20 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/06 13:12:31 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ void			ft_compute_shortest_path_nb(void)
 		++i;
 	}
 	SP_NB = MIN(SP_NB, count);
-	ft_fprintf(2, "compute shortest_path nb : %d\n", SP_NB);
+	//SP_NB = (SP_NB < 4) ? SP_NB : 3;
+	//ft_fprintf(2, "compute shortest_path nb : %d\n", SP_NB);
 }

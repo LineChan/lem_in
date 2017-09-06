@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/30 17:28:10 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/04 14:47:40 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/06 13:59:01 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void				ft_print_matrix(void)
 		ft_fprintf(2, "[ ");
 		while (j < ROOM_NB)
 		{
-			ft_fprintf(2, "%d ", MATRIX[i][j]);
+			//ft_fprintf(2, "%d ", MATRIX[i][j]);
 			++j;
 		}
 		ft_fprintf(2, "]\n");

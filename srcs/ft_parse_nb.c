@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 17:15:32 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/31 16:22:09 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/06 16:11:57 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int				ft_parse_nb(char **cursor, int depth)
 		sign *= -1;
 	if ((**cursor == '-') || (**cursor == '+'))
 		++*cursor;
+	if (**cursor == ' ')
+		ft_exit(7);
 	while (ft_isdigit(**cursor))
 		nb = (nb << 3) + (nb << 1) + *(*cursor)++ - 48;
 	if (!ft_isspace(**cursor))

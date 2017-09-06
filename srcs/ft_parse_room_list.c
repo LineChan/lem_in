@@ -6,17 +6,17 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 20:35:24 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/05 17:38:28 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/06 16:34:12 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
 /*
- ** Set up the rooms' list
- **
- ** 1st parameter : line to be checked
- */
+** Set up the rooms' list
+**
+** 1st parameter : line to be checked
+*/
 int				ft_parse_room_list(char **line, int depth)
 {
 	int			ret;
@@ -41,7 +41,7 @@ int				ft_parse_room_list(char **line, int depth)
 		if (!ret)
 		{
 			ret = ft_parse_room_id(*line, &x, &y, depth + 1);
-			if (IS_NEG(ret))
+			if (IS_NEG(ret) && ft_parse_coordinate(x, y))
 				break ;
 			ft_add_room(*line, ret, x, y);
 		}

@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 12:12:05 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/05 23:01:52 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/06 16:45:00 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ static const 		t_error g_error[] =
 {
 	{"Parsing error : ant entry"},
 	{"Parsing error : first letter room name"},
-	//{"Parsing error : spacing"},
-	{"error"},
+	{"Parsing error : spacing"},
 	{"Parsing error : not an ant"},
 	{"Parsing error : end of file"},
 	{"Parsing error : rooms' list"},
@@ -32,8 +31,8 @@ static const 		t_error g_error[] =
 	{"Parsing error : duplicated end room"},
 	{"Failed memory allocation"},
 	{"Error : END or START room not connected"},
-	//{"No solution"},
-	{"error"},
+	{"No solution"},
+	{"Parsing error : duplicated coordinates"},
 };
 
 void			ft_exit(int ref)

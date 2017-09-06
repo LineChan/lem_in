@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 16:20:16 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/05 23:01:46 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/06 14:08:58 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void			ft_move_ant(t_lst *head, int *finish)
 
 	it_b = head->prev;
 	it_a = it_b->prev;
-	ft_print_parsing(0, "move_ant", "");
+	//ft_print_parsing(0, "move_ant", "");
 	if (R_ANT(it_b) != 0)
 		++*finish;
 	while (it_a != head)
@@ -31,10 +31,10 @@ void			ft_move_ant(t_lst *head, int *finish)
 		{
 			R_ANT(it_b) = R_ANT(it_a);
 			R_ANT(it_a) ^= R_ANT(it_a);
-		ft_fprintf(2, " -%s-[%d]    -%s-[{GREEN:%d}]\n", R_NAME(it_a), R_ANT(it_a), R_NAME(it_b), R_ANT(it_b));
+		//ft_fprintf(2, " -%s-[%d]    -%s-[{GREEN:%d}]\n", R_NAME(it_a), R_ANT(it_a), R_NAME(it_b), R_ANT(it_b));
 		}
-		else
-			ft_fprintf(2, " -%s-[%d]    -%s-[%d]\n", R_NAME(it_a), R_ANT(it_a), R_NAME(it_b), R_ANT(it_b));
+		//else
+			//ft_fprintf(2, " -%s-[%d]    -%s-[%d]\n", R_NAME(it_a), R_ANT(it_a), R_NAME(it_b), R_ANT(it_b));
 		it_b = it_b->prev;
 		it_a = it_a->prev;
 	}
@@ -45,9 +45,9 @@ void			ft_send_ant(t_lst *head, int *ant_ref)
 	t_lst		*it;
 
 	it = head->next;
-	ft_print_parsing(3, "send_ant", "");
+	//ft_print_parsing(3, "send_ant", "");
 	R_ANT(it) = *ant_ref;
-	ft_fprintf(2, " %s [{GREEN:%d}]\n", R_NAME(it), R_ANT(it));
+	//ft_fprintf(2, " %s [{GREEN:%d}]\n", R_NAME(it), R_ANT(it));
 	++*ant_ref;
 }
 
@@ -63,7 +63,7 @@ void			ft_ant_repartition()
 	move = 0;
 	while (finish != ANT_NB)
 	{
-		ft_fprintf(2, "finish : %d\n", finish);
+		//ft_fprintf(2, "finish : %d\n", finish);
 		it = SHORTEST_PATH.next;
 		while (it != &SHORTEST_PATH)
 		{
@@ -78,6 +78,6 @@ void			ft_ant_repartition()
 		}
 		++move;
 		ft_print_output();
-		ft_fprintf(2, "move : %d\n", move);
+		//ft_fprintf(2, "move : %d\n", move);
 	}
 }

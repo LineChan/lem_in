@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 00:31:35 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/05 23:01:48 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/06 16:34:56 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,7 @@ void				ft_parse_ant(char **line, int depth);
 int					ft_parse_room_list(char **line, int depth);
 void				ft_parse_tube_list(char **line, int depth);
 int					ft_parse_room_id(char *line, int *x, int *y, int depth);
+int					ft_parse_coordinate(const int x, const int y);
 int					ft_parse_tube_id(char *line, int *ref_1, int *ref_2, int depth);
 int					ft_parse_room_name(char *line, int depth);
 void				ft_parse_first_letter(char *line, int depth);

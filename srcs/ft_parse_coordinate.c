@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse_first_letter.c                            :+:      :+:    :+:   */
+/*   ft_parse_coordinate.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/25 21:07:24 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/06 15:10:07 by mvillemi         ###   ########.fr       */
+/*   Created: 2017/09/06 16:35:12 by mvillemi          #+#    #+#             */
+/*   Updated: 2017/09/06 16:51:10 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
 /*
-** Check if there is a first letter
+** Check if there is no room at the same location
 **
-** 1st parameter : line to be checked
+** 1st parameter : x value
+** 2nd parameter : y value
 */
-void				ft_parse_first_letter(char *line, int depth)
+int				ft_parse_coordinate(const int x, const int y)
 {
-	ft_print_parsing(depth, "first_letter", "");
-	if (!(*line && 
-			(((ft_isalpha(*line)) && (*line != 'L')) || ft_isdigit(*line))))
-		ft_exit(6);
+	t_lst		*it;
+
+	it = ANTHILL.next;
+	while (it != &ANTHILL)
+	{
+		if (!((R_X(it) != x)   &&    (R_Y(it) != y)))
+            :x
+		it = it->next;
+	}
+	return (1);
 }
