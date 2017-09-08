@@ -73,7 +73,10 @@ fclean :
 	$(RM) $(OBJS)
 	make -C libs fclean
 
+test :
+	./test/unit_tests.sh
+
 re : fclean all
 
-.PHONY : all clean fclean setup re
+.PHONY : all clean fclean setup re test
 .SILENT:

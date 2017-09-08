@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/01 22:58:44 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/05 14:59:50 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/08 13:33:47 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ static int				ft_dls(const int src_ref, const int limit)
 	if (limit <= 0)
 	{
 		ft_reset_matrix();
-		write(2, "\n", 1);
-		ft_print_matrix();
+		//write(2, "\n", 1);
+		//ft_print_matrix();
 		ft_fprintf(2, "{RED:DEAD END}\n");
 		return (0);
 	}
@@ -91,11 +91,11 @@ void			ft_iddsf(void)
 	limit = 0;
 	while (SP_NB > 0)
 	{
-		while (limit < TUBE_NB)
+		while (limit < ROOM_NB)
 		{
 			if (ft_dls(START_REF, limit))
 			{
-				ft_printf("{GREEN:PATH FOUND}\n");
+				ft_fprintf(2, "{GREEN:PATH FOUND}\n");
 				break ;
 			}
 			++limit;
@@ -103,5 +103,5 @@ void			ft_iddsf(void)
 		--SP_NB;
 	}
 	if (ft_lst_is_head(&SHORTEST_PATH))
-		ft_printf("{RED:No Solution}\n");
+		ft_exit(13);
 }

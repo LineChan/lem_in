@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 12:12:05 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/06 16:45:00 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/08 13:16:48 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ static const 		t_error g_error[] =
 	{"Error : END or START room not connected"},
 	{"No solution"},
 	{"Parsing error : duplicated coordinates"},
+	{"Parsing error : duplicated room names"},
 };
 
 void			ft_exit(int ref)

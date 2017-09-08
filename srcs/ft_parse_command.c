@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/27 20:16:19 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/06 15:09:54 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/08 13:20:01 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static void		ft_parse_start_end(char *line, int depth)
 
 	ret = ft_parse_room_id(line, &x, &y, depth + 1);
 	ft_add_room(line, ret, x, y);
+	ft_parse_duplicate_name_and_coordinate(line, ret, x, y);
 }
 
 int				ft_parse_command(char **line , int depth, int *flag)
