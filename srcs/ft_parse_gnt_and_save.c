@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 00:11:15 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/08 13:27:55 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/08 14:45:32 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int				ft_parse_gnt_and_save(char **line)
 	*line = ft_gnt(0 , '\n');
 	if (!*line)
 		return (0);
+	ft_printf("gnt and save : %s\n", *line);
 	ft_fprintf(FD,"%s\n", *line);
 	if ((**line == '#') && (*(*line + 1) != '#'))
 		ft_parse_gnt_and_save(line);
@@ -29,7 +30,9 @@ int				ft_parse_gnt_and_save(char **line)
 	{
 		if (!ft_strcmp((*line + 2), "start") || !ft_strcmp((*line + 2), "end"))
 			return (0);
-		ft_parse_gnt_and_save(line);
+		else
+			ft_fprintf(FD,"%s\n", *line);
+		ft_printf("parse_gnt_and_save : %s\n", *line);
 	}
 	return (1);
 }

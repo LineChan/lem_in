@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 12:12:05 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/08 13:16:48 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/08 15:32:42 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 */
 static const 		t_error g_error[] =
 {
+#if 0
 	{"Parsing error : ant entry"},
 	{"Parsing error : first letter room name"},
 	{"Parsing error : spacing"},
@@ -34,6 +35,22 @@ static const 		t_error g_error[] =
 	{"No solution"},
 	{"Parsing error : duplicated coordinates"},
 	{"Parsing error : duplicated room names"},
+#endif
+	{"error"},
+	{"error"},
+	{"error"},
+	{"error"},
+	{"error"},
+	{"error"},
+	{"error"},
+	{"error"},
+	{"error"},
+	{"error"},
+	{"error"},
+	{"error"},
+	{"error"},
+	{"error"},
+	{"error"},
 };
 
 void			ft_exit(int ref)

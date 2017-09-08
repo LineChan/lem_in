@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 16:35:12 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/08 13:17:23 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/08 14:15:42 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,10 @@ void			ft_parse_duplicate_name_and_coordinate(const char *line,
 	it = ANTHILL.next;
 	while (it != ANTHILL.prev)
 	{
-			ft_fprintf(2, "line : %s R_NAME(%d) : %s\n", line, R_REF(it), R_NAME(it));
 		if ((R_X(it) == x) && (R_Y(it) == y))
-		{
 			ft_exit(14);
-		}
 		if (!ft_strncmp(line, R_NAME(it), ret))
-		{
 			ft_exit(15);
-		}
 		it = it->next;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 20:35:24 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/08 13:24:14 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/08 15:30:43 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int				ft_parse_room_list(char **line, int depth)
 	while (ret && *line)
 	{
 		ret ^= ret;
+		//ft_printf("room_list through : %s\n", *line);
 		if (**line == '#')
 		{
 			if (*(*line + 1) == '#')
@@ -50,7 +51,12 @@ int				ft_parse_room_list(char **line, int depth)
 			ft_add_room(*line, ret, x, y);
 			ft_parse_duplicate_name_and_coordinate(*line, ret, x, y);
 		}
-		ft_parse_new_line(line);
+		/*
+	ft_printf("{RED:------> SEGFAULT roomlist}\n");
+		ft_printf("before new_line : %s\n", *line);
+		*/
+			if (IS_NEG(ft_parse_new_line(line)))
+					break ;
 	}
 	if (!((flag & FLAG_START) && (flag & FLAG_END)))
 		ft_exit(12);

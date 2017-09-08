@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 00:31:35 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/08 13:15:13 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/08 13:58:33 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,7 +137,7 @@ int					ft_parse_gnt_and_save(char **line);
 t_lst				*ft_find_room_with_name(t_lst *node, const char *room_name, const int len);
 t_lst				*ft_find_room_with_ref(t_lst *node, const int len);
 
-void				ft_iddsf(void);
+int					ft_iddsf(void);
 
 void				ft_print_matrix(void);
 void				ft_print_room_list(t_lst *head);
