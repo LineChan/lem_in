@@ -6,13 +6,13 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 01:28:27 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/08 14:01:14 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/08 20:58:45 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-int			main(void)
+int			main(int ac, char **av)
 {
 	int			ret;
 	char		*line;
@@ -20,9 +20,25 @@ int			main(void)
 	FD = open("input.txt", O_CREAT | O_RDWR | O_TRUNC);
 	if ((ret = ft_parse()))
 		ft_exit(1);
-
+	int			sp;
+	sp = 0;
+	if (ac > 1)
+	{
+		--ac;
+		++av;
+#if 1
+		if (!ft_strcmp("--shortest_path", *av))
+		{
+			if (ac ==  1)
+			   EXIT_FAIL("Error : how many shortest path ?");
+			sp = ft_atoi(*(++av));
+		}
+#endif
+	}
 	ft_lst_moveto_prev(ft_find_room_with_ref(&ANTHILL, END_REF), &ANTHILL);
 	ft_compute_shortest_path_nb();
+	if (sp)
+		SP_NB = (sp > SP_NB) ? SP_NB : sp;
 	if (!ft_iddsf())
 	{
 		while ((line = ft_fgnt("input.txt", '\n')))
