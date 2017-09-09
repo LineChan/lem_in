@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 00:31:35 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/08 13:58:33 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/09 02:52:48 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,6 @@ int					ft_parse_letter(char *line, int depth);
 int					ft_parse_new_line(char **line);
 int					ft_parse_nb(char **cursor, int depth);
 int					ft_parse_command(char **line, int depth, int *flag);
-int					ft_parse_gnt_and_save(char **line);
 t_lst				*ft_find_room_with_name(t_lst *node, const char *room_name, const int len);
 t_lst				*ft_find_room_with_ref(t_lst *node, const int len);
 

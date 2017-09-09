@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/01 22:58:44 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/08 13:33:47 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/08 20:39:55 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int				ft_explore_adjacent(const int ref, const int limit)
 	{
 		if ((MATRIX[ref][i] == 1) && (ft_dls(i, limit - 1)))
 		{
-			ft_fprintf(2, "{YELLOW:PATH} : %d\n", i);
+			//ft_fprintf(2, "{YELLOW:PATH} : %d\n", i);
 			if (i != END_REF)
 			{
 				ft_lst_moveto_next(ft_find_room_with_ref(&ANTHILL, i),
@@ -61,7 +61,7 @@ static int				ft_dls(const int src_ref, const int limit)
 {
 	int		i;
 
-	ft_fprintf(2, "src_ref : %d\n", src_ref);
+	//ft_fprintf(2, "src_ref : %d\n", src_ref);
 	if (src_ref == END_REF)
 		return (1);
 	if (limit <= 0)
@@ -69,7 +69,7 @@ static int				ft_dls(const int src_ref, const int limit)
 		ft_reset_matrix();
 		//write(2, "\n", 1);
 		//ft_print_matrix();
-		ft_fprintf(2, "{RED:DEAD END}\n");
+		//ft_fprintf(2, "{RED:DEAD END}\n");
 		return (0);
 	}
 	i = 0;
@@ -84,7 +84,7 @@ static int				ft_dls(const int src_ref, const int limit)
 	return  (0);
 }
 
-void			ft_iddsf(void)
+int				ft_iddsf(void)
 {
 	int		limit;
 
@@ -95,7 +95,7 @@ void			ft_iddsf(void)
 		{
 			if (ft_dls(START_REF, limit))
 			{
-				ft_fprintf(2, "{GREEN:PATH FOUND}\n");
+				//ft_fprintf(2, "{GREEN:PATH FOUND}\n");
 				break ;
 			}
 			++limit;
@@ -103,5 +103,6 @@ void			ft_iddsf(void)
 		--SP_NB;
 	}
 	if (ft_lst_is_head(&SHORTEST_PATH))
-		ft_exit(13);
+		return (0);
+	return (1);
 }
