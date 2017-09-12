@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 16:20:16 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/06 14:08:58 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/12 17:04:52 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,13 @@ void			ft_ant_repartition()
 			ft_move_ant(&C_RESULT(it)->room_head, &finish);
 			if (current_ant <= ANT_NB)
 			{
-				if ((PATH_LEN(it) <= ((ANT_NB - current_ant) * PATH_LEN(SHORTEST_PATH.next))) || 	(PATH_REF(it) == 0))
+				//ft_fprintf(2, "current_ant : %d\npath[%d] : len : %d\n", current_ant, PATH_REF(it), PATH_LEN(it));
+				if (current_ant != ANT_NB)
+				{
+					if ((PATH_LEN(it) <= ((ANT_NB - current_ant) * PATH_LEN(SHORTEST_PATH.next))) || (PATH_REF(it) == 0))
+						ft_send_ant(&C_RESULT(it)->room_head, &current_ant);
+				}
+				else if ((PATH_LEN(it) <= PATH_LEN(SHORTEST_PATH.next)) || (PATH_REF(it) == 0))
 					ft_send_ant(&C_RESULT(it)->room_head, &current_ant);
 			}
 			it = it->next;
