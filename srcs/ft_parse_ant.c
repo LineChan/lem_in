@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 23:01:57 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/08 15:45:17 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/12 11:43:59 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,4 @@ void			ft_parse_ant(char **line, int depth)
 	if (ft_strlen(*line) || !ANT_NB)
 		ft_exit(1);
 	ft_fprintf(FD, "%d\n", ANT_NB);
-	*line = ft_gnt(0, '\n');
 }
