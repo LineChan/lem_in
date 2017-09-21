@@ -12,12 +12,14 @@ def main(proc) :
     # -------- Parsing -------
     inputList = []
     inputList = proc.stdout.readlines()
+    inputList[:] = [str(line, 'utf-8') for line in inputList]
     parse.room(inputList)
 
     return
     # --------- Loop ---------
     crashed = False
     do = False
+    turn = -1
     while not crashed : 
         for event in pygame.event.get() :
             if event.type == pygame.QUIT :

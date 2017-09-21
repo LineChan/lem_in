@@ -15,21 +15,28 @@ def init() :
     # ------- Pygame parameters -------
     pygame.init()
     pygame.display.set_caption('lem-in : ESC to quit')
+    global clock
+    clock = pygame.time.Clock()
+    clock.tick(60)
 
     # ------- Screen parameters -------
     global screen_width, screen_height
     screen_width, screen_height = 1400, 750
-    global screen, clock
+    global screen
     screen = pygame.display.set_mode((screen_width, screen_height))
     screen.fill(white)
-    clock = pygame.time.Clock()
-    clock.tick(60)
 
     # ------------- Lists -------------
     global offSet
     offSet = [[50,50], [0,0], [0,0], [0,0], [0,0], [0,0]] 
     global roomList, antList
     roomList, antList = [], []
+
+    # ----------- Variables -----------
+    global antMax, antNb
+    antMax, antNB = 7, 0
+    global roomMax
+    roomMax = 7
 
 def display() :
     screen.fill(white)
