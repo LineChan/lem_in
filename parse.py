@@ -24,7 +24,7 @@ def otherRoom(inputList) :
     roomIndexes = [i for i, line in enumerate(inputList) if line[0] != 'L' and len(line.split()) == 3]
     for i in roomIndexes :
         if (roomRef >= s.roomMax) :
-            print('Error : Visualization not allowed for more than %d rooms' % (s.rromMax))
+            print('Error : Visualization not allowed for more than %d rooms' % (s.roomMax))
             sys.exit(1)
         split = inputList[roomIndexes[i]].split()
         Room(roomRef, split[0], int(split[1]), int(split[2]))
