@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/05 18:13:54 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/20 15:58:41 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/22 11:37:33 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void			ft_print_room_output(t_lst *head)
 }
 
 void				ft_print_output(void)
-
+{
 	t_lst		*it;
 
 	it = SHORTEST_PATH.next;
