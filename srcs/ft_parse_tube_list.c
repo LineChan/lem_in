@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 14:40:10 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/22 12:08:00 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/22 12:32:32 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,10 @@ void			ft_parse_tube_list(char **line, int depth)
 		{
 			ret = ft_parse_tube_id(*line, &ref_1, &ref_2, depth + 1);
 			if (!ret)
+			{
+				ft_fprintf(FD, "%s\n", *line);
 				return ;
+			}
 			++TUBE_NB;
 			ft_set_matrix(ref_1, ref_2, 1);
 		}
