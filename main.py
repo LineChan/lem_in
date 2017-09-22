@@ -2,20 +2,29 @@ import sys
 import subprocess
 import pygame
 import parse
+import execute
+import settings as s
 from settings import init as init
 from settings import display as display
 from classes import Room as Room
 from classes import Ant as Ant
 
+
 def main(proc) :
     init()
+
     # -------- Parsing -------
     inputList = []
     inputList = proc.stdout.readlines()
     inputList[:] = [str(line, 'utf-8') for line in inputList]
+    if inputList == ['\x1b[31;1merror\x1b[0m\n'] :
+        print('Error in lem-in resolution')
+        return
     parse.room(inputList)
+    parse.tube(inputList)
 
-    return
+    turnMax = len(inputList)
+    print(turnMax)
     # --------- Loop ---------
     crashed = False
     do = False
@@ -29,13 +38,20 @@ def main(proc) :
             if event.key == pygame.K_ESCAPE :
                 pygame.quit()
                 quit()
+            # -------- Execute a turn -------
             if event.key == pygame.K_SPACE and not do :
-                print('do something !')
-                do = True
+                turn += 1
+                if (turn < turnMax) :
+                    print('do something !')
+                    execute.turn(inputList[turn])
+                    do = True
 
         if event.type == pygame.KEYUP :
             if event.key == pygame.K_SPACE :
                 do = False
+            if turn > turnMax :
+                # move ant move
+                turn = -1 
 
         display()
 

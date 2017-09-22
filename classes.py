@@ -1,28 +1,41 @@
 import pygame
 import settings as s
 
-class Room(pygame.sprite.DirtySprite) :
+class Room(object) :
     def __init__(self, ref, name, x, y) :
         self.ref = ref
         self.name = name
-        self.x = x / 100 * s.screen_width
-        self.y = y / 100 * s.screen_height
+        self.x = float(x / 100) * s.screen_width
+        self.y = float(y / 100) * s.screen_height
         self.img = pygame.image.load("img/room_" + str(ref) + ".png")
         self.rect = self.img.get_rect()
+        self.rect.topleft = [self.x + float(s.offSet[ref][0] / 100) * self.rect.width, self.y + float(s.offSet[ref][1] / 100) * self.rect.height]
         s.roomList.append(self)
 
     def update() :
         [s.screen.blit(room.img, (room.x, room.y)) for room in s.roomList]
 
-class Ant(pygame.sprite.DirtySprite) :
-    def __init__(self, ref, state = True) :
-        self.state = state
+class Ant(object) :
+    def __init__(self, ref) :
+        self.state = True
         self.ref = ref
         self.img = pygame.image.load("img/ant_" + str(ref) + ".png")
         self.rect = self.img.get_rect()
-        self.rect.topleft = [(s.offSet[0][0]/ 100 + 1) * s.roomList[0].x - self.rect[2] * 0.5, (s.offSet[0][1] / 100 + 1) * s.roomList[0].y - self.rect[3]]
+        self.rect.topleft = [s.roomList[0].rect.topleft[0] - self.rect[2] * 0.5, s.roomList[0].rect.topleft[1] - self.rect[3]]
         s.antList.append(self)
 
     def update() :
         #[s.screen.blit(ant.img, ant.rect) for ant in s.antList if ant.state == True]
         [s.screen.blit(ant.img, ant.rect) for ant in s.antList]
+
+class Tube(object) :
+    def __init__(self, room1, room2) :
+        self.room1 = room1
+        self.room2 = room2
+        s.tubeList.append(self)
+
+class Move(object) :
+    def __init__(self, List, ant, room) :
+        self.ant = ant
+        self.room = room
+        List.append(self)

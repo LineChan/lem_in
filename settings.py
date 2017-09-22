@@ -29,8 +29,8 @@ def init() :
     # ------------- Lists -------------
     global offSet
     offSet = [[50,50], [0,0], [0,0], [0,0], [0,0], [0,0]] 
-    global roomList, antList
-    roomList, antList = [], []
+    global roomList, antList, tubeList
+    roomList, antList, tubeList = [], [], []
 
     # ----------- Variables -----------
     global antMax, antNb
@@ -41,5 +41,7 @@ def init() :
 def display() :
     screen.fill(white)
     Room.update()
+    pygame.draw.line(screen, black, [roomList[0].rect.topleft[0], roomList[0].rect.topleft[1]], [roomList[1].rect.topleft[0], roomList[1].rect.topleft[1]])
+
     Ant.update()
     pygame.display.update()
