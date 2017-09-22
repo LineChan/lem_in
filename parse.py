@@ -6,7 +6,6 @@ from classes import Tube as Tube
 
 
 # -------------------- Room parsing ---------------------
-
 def startEndRoom(inputList) :
     index = inputList.index('##start') + 1
     split = inputList[index].split()
@@ -59,7 +58,7 @@ def tube(inputList) :
     inputList[:] = (line for line in inputList if (line[0] == 'L'))
 
 '''
-# -------------------- Tube parsing ---------------------
+# -------------------- Move parsing ---------------------
 def move(inputList) :
     inputList[:] = (line for line in inputList if (line[0] == 'L'))
     currentTurn = 0
