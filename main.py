@@ -21,6 +21,7 @@ def main(proc) :
         print('Error in lem-in resolution')
         return
     parse.room(inputList)
+    return
     parse.tube(inputList)
 
     turnMax = len(inputList)
@@ -42,7 +43,6 @@ def main(proc) :
             if event.key == pygame.K_SPACE and not do :
                 turn += 1
                 if (turn < turnMax) :
-                    print('do something !')
                     execute.turn(inputList[turn])
                     do = True
 

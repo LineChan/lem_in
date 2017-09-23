@@ -7,6 +7,8 @@ from classes import Tube as Tube
 
 # -------------------- Room parsing ---------------------
 def startEndRoom(inputList) :
+    print(inputList)
+    return
     index = inputList.index('##start') + 1
     split = inputList[index].split()
     Room(0, split[0], int(split[1]), int(split[2]))
@@ -35,6 +37,7 @@ def otherRoom(inputList) :
 def room(inputList) :
     inputList[:] = (line[:-1] for line in inputList if (line != '\n'))
     startEndRoom(inputList)
+    return
     s.antNb = int(inputList[0])
     if (s.antNb < 1) or (s.antNb > s.antMax) :
         print('Error : the number of ants has to be between 1 and %d' %(s.antMax))
@@ -50,22 +53,9 @@ def tube(inputList) :
     for i in tubeIndexes :
         roomPair = inputList[tubeIndexes[i]].split('-')
         try :
-            room1 = (next(x for x in s.roomList if (roomPair[0] == x.name)))
-            room2 = (next(x for x in s.roomList if (roomPair[1] == x.name)))
+            room1 = (next(x for x in s.roomList if (roomPair[0] == x.name))).ref
+            room2 = (next(x for x in s.roomList if (roomPair[1] == x.name))).ref
         except StopIteration :
             break
         Tube(room1, room2)
     inputList[:] = (line for line in inputList if (line[0] == 'L'))
-
-'''
-# -------------------- Move parsing ---------------------
-def move(inputList) :
-    inputList[:] = (line for line in inputList if (line[0] == 'L'))
-    currentTurn = 0
-    for line in inputList :
-        turn = line.split()
-        for each in turn :
-            split = each[1:].split('-')
-            Move(currentTurn, next(x for x in s.antList if (int(split[0]) == x.ref)),next(x for x in s.roomList if (split[1] == x.name)))
-        currentTurn += 1
-'''

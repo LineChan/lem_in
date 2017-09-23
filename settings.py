@@ -1,5 +1,6 @@
 from classes import Room as Room
 from classes import Ant as Ant
+from classes import Tube as Tube
 import pygame
 
 def init() :
@@ -28,7 +29,7 @@ def init() :
 
     # ------------- Lists -------------
     global offSet
-    offSet = [[50,50], [0,0], [0,0], [0,0], [0,0], [0,0]] 
+    offSet = [[50,50], [0,0], [0,0], [10,20], [0,0], [0,0]] 
     global roomList, antList, tubeList
     roomList, antList, tubeList = [], [], []
 
@@ -37,11 +38,14 @@ def init() :
     antMax, antNB = 7, 0
     global roomMax
     roomMax = 7
+    global step
+    step = 10
 
 def display() :
     screen.fill(white)
     Room.update()
-    pygame.draw.line(screen, black, [roomList[0].rect.topleft[0], roomList[0].rect.topleft[1]], [roomList[1].rect.topleft[0], roomList[1].rect.topleft[1]])
+    Tube.update()
+    #pygame.draw.line(screen, black, [roomList[0].rect.topleft[0], roomList[0].rect.topleft[1]], [roomList[1].rect.topleft[0], roomList[1].rect.topleft[1]])
 
     Ant.update()
     pygame.display.update()
