@@ -21,11 +21,14 @@ def main(proc) :
         print('Error in lem-in resolution')
         return
     parse.room(inputList)
-    return
+    print('roomList : %s' % (s.roomList))
     parse.tube(inputList)
-
     turnMax = len(inputList)
-    print(turnMax)
+    for each in s.tubeList :
+        room1 = s.roomList[each.room1].rect.topleft
+        room2 = s.roomList[each.room2].rect.topleft
+        print('[%d][%d]\n[%d][%d]\n\n' % (room1[0], room1[1], room2[0], room2[1]))
+
     # --------- Loop ---------
     crashed = False
     do = False

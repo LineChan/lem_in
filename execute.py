@@ -10,8 +10,6 @@ def moveAnt(ant, room) :
     ypos = s.antList[ant].rect.topleft[1]
     xroom = s.roomList[room].rect.topleft[0]
     yroom = s.roomList[room].rect.topleft[1]
-    #print('[xpos,   ypos] = [%d, %d]' %(xpos, ypos))
-    #print('[xroom, yroom] = [%d, %d]' %(xroom, yroom))
     if ([xpos, ypos] == [xroom, yroom]) :
         return (0)
     if (xpos < xroom) :
@@ -42,7 +40,10 @@ def turn(turn) :
     print('move : %s' % move )
     for each in move :
         split = each[1:].split('-')
-        Move(currentTurn, int(split[0]), next(x for x in s.roomList if (split[1] == x.name)).ref)
+        try :
+            Move(currentTurn, int(split[0]), next(x for x in s.roomList if (split[1] == x.name)).ref)
+        except StopIteration :
+            pass
     expectedAnt = []
     for n in range(len(currentTurn)) :
         expectedAnt.append(1)

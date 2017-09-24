@@ -8,7 +8,6 @@ from classes import Tube as Tube
 # -------------------- Room parsing ---------------------
 def startEndRoom(inputList) :
     print(inputList)
-    return
     index = inputList.index('##start') + 1
     split = inputList[index].split()
     Room(0, split[0], int(split[1]), int(split[2]))
@@ -37,7 +36,6 @@ def otherRoom(inputList) :
 def room(inputList) :
     inputList[:] = (line[:-1] for line in inputList if (line != '\n'))
     startEndRoom(inputList)
-    return
     s.antNb = int(inputList[0])
     if (s.antNb < 1) or (s.antNb > s.antMax) :
         print('Error : the number of ants has to be between 1 and %d' %(s.antMax))

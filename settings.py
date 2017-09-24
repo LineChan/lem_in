@@ -29,7 +29,7 @@ def init() :
 
     # ------------- Lists -------------
     global offSet
-    offSet = [[50,50], [0,0], [0,0], [10,20], [0,0], [0,0]] 
+    offSet = [[18,0], [0,0], [0,0], [30,30], [0,0], [0,0]] 
     global roomList, antList, tubeList
     roomList, antList, tubeList = [], [], []
 
@@ -43,8 +43,8 @@ def init() :
 
 def display() :
     screen.fill(white)
-    Room.update()
     Tube.update()
+    Room.update()
     #pygame.draw.line(screen, black, [roomList[0].rect.topleft[0], roomList[0].rect.topleft[1]], [roomList[1].rect.topleft[0], roomList[1].rect.topleft[1]])
 
     Ant.update()
