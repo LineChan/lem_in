@@ -1,4 +1,5 @@
 import settings as s
+import pygame
 from classes import Room as Room
 from classes import Ant as Ant
 from classes import Tube as Tube
@@ -51,9 +52,38 @@ def tube(inputList) :
     for i in tubeIndexes :
         roomPair = inputList[tubeIndexes[i]].split('-')
         try :
-            room1 = (next(x for x in s.roomList if (roomPair[0] == x.name))).ref
-            room2 = (next(x for x in s.roomList if (roomPair[1] == x.name))).ref
+            room1 = (next(x for x in s.roomList if (roomPair[0] == x.name)))
+            room2 = (next(x for x in s.roomList if (roomPair[1] == x.name)))
         except StopIteration :
             break
-        Tube(room1, room2)
+        xpos1 = room1.rect.topleft[0] + s.antList[0].rect.width * 0.5
+        ypos1 = room1.rect.topleft[1] + s.antList[0].rect.height
+        xpos2 = room2.rect.topleft[0] + s.antList[0].rect.width * 0.5
+        ypos2 = room2.rect.topleft[1] + s.antList[0].rect.height
+        if (abs(xpos2 - xpos1) < abs(ypos2 - ypos1)) :
+            xstep = xpos2 - xpos1
+            if (xstep < 0) :
+                if (ypos2 - ypos1) < 0 :
+                    ystep = xstep
+                else :
+                    ystep = -xstep
+            else :
+                if (ypos2 - ypos1) < 0 :
+                    ystep = -xstep
+                else :
+                    ystep = xstep
+        else :
+            ystep = ypos2 - ypos1
+            if (ystep < 0) :
+                if (xpos2 - xpos1) < 0 :
+                    xstep = ystep
+                else :
+                    xstep = -ystep
+            else :
+                if (xpos2 - xpos1) < 0 :
+                    xstep = -ystep
+                else :
+                    xstep = ystep
+
+        Tube(xpos1, ypos1, xpos2, ypos2, xstep, ystep)
     inputList[:] = (line for line in inputList if (line[0] == 'L'))

@@ -28,33 +28,18 @@ class Ant(object) :
         [s.screen.blit(ant.img, ant.rect) for ant in s.antList]
 
 class Tube(object) :
-    def __init__(self, room1, room2) :
-        self.room1 = room1
-        self.room2 = room2
+    def __init__(self, xpos1, ypos1, xpos2, ypos2, xstep, ystep) :
+        self.xpos1 = xpos1
+        self.ypos1 = ypos1
+        self.xpos2 = xpos2
+        self.ypos2 = ypos2
+        self.xstep = xstep
+        self.ystep = ystep
         s.tubeList.append(self)
     def update() :
-        for each in s.tubeList :
-            #print('%s [%d][%d] ----> %s [%d][%d]' % (each.room1, s.roomList[each.room1].rect.topleft[0], s.roomList[each.room1].rect.topleft[1], each.room2, s.roomList[each.room2].rect.topleft[0], s.roomList[each.room2].rect.topleft[1]))
-            xpos1 = s.roomList[each.room1].rect.topleft[0] + 0.5 * s.antList[0].rect.width
-            ypos1 = s.roomList[each.room1].rect.topleft[1] + s.antList[0].rect.height
-            xpos2 = s.roomList[each.room2].rect.topleft[0] + 0.5 * s.antList[0].rect.width
-            ypos2 = s.roomList[each.room2].rect.topleft[1] + s.antList[0].rect.height
-            #step = m
-            pygame.draw.line(s.screen, s.black, (xpos1, ypos1), (xpos2, ypos2))
-            #print("[%d, %d] = [%d, %d]" % (xpos1, ypos1, xpos2, ypos2))
-    '''
-        room1 = s.roomList[0].rect.topleft
-        room2 = s.roomList[3].rect.topleft
-        xdistance = room1[0] - room2[0]
-        ydistance = room1[1] - room2[1]
-        step1 = min(abs(xdistance), abs(ydistance))
-        if (step1 == abs(xdistance)) :
-            step1 = room1[0] - room2[0]
-        else :
-            step1 = room1[1] - room2[1]
-        pygame.draw.line(s.screen, s.black, (room1[0], room1[1]), (room1[0] + step1, room1[1] + step1))
-        pygame.draw.line(s.screen, s.black,  (room1[0] + step1, room1[1] + step1), (room2[0], room2[1]))
-    '''
+        for t in s.tubeList :
+            pygame.draw.line(s.screen, s.black, (t.xpos1, t.ypos1), (t.xpos1 + t.xstep, t.ypos1 + t.ystep))
+            pygame.draw.line(s.screen, s.black, (t.xpos1 + t.xstep, t.ypos1 + t.ystep), (t.xpos2, t.ypos2))
 
 class Move(object) :
     def __init__(self, List, ant, room) :
