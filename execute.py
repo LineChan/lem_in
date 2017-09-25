@@ -2,9 +2,32 @@ import settings as s
 from settings import display as display
 from classes import Move as Move
 
-# topleft[0] : (s.offSet[0][0]/ 100 + 1) * s.roomList[0].x - self.rect[2] * 0.5
+
+# ---- Check if ant moves are done ----
+def check(expectedAnt) :
+    for each in expectedAnt :
+        if each :
+            return (1)
+    return (0)
 
 # ------------- Move Ant ------------- 
+def moveAntHome() :
+    
+    start = 1
+    s.step = 30
+    while start < s.antNb + 1 :
+        for x in range (0, start) :
+            moveAnt(x, 0)
+        display()
+        start += 1
+    s.step = 10
+    start = 0
+    while (start < s.antNb) :
+        for ref in range(start, s.antNb) :
+            if not moveAnt(ref, 0) :
+                start += 1
+        display()
+        
 def moveAnt(ant, room) :
     xpos = s.antList[ant].rect.topleft[0]
     ypos = s.antList[ant].rect.topleft[1]
@@ -27,12 +50,7 @@ def moveAnt(ant, room) :
     s.antList[ant].rect.topleft = [xpos, ypos]
     return (1)
     
-# ------------- Parse turn ------------- 
-def check(expectedAnt) :
-    for each in expectedAnt :
-        if each :
-            return (1)
-    return (0)
+# ------------- Execute Turn ------------- 
 
 def turn(turn) :
     move = turn.split()
