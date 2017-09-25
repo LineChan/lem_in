@@ -17,7 +17,6 @@ class Room(object) :
 
 class Ant(object) :
     def __init__(self, ref) :
-        self.state = True
         self.ref = ref
         self.img = pygame.image.load("img/ant_" + str(ref) + ".png")
         self.rect = self.img.get_rect()
