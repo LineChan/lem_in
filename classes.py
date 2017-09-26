@@ -23,7 +23,6 @@ class Ant(object) :
         self.rect.topleft = [s.roomList[0].rect.topleft[0], s.roomList[0].rect.topleft[1]]
         s.antList.append(self)
     def update() :
-        #[s.screen.blit(ant.img, ant.rect) for ant in s.antList if ant.state == True]
         [s.screen.blit(ant.img, ant.rect) for ant in s.antList]
 
 class Tube(object) :
@@ -37,8 +36,8 @@ class Tube(object) :
         s.tubeList.append(self)
     def update() :
         for t in s.tubeList :
-            pygame.draw.line(s.screen, s.black, (t.xpos1, t.ypos1), (t.xpos1 + t.xstep, t.ypos1 + t.ystep))
-            pygame.draw.line(s.screen, s.black, (t.xpos1 + t.xstep, t.ypos1 + t.ystep), (t.xpos2, t.ypos2))
+            pygame.draw.line(s.screen, s.brownPath, (t.xpos1, t.ypos1), (t.xpos1 + t.xstep, t.ypos1 + t.ystep), 3)
+            pygame.draw.line(s.screen, s.brownPath, (t.xpos1 + t.xstep, t.ypos1 + t.ystep), (t.xpos2, t.ypos2), 3)
 
 class Move(object) :
     def __init__(self, List, ant, room) :

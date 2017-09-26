@@ -5,9 +5,12 @@ import pygame
 
 def init() :
     # ------------ Colors -------------
-    global white, black
+    global white, black, greenGrass, brownPath
     white = (255,255,255)
     black = (0,0,0)
+    greenGrass = (197, 228, 91)
+    brownPath =  (107, 113, 45)
+
     #red = (255,0,0)
     #green = (0,255,0)
     #blue = (0,0,255)
@@ -29,7 +32,7 @@ def init() :
 
     # ------------- Lists -------------
     global offSet
-    offSet = [[18,0], [0,0], [0,0], [30,30], [0,0], [0,0]] 
+    offSet = [[18,0], [40,40], [35,0], [30,30], [30,10], [15,-10], [20,50], [0,0]] 
     global roomList, antList, tubeList
     roomList, antList, tubeList = [], [], []
 
@@ -37,15 +40,13 @@ def init() :
     global antMax, antNb
     antMax, antNB = 7, 0
     global roomMax
-    roomMax = 7
+    roomMax = 8
     global step
     step = 10
 
 def display() :
-    screen.fill(white)
+    screen.fill(greenGrass)
     Tube.update()
     Room.update()
-    #pygame.draw.line(screen, black, [roomList[0].rect.topleft[0], roomList[0].rect.topleft[1]], [roomList[1].rect.topleft[0], roomList[1].rect.topleft[1]])
-
     Ant.update()
     pygame.display.update()
