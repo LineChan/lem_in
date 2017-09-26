@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 00:31:35 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/09 02:52:48 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/26 18:18:53 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
 # define R_Y(it)		(C_ROOM(it)->y)
 # define R_ANT(it)		(C_ROOM(it)->ant)
 # define ANTHILL		(anthill()->room_head)
-# define FD				(anthill()->fd)
 # define ROOM_NB		(anthill()->room_nb)
 # define ANT_NB			(anthill()->ant_nb)
 # define TUBE_NB		(anthill()->tube_nb)
@@ -32,10 +31,12 @@
 # define END_REF		(anthill()->end_ref)
 
 # define C_RESULT(it)	CONTAINEROF(it, t_result, lst)
+# define PATH(it)		(C_RESULT(it)->room_head)
 # define PATH_REF(it)	(C_RESULT(it)->ref)
 # define PATH_LEN(it)	(C_RESULT(it)->len)
 # define SHORTEST_PATH	(shortest_path()->result_head)
 # define SP_NB			(shortest_path()->shortest_path_nb)
+# define FIRST_SP_LEN	(PATH_LEN(SHORTEST_PATH.next))
 
 # define MATRIX			(matrix())
 /*
@@ -69,7 +70,6 @@ typedef struct			s_room
 
 typedef struct			s_anthill
 {
-	int			fd;
 	int			room_nb;
 	int			ant_nb;
 	int			tube_nb;
@@ -116,7 +116,7 @@ void				ft_del_shortest_path(t_lst *path);
 void				ft_del_room(t_lst *src);
 void				ft_exit(const int ret);
 void				ft_clear_unlinked_room(void);
-void				ft_compute_shortest_path_nb(void);
+void				ft_handle_shortest_path_nb(int ac, char **av);
 void				ft_ant_repartition(void);
 void				ft_copy_end_room_to_path(void);
 
@@ -145,4 +145,5 @@ void				ft_print_parsing(const int depth,
 									const char *name,
 									const char *line);
 void				ft_print_output(void);
+void				ft_send_quick_solution(void);
 #endif

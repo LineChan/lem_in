@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 16:16:33 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/22 11:54:05 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/26 16:46:00 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int				ft_parse(void)
 	depth ^= depth;
 	ft_parse_tube_list(&line, depth + 1);
 	while ((line = ft_gnt(0, '\n')))
-			ft_fprintf(FD, "%s\n", line);
+			ft_printf("%s\n", line);
 	ft_clear_unlinked_room();
 	return (0);
 }

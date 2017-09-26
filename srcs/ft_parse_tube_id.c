@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/31 14:08:46 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/22 11:54:23 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/26 18:29:30 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int				ft_parse_tube_id(char *line,
 	*ref_1 = R_REF(node_tmp);
 	line += ++len;
 	len ^= len;
-	while (*(line + len))
+	while (*(line + len - 1))
 		++len;
 	if (!(node_tmp = ft_find_room_with_name(&ANTHILL, line, len)))
 		return (0);
