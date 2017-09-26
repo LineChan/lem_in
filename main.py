@@ -47,6 +47,7 @@ def main(proc) :
         if event.type == pygame.KEYUP :
             if event.key == pygame.K_SPACE :
                 do = False
+            # ------------ Reset -----------
             if turn > turnMax :
                 execute.moveAntHome()
                 turn = -1 

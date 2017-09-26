@@ -11,11 +11,6 @@ def init() :
     greenGrass = (197, 228, 91)
     brownPath =  (107, 113, 45)
 
-    #red = (255,0,0)
-    #green = (0,255,0)
-    #blue = (0,0,255)
-    #darkBlue = (0,0,128)
-
     # ------- Pygame parameters -------
     pygame.init()
     pygame.display.set_caption('lem-in : ESC to quit')
@@ -28,7 +23,6 @@ def init() :
     screen_width, screen_height = 1400, 750
     global screen
     screen = pygame.display.set_mode((screen_width, screen_height))
-    screen.fill(white)
 
     # ------------- Lists -------------
     global offSet
