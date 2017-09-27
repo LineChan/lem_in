@@ -24,7 +24,7 @@ r_6 30 60
 ##end
 r_end 70 70
 
-/* Tube List : room_name1-room_name2
+/* Tube List : room_name1-room_name2 */
 r_start-r_1
 r_start-r_2
 r_start-r_3
@@ -35,6 +35,15 @@ r_2-r_end
 r_3-r_5
 r_5-r_end
 ```
+
+Allowed function : write, read, malloc, free, exit, strerror, perror
+
+### Libraries :books:
+- **libft** : personnal library with functions from libc.h (printf from stdio.h for instance)
+- **liblst** : personnal library with a set of tools to manipulate Linux-like linked lists
+- **pygame** : for bonuses only
+
+#  Method
 
 
 
