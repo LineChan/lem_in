@@ -39,17 +39,13 @@ r_5-r_end
 ```
 
 The output of the program is displayed like this :
-
-You must to display your results on the standard output in the following format:
-number_of_ants
-the_rooms
-the_links
-Lx-y Lz-w Lr-o ...
-x, z, r represents the ants’ numbers (going from 1 to number_of_ants) and y,
-w, o represents the rooms’ names.
-
+- Number of ants
+- Room List
+- Tube List
+- L1-x L2-y L3-z ... 1,2,3 represents the ants' numbers and x,y,z the rooms' names
 
 ```C
+/* each line represents one move */
 L1-r_2
 L1-r_end L2-r_2
 L2-r_end L3-r_2
@@ -59,7 +55,63 @@ L5-r_end L6-r_2
 L6-r_end L7-r_2
 L7-r_end
 ```
-/* Number of ants */
+
+```C
+/* each line represents one move */
+<start>         : <newline> <ant> <room_list> <tube_list>
+| <ant> <room_list> <tube_list>
+
+<ant>           : <number> <new_line>
+
+<new_line>      : '\n' <new_line>
+| '\n'
+
+<number>        : <digit> <number>
+| <digit>
+
+<digit>         : '0' .. '9'
+
+<room_list>     : <room_id> <new_line> <room_list>
+| <room_id> <new_line>
+| '#' <command> <new_line> <room_list>
+| '#' <command> <new_line>
+| '#' <word> <new_line> <room_list>
+| '#' <word> <new_line>
+
+<room_id>       : <room_name> ' ' <number> ' ' <number>
+
+<command>       : '#' <command_start>
+| '#' <command_end>
+| '#' <word> /*---> the ligne is ignored */
+
+<command_start> : "START" <new_line> <room_id> <new_line>
+
+<command_end>   : "END" <new_line> <room_id> <new_line>
+
+<tube_list>     : <tube_id> <new_line> <tube_list>
+| <tube_id> <new_line>
+| '#' <word> <new_line> <tube_list>
+| '#' <word> <new_line>
+
+<room_name>     : <first_letter> <word>
+| <first_letter>
+
+<word>          : <letter> <word>
+| <letter>
+
+<first_letter>  : [A..Z] - L
+| [a..z]
+| <number>
+
+<letter>        : <first_letter>
+| 'L'
+| ' '
+| '#'
+| '_'
+| '.'
+
+<tube_id>          | <room_name> '-' <room_name> <new_line>
+```
 
 **Allowed function** : write, read, malloc, free, exit, strerror, perror
 
