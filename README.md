@@ -38,7 +38,30 @@ r_3-r_5
 r_5-r_end
 ```
 
-Allowed function : write, read, malloc, free, exit, strerror, perror
+The output of the program is displayed like this :
+
+You must to display your results on the standard output in the following format:
+number_of_ants
+the_rooms
+the_links
+Lx-y Lz-w Lr-o ...
+x, z, r represents the ants’ numbers (going from 1 to number_of_ants) and y,
+w, o represents the rooms’ names.
+
+
+```C
+L1-r_2
+L1-r_end L2-r_2
+L2-r_end L3-r_2
+L3-r_end L4-r_2
+L4-r_end L5-r_2
+L5-r_end L6-r_2
+L6-r_end L7-r_2
+L7-r_end
+```
+/* Number of ants */
+
+**Allowed function** : write, read, malloc, free, exit, strerror, perror
 
 ### Libraries :books:
 - **libft** : personnal library with functions from libc.h (printf from stdio.h for instance)
@@ -56,7 +79,7 @@ Allowed function : write, read, malloc, free, exit, strerror, perror
 #  Bonuses
 
 - [ ] Call and caller graphs of the project
-- [x] Chose of the number of shortest path that can be found
+- [x] Chose of the number of shortest paths that can be found
 - [x] Interactive visualization
 
 [work in progress] : a short presentation of the visual
@@ -80,5 +103,11 @@ Allowed function : write, read, malloc, free, exit, strerror, perror
 
 # Help :heavy_exclamation_mark:
 	> ./lem-in [--shortest_path nb] < ant_farm_map.txt 
+
+**shortest_path nb** : by default the program finds all possible shortest path. The proccess can be a bit slow for a hight number of rooms and tubes so it is possible to restrain the solutions with this option
+
 	> python3 main.c ant_farm_map.txt
 
+**visualisation** :
+#  Result
+Peer evaluation not done yet.
