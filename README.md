@@ -57,58 +57,43 @@ L7-r_end
 ```
 
 ```C
-/* each line represents one move */
-<start>         : <newline> <ant> <room_list> <tube_list>
-| <ant> <room_list> <tube_list>
+<start>         : [<newline>] <ant> <room_list> <tube_list>
 
 <ant>           : <number> <new_line>
 
-<new_line>      : '\n' <new_line>
-| '\n'
+<new_line>      : '\n' [<new_line>]
 
-<number>        : <digit> <number>
-| <digit>
+<number>        : <digit> [<number>]
 
-<digit>         : '0' .. '9'
+<digit>         : [0-9]
 
-<room_list>     : <room_id> <new_line> <room_list>
-| <room_id> <new_line>
-| '#' <command> <new_line> <room_list>
-| '#' <command> <new_line>
-| '#' <word> <new_line> <room_list>
-| '#' <word> <new_line>
+<room_list>     : <room_id> <new_line> [<room_list>]
+                | '#' <command> <new_line> [<room_list>]
+                | '#' <word> <new_line> [<room_list>]
 
 <room_id>       : <room_name> ' ' <number> ' ' <number>
 
 <command>       : '#' <command_start>
-| '#' <command_end>
-| '#' <word> /*---> the ligne is ignored */
+                | '#' <command_end>
+                | '#' <word> /*---> the ligne is ignored */
 
-<command_start> : "START" <new_line> <room_id> <new_line>
+<command_start> : "start" <new_line> <room_id> <new_line>
 
-<command_end>   : "END" <new_line> <room_id> <new_line>
+<command_end>   : "end" <new_line> <room_id> <new_line>
 
-<tube_list>     : <tube_id> <new_line> <tube_list>
-| <tube_id> <new_line>
-| '#' <word> <new_line> <tube_list>
-| '#' <word> <new_line>
+<tube_list>     : <tube_id> <new_line> [<tube_list>]
+                | '#' <word> <new_line> [<tube_list>]
 
-<room_name>     : <first_letter> <word>
-| <first_letter>
+<room_name>     : <first_letter> [<word>]
 
-<word>          : <letter> <word>
-| <letter>
+<word>          : <letter> [<word>]
 
-<first_letter>  : [A..Z] - L
-| [a..z]
-| <number>
+<first_letter>  : [A-Z] - L
+                | [a-z]
+                | <number>
 
 <letter>        : <first_letter>
-| 'L'
-| ' '
-| '#'
-| '_'
-| '.'
+                | ['L',' ','#', '-', '.']
 
 <tube_id>          | <room_name> '-' <room_name> <new_line>
 ```
