@@ -72,10 +72,10 @@ Allowed function : write, read, malloc, free, exit, strerror, perror
 	- [*Iterative deepening and IDA* *](http://www.cs.ubc.ca/~mack/CS322/lectures/2-Search6.pdf)
 
 Geek for geeks website :
-	- Iterative Deepening Search http://www.geeksforgeeks.org/iterative-deepening-searchids-iterative-deepening-depth-first-searchiddfs/
+	- [*Iterative Deepening Search*](http://www.geeksforgeeks.org/iterative-deepening-searchids-iterative-deepening-depth-first-searchiddfs/)
 
-Path finding algorithm visualisation : https://qiao.github.io/PathFinding.js/visual/
+[*Path finding algorithm visualisation*](https://qiao.github.io/PathFinding.js/visual/)
 
-Lex and Yacc : http://www.linux-france.org/article/devl/lexyacc/minimanlexyacc.html#toc2
+[*Lex and Yacc*](http://www.linux-france.org/article/devl/lexyacc/minimanlexyacc.html#toc2)
 
 
