@@ -45,7 +45,7 @@ The output of the program is displayed like this :
 - L1-x L2-y L3-z ... 1,2,3 represents the ants' numbers and x,y,z the rooms' names
 
 ```C
-/* each line represents one move */
+/* each line represents a move */
 L1-r_2
 L1-r_end L2-r_2
 L2-r_end L3-r_2
