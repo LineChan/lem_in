@@ -71,11 +71,14 @@ Allowed function : write, read, malloc, free, exit, strerror, perror
 - University of British Colombia pdf : 
 	- [*Iterative deepening and IDA* *](http://www.cs.ubc.ca/~mack/CS322/lectures/2-Search6.pdf)
 
-Geek for geeks website :
+- Geek for geeks website :
 	- [*Iterative Deepening Search*](http://www.geeksforgeeks.org/iterative-deepening-searchids-iterative-deepening-depth-first-searchiddfs/)
 
 [*Path finding algorithm visualisation*](https://qiao.github.io/PathFinding.js/visual/)
 
 [*Lex and Yacc*](http://www.linux-france.org/article/devl/lexyacc/minimanlexyacc.html#toc2)
 
+# Help :heavy_exclamation_mark:
+	> ./lem-in [--shortest_path nb] < ant_farm_map.txt 
+	> python3 main.c ant_farm_map.txt
 
