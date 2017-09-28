@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/27 20:16:19 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/08 13:20:01 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/28 12:34:33 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ int				ft_parse_command(char **line , int depth, int *flag)
 		if (COMMAND_START)
 			ft_exit(9);
 		*flag |= FLAG_START;
-		ft_parse_new_line(line);
+		if (IS_NEG(ft_parse_new_line(line)))
+			ft_exit(16);
 		ft_parse_start_end(*line, depth + 1);
 		START_REF = R_REF(ANTHILL.prev);
 		return (1);

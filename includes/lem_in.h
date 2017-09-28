@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 00:31:35 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/26 18:18:53 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/28 12:54:44 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,7 @@ void				ft_del_room(t_lst *src);
 void				ft_exit(const int ret);
 void				ft_clear_unlinked_room(void);
 void				ft_handle_shortest_path_nb(int ac, char **av);
+void				ft_handle_option(int ac, char **av, int option[2]);
 void				ft_ant_repartition(void);
 void				ft_copy_end_room_to_path(void);
 

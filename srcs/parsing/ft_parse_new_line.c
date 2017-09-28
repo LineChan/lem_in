@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 23:12:08 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/26 16:28:19 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/28 13:25:42 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 */
 int				ft_parse_new_line(char **line)
 {
+	//ft_printf("parse_new_line\n");
 	if (line && *line)
 		ft_printf("%s\n", *line);
 	*line = ft_gnt(0,'\n');
