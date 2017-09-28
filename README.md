@@ -13,7 +13,6 @@ Here is an example of an input :
 ```C
 /* Number of ants */
 7
-
 /* Room List : room_name x_position y_position */
 ##start
 r_start 00 00
@@ -25,16 +24,15 @@ r_5 70 20
 r_6 30 60
 ##end
 r_end 70 70
-
 /* Tube List : room_name1-room_name2 */
 r_start-r_1
 r_start-r_2
 r_start-r_3
 r_1-r_6
 r_4-r_6
+r_3-r_5
 r_4-r_end
 r_2-r_end
-r_3-r_5
 r_5-r_end
 ```
 
@@ -46,22 +44,31 @@ The output of the program is displayed like this :
 
 ```C
 /* each line represents a move */
-L1-r_2
-L1-r_end L2-r_2
-L2-r_end L3-r_2
-L3-r_end L4-r_2
-L4-r_end L5-r_2
-L5-r_end L6-r_2
-L6-r_end L7-r_2
+L1-r_2 L2-r_3 L3-r_1
+L1-r_end L4-r_2 L2-r_5 L5-r_3 L3-r_6
+L4-r_end L6-r_2 L2-r_end L5-r_5 L3-r_4
+L6-r_end L7-r_2 L5-r_end L3-r_end
 L7-r_end
 ```
 
+**Allowed function** : write, read, malloc, free, exit, strerror, perror
+
+### Libraries :books:
+- **libft** : personnal library with functions from libc.h (printf from stdio.h for instance)
+- **liblst** : personnal library with a set of tools to manipulate Linux-like linked lists
+- **pygame** : for bonuses only
+
+#  Method
+
+## Parsing
+
+For the parsing I made a **grammatical analysis** of the input format and build my function according to it.
+Note : Any unknown command is ignored (lines starting with ##) and 
+
 ```C
-<start>         : [<newline>] <ant> <room_list> <tube_list>
+<start>         : <ant> <room_list> <tube_list>
 
-<ant>           : <number> <new_line>
-
-<new_line>      : '\n' [<new_line>]
+<ant>           : <number>
 
 <number>        : <digit> [<number>]
 
@@ -75,14 +82,14 @@ L7-r_end
 
 <command>       : '#' <command_start>
                 | '#' <command_end>
-                | '#' <word> /*---> the ligne is ignored */
+                | '#' <word>
 
-<command_start> : "start" <new_line> <room_id> <new_line>
+<command_start> : "start" '\n' + <room_id>
 
-<command_end>   : "end" <new_line> <room_id> <new_line>
+<command_end>   : "end" '\n' +  <room_id>
 
-<tube_list>     : <tube_id> <new_line> [<tube_list>]
-                | '#' <word> <new_line> [<tube_list>]
+<tube_list>     : <tube_id> [<tube_list>]
+                | '#' <word> [<tube_list>]
 
 <room_name>     : <first_letter> [<word>]
 
@@ -98,17 +105,6 @@ L7-r_end
 <tube_id>          | <room_name> '-' <room_name> <new_line>
 ```
 
-**Allowed function** : write, read, malloc, free, exit, strerror, perror
-
-### Libraries :books:
-- **libft** : personnal library with functions from libc.h (printf from stdio.h for instance)
-- **liblst** : personnal library with a set of tools to manipulate Linux-like linked lists
-- **pygame** : for bonuses only
-
-#  Method
-
-## Parsing
-
 ## Path finding algorithm
 
 ## Computing moves
@@ -116,8 +112,9 @@ L7-r_end
 #  Bonuses
 
 - [ ] Call and caller graphs of the project
+- [x] Parsing details
 - [x] Chose of the number of shortest paths that can be found
-- [x] Interactive visualization
+- [x] Interactive anthill visualization
 
 [work in progress] : a short presentation of the visual
 
@@ -139,12 +136,14 @@ L7-r_end
 [*Lex and Yacc*](http://www.linux-france.org/article/devl/lexyacc/minimanlexyacc.html#toc2)
 
 # Help :heavy_exclamation_mark:
-	> ./lem-in [--shortest_path nb] < ant_farm_map.txt 
+	> ./lem-in [--parsing] [--shortest_path=nb] < ant_farm_map.txt 
 
+**parsing** : shows the grammatical analysis of the parsing
 **shortest_path nb** : by default the program finds all possible shortest path. The proccess can be a bit slow for a hight number of rooms and tubes so it is possible to restrain the solutions with this option
 
 	> python3 main.c ant_farm_map.txt
 
-**visualisation** :
+**visualisation** : (work in progress)
+
 #  Result
 Peer evaluation not done yet.
