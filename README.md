@@ -102,11 +102,36 @@ Note : Any unknown command is ignored (lines starting with ##) and any non compl
 <letter>        : <first_letter>
                 | ['L',' ','#', '-', '.']
 
-<tube_id>          | <room_name> '-' <room_name> <new_line>
+<tube_id>       : <room_name> '-' <room_name> <new_line>
 ```
 
 ## Path finding algorithm
 
+To find solutions I decided to implement an Iterative Deepening Depth-First Search (IDDSF). I chose that algorithm because it combines Breadth-First Search's ([BSF](http://www.geeksforgeeks.org/breadth-first-traversal-for-a-graph/)) fast search (for nodes closer to root) and Depth-Dirst Search's ([DSF](http://www.geeksforgeeks.org/depth-first-traversal-for-a-graph/)) space-efficiency.
+
+IDDSF calls DFS for different depths starting from an initial value. In every call, DFS is restricted from going beyond given depth. Because it is a DSF executed in a BFS fashion, the algorithm is easy to adapt to find **multiples shortest paths** by taking different initial values.
+
+```C
+int                                ft_iddsf(void)
+{
+	int                limit;
+
+	limit = 0;
+	while (SP_NB > 0)
+	{
+		while (limit < TUBE_NB)
+		{
+			if (ft_dls(START_REF, limit))
+				break ;
+			++limit;
+		}
+		--SP_NB;
+	}
+	if (ft_lst_is_head(&SHORTEST_PATH))
+		return (0);
+	return (1);
+}
+```
 ## Computing moves
 
 #  Bonuses
