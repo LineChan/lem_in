@@ -5,7 +5,7 @@ School Project : Algorithm (2)
 * [Method](#method)
 * [Help](#help)
 
-#   Subject 
+#   Subject   :pushpin:
 
 Lem_in is a path finding game. The goal is to find the quickest way to get all ants from an anthill from the entrance to the exit. At the **beginning of the game**, all the ants are in the room ##start. At **each turn**, an ant can only move once through a tube. Be careful, the receiving room must be empy because it can only contain one ant at a time (except for the ##end room). The game is done when all the ants are in the exit room.
 
