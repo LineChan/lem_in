@@ -40,7 +40,7 @@ The output of the program is displayed like this :
 - L1-x L2-y L3-z ... 1,2,3 represents the ants' numbers and x,y,z the rooms' names
 
 ```C
-L1-r_2 L2-r_3 L3-r_1                      /* each line represents a move */
+L1-r_2 L2-r_3 L3-r_1                         /* each line represents a move */
 L1-r_end L4-r_2 L2-r_5 L5-r_3 L3-r_6
 L4-r_end L6-r_2 L2-r_end L5-r_5 L3-r_4
 L6-r_end L7-r_2 L5-r_end L3-r_end
@@ -80,9 +80,9 @@ Note : Any unknown command is ignored (lines starting with ##) and any non compl
                 | '#' <command_end>
                 | '#' <word>
 
-<command_start> : "start" '\n' + <room_id>
+<command_start> : "start" '\n' <room_id>
 
-<command_end>   : "end" '\n' +  <room_id>
+<command_end>   : "end" '\n' <room_id>
 
 <tube_list>     : <tube_id> [<tube_list>]
                 | '#' <word> [<tube_list>]
@@ -101,11 +101,17 @@ Note : Any unknown command is ignored (lines starting with ##) and any non compl
 <tube_id>       : <room_name> '-' <room_name> <new_line>
 ```
 
+NB : you can visualize the parsing process with the **--parsing** option
+
 ## Path finding algorithm
 
-To find solutions I decided to implement an Iterative Deepening Depth-First Search (IDDSF). I chose that algorithm because it combines Breadth-First Search's ([BSF](http://www.geeksforgeeks.org/breadth-first-traversal-for-a-graph/)) fast search (for nodes closer to root) and Depth-Dirst Search's ([DSF](http://www.geeksforgeeks.org/depth-first-traversal-for-a-graph/)) space-efficiency.
+To find solutions I decided to implement an **Iterative Deepening Depth-First Search** (IDDSF). I chose that algorithm because it combines Breadth-First Search's ([BSF](http://www.geeksforgeeks.org/breadth-first-traversal-for-a-graph/)) fast search (for nodes closer to root) and Depth-Dirst Search's ([DSF](http://www.geeksforgeeks.org/depth-first-traversal-for-a-graph/)) space-efficiency.
 
 IDDSF calls DFS for different depths starting from an initial value. In every call, DFS is restricted from going beyond given depth. Because it is a DSF executed in a BFS fashion, the algorithm is easy to adapt to find **multiples shortest paths** by taking different initial values.
+
+In our case, the **maximum depth** is the number of tube (TUBE_NB). Indeed, if there is a solution, the longest path possible goes through all the rooms on the map. Before starting the IDDFS, the maximal number of shortest paths (SP_NB) is also defined. We simply look the number of rooms linked to the ##start and ##end rooms and take the lower number.
+Example : the ##start rooms has 2 tubes and the ##end room has 3 tubes--> SP_NB = 2
+In the best case, both paths are shortest paths from ##start to the **3 adjacent rooms** of ##end.
 
 ```C
 int                                ft_iddsf(void)
@@ -113,8 +119,10 @@ int                                ft_iddsf(void)
 	int                limit;
 
 	limit = 0;
+	/* Loop until all the shortest path aren't found */
 	while (SP_NB > 0)
 	{
+		/* Repeadted Depth-Limit Search until the maximum depth */
 		while (limit < TUBE_NB)
 		{
 			if (ft_dls(START_REF, limit))
