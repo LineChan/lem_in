@@ -11,10 +11,8 @@ Lem_in is a path finding game. The goal is to find the quickest way to get all a
 
 Here is an example of an input :
 ```C
-/* Number of ants */
-7
-/* Room List : room_name x_position y_position */
-##start
+7						/* Number of ants */
+##start					/* Room List : room_name x_position y_position */
 r_start 00 00
 r_1 10 60
 r_2 40 30
@@ -24,8 +22,7 @@ r_5 70 20
 r_6 30 60
 ##end
 r_end 70 70
-/* Tube List : room_name1-room_name2 */
-r_start-r_1
+r_start-r_1				/* Tube List : room_name1-room_name2 */
 r_start-r_2
 r_start-r_3
 r_1-r_6
