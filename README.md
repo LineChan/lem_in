@@ -110,9 +110,7 @@ To find solutions I decided to implement an **Iterative Deepening Depth-First Se
 IDDSF calls DFS for different depths starting from an initial value. In every call, DFS is restricted from going beyond given depth. Because it is a DSF executed in a BFS fashion, the algorithm is easy to adapt to find **multiples shortest paths** by taking different initial values.
 
 In our case, the **maximum depth** is the number of tube (TUBE_NB). Indeed, if there is a solution, the longest path possible goes through all rooms on the map. Before starting the IDDFS, the maximal number of shortest paths (SP_NB) is also defined. We simply look the number of rooms linked to the ##start and ##end rooms and take the lower number.
-
 Example : the ##start rooms has 2 tubes and the ##end room has 3 tubes--> SP_NB = 2
-
 In the best case, both paths are shortest paths from ##start to the **3 adjacent rooms** of ##end.
 
 ```C
