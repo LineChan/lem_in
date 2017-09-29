@@ -12,7 +12,7 @@ Lem_in is a path finding game. The goal is to find the quickest way to get all a
 Here is an example of an input :
 ```C
 7                    /* Number of ants */
-##start              /* Room List : room_name x_position y_position */
+##start              /* Rooms' List : room_name x_position y_position */
 r_start 00 00
 r_1 10 60
 r_2 40 30
@@ -22,7 +22,7 @@ r_5 70 20
 r_6 30 60
 ##end
 r_end 70 70
-r_start-r_1          /* Tube List : room_name1-room_name2 */
+r_start-r_1          /* Tubes' List : room_name1-room_name2 */
 r_start-r_2
 r_start-r_3
 r_1-r_6
@@ -40,8 +40,7 @@ The output of the program is displayed like this :
 - L1-x L2-y L3-z ... 1,2,3 represents the ants' numbers and x,y,z the rooms' names
 
 ```C
-/* each line represents a move */
-L1-r_2 L2-r_3 L3-r_1
+L1-r_2 L2-r_3 L3-r_1                      /* each line represents a move */
 L1-r_end L4-r_2 L2-r_5 L5-r_3 L3-r_6
 L4-r_end L6-r_2 L2-r_end L5-r_5 L3-r_4
 L6-r_end L7-r_2 L5-r_end L3-r_end
