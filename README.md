@@ -105,23 +105,32 @@ NB : you can visualize the parsing process with the **--parsing** option
 
 ## Path finding algorithm
 
-The anthill with its rooms and tubes can be analyzed as a graph :
+The anthill with its rooms and tubes can be analyzed as a graph that is:
 - **unweighted** : all the edges have the same weight (it costs one turn each time an ant moves)
--- **undirected** : there is no directed edges (an ant go through a tube in both directions)
--- **cyclic** : there are circles in the graph (multiple ways to go to the same room)
+- **undirected** : there is no directed edges (an ant go through a tube in both directions)
+- **cyclic** : there are circles in the graph (possibility to go twice in the same room withe same ant)
 
-To find solutions I decided to implement an **Iterative Deepening Depth-First Search** (IDDSF). I chose that algorithm because it combines Breadth-First Search's ([BSF](http://www.geeksforgeeks.org/breadth-first-traversal-for-a-graph/)) fast search (for vertices closer to root) and Depth-Dirst Search's ([DSF](http://www.geeksforgeeks.org/depth-first-traversal-for-a-graph/)) space-efficiency.
+To find solutions I decided to implement an **Iterative Deepening Depth-First Search** (IDDFS). I chose that algorithm because it combines Breadth-First Search's ([BSF](http://www.geeksforgeeks.org/breadth-first-traversal-for-a-graph/)) fast search (for vertices closer to root) and Depth-Dirst Search's ([DSF](http://www.geeksforgeeks.org/depth-first-traversal-for-a-graph/)) space-efficiency.
 
-IDDSF calls DFS for different depths starting from an initial value. In every call, DFS is restricted from going beyond given depth. Because it is a DSF executed in a BFS fashion, the algorithm is easy to adapt to find **multiples shortest paths** by taking different initial values.
+The IDDSF calls DFS for different depths starting from an initial value. In every call, DFS is restricted from going beyond given depth. Because it is a DSF executed in a BFS fashion, the algorithm is easy to adapt to find **multiples shortest paths** by giving different initial values.
 
-### IDDSF
-In our case, the **maximum depth** is the number of tube (TUBE_NB). Indeed, if there is a solution, the longest path possible goes through all rooms on the map. Before starting the IDDFS, the maximal number of shortest paths (SP_NB) is also defined. We simply look the number of rooms linked to the ##start and ##end rooms and take the lower number.
+------ image
+
+Top level nodes are visited **multiples times**. The last (or max depth) level is visited once, second last level is visited twice, and so on. It may seem expensive, but it turns out to be not so costly, since in a tree most of the nodes are in the bottom level. So it does not matter much if the upper levels are visited multiple times.
+
+Because the IDDFS works only on **acyclic** graphs, I used an [adjacency matrix](https://en.wikipedia.org/wiki/Adjacency_matrix) I adapted so a vertex can't be visited multiple times (see :arrow_down: DLS). The matrix can take 3 values :
+- 1 : if the pairs of vertices are adjacent (there is a tube between two rooms)
+- 0 : if not
+- -1 : if the vertex has already been visited
+
+### IDDFS
+In our case, the **maximum depth** is the number of rooms (ROOM_NB). Indeed, if there is a solution, the longest path possible goes through all rooms once. Before starting the IDDFS, the **maximal number of shortest paths** (SP_NB) is also defined. We simply look the number of rooms linked to the ##start and ##end rooms and take the lower number.
 
 Example : the ##start rooms has 2 tubes and the ##end room has 3 tubes--> SP_NB = 2
 In the best case, both paths are shortest paths from ##start to **2 out of 3 adjacent rooms** of ##end.
 
 ```C
-int              ft_iddsf(void)
+int              ft_iddfs(void)
 {
 	int          limit;
 
@@ -131,7 +140,7 @@ int              ft_iddsf(void)
 	while (SP_NB > 0)
 	{
 		/* Repeadted Depth-Limit Search until the maximum depth */
-		while (limit < TUBE_NB)
+		while (limit < ROOM_NB)
 		{
 			if (ft_dls(START_REF, limit))
 				break ;
@@ -146,7 +155,79 @@ int              ft_iddsf(void)
 ```
 
 ### DLS
-Depth-Limit Search is a recursive function looking for a solution in the graph from a given source. It stops when the depth limit is reached.
+Depth-Limit Search is a recursive function that starts from a given source and stops when the ##end room is found or the depth limit is reached (no solution). 
+At each source vertex given the adjacency matrix is 
+
+
+```C
+static int       ft_dls(const int src_ref, const int limit)
+{
+	int          i;
+
+	/* Result found */
+	if (src_ref == END_REF)
+		return (1);
+
+	/* Limit depth reached*/
+	if (limit <= 0)
+	{
+		ft_reset_matrix();
+		return (0);
+	}
+	i = 0;
+
+	/* Set the node as visited */
+	while (i < ROOM_NB)
+	{
+		if (!(MATRIX[i][src_ref] ^ 1))
+			MATRIX[i][src_ref] = -1;
+		++i;
+	}
+
+	/* Start DLS from adjacent nodes */
+	if (ft_explore_adjacent(src_ref, limit))
+		return (1);
+	return  (0);
+}
+```
+
+### Exploring adjacent nodes
+
+```C
+static int         ft_explore_adjacent(const int ref, const int limit)
+{
+	int            i;
+	int            j;
+
+	i = 0;
+	while (i < ROOM_NB)
+	{
+		/* If it is an adjancent and on the shortest path */
+		if ((MATRIX[ref][i] == 1) && (ft_dls(i, limit - 1)))
+		{
+			if (i != END_REF)
+			{
+				/* If it isn't the ##end room, move the room from the anthill
+				to the shortest path list */
+				ft_lst_moveto_next(ft_find_room_with_ref(&ANTHILL, i), &PATH(SHORTEST_PATH.prev));
+				j = 0;
+				while (j < ROOM_NB)
+					ft_set_matrix(i, j++, 0);
+			}
+			else
+			{
+				/* Create a shortest path list and copy the ##end room at the end of it */
+				ft_add_shortest_path();
+				ft_copy_end_room_to_path();
+			}
+			++PATH_LEN(SHORTEST_PATH.prev);
+			return (1);
+		}
+		++i;
+	}
+	return (0);
+}
+```
 
 ## Computing moves
 
