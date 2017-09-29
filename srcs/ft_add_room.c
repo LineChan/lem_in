@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 16:45:05 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/05 15:00:11 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/29 11:49:30 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@
 */
 void			ft_add_room(const char *name,
 							const size_t size,
-							const int x,
-							const int y)
+							int coordinate[])
 {
 	static int	ref = 0;
 	t_room		*new;
@@ -30,7 +29,7 @@ void			ft_add_room(const char *name,
 	new->name = ft_strndup(name, size);
 	new->name_size = size;
 	new->ref = ref++;
-	new->x = x;
-	new->y = y;
+	new->x = coordinate[0];
+	new->y = coordinate[1];
 	ft_lst_add_prev(&new->lst, &ANTHILL);
 }

@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 12:12:05 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/08 15:32:42 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/28 23:38:47 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 */
 static const 		t_error g_error[] =
 {
-#if 0
+#if 1
 	{"Parsing error : ant entry"},
 	{"Parsing error : first letter room name"},
 	{"Parsing error : spacing"},

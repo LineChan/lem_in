@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/05 18:13:54 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/22 13:14:00 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/29 11:10:56 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ static void			ft_print_room_output(t_lst *head)
 	while (it != head)
 	{
 		if (R_ANT(it))
-			ft_printf("L%d-%s ", R_ANT(it), R_NAME(it));
-			ft_fprintf(FD, "L%d-%s ", R_ANT(it), R_NAME(it));
+			ft_fprintf(1, "L%d-%s ", R_ANT(it), R_NAME(it));
 		it = it->prev;
 	}
 }
@@ -35,7 +34,6 @@ void				ft_print_output(void)
 
 	it = SHORTEST_PATH.next;
 	write(1, "\n", 1);
-	write(FD, "\n", 1);
 	while (it != &SHORTEST_PATH)
 	{
 		ft_print_room_output(&C_RESULT(it)->room_head);

@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 00:31:35 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/09 02:52:48 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/29 11:49:12 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,8 +109,10 @@ void				ft_del_singl_shortest_path(void);
 void				ft_del_everything(void);
 void				ft_add_room(const char *name,
 								const size_t size,
-								const int x,
-								const int y);
+								int coordinate[]);
+
+void				ft_handle_option(int ac, char **av, int option[]);
+
 void				ft_add_shortest_path(void);
 void				ft_del_shortest_path(t_lst *path);
 void				ft_del_room(t_lst *src);
@@ -120,19 +122,19 @@ void				ft_compute_shortest_path_nb(void);
 void				ft_ant_repartition(void);
 void				ft_copy_end_room_to_path(void);
 
-int					ft_parse(void);
-void				ft_parse_ant(char **line, int depth);
-int					ft_parse_room_list(char **line, int depth);
-void				ft_parse_tube_list(char **line, int depth);
-int					ft_parse_room_id(char *line, int *x, int *y, int depth);
-void				ft_parse_duplicate_name_and_coordinate(const char *line, const int ret, const int x, const int y);
-int					ft_parse_tube_id(char *line, int *ref_1, int *ref_2, int depth);
-int					ft_parse_room_name(char *line, int depth);
-void				ft_parse_first_letter(char *line, int depth);
-int					ft_parse_letter(char *line, int depth);
+void				ft_parse(char **line, int option[]);
+void				ft_parse_ant(char **line, int depth, int option[]);
+int					ft_parse_room_list(char **line, int depth, int option[]);
+void				ft_parse_tube_list(char **line, int depth, int option[]);
+int					ft_parse_room_id(char *line, int coordinate[], int depth, int option[]);
+void				ft_parse_duplicate_name_and_coordinate(const char *line, const int ret, int coordinate[]);
+int					ft_parse_tube_id(char *line, int *ref_1, int *ref_2, int depth, int option[]);
+int					ft_parse_room_name(char *line, int depth, int option[]);
+void				ft_parse_first_letter(char *line, int depth, int option[]);
+int					ft_parse_letter(char *line, int depth, int option[]);
 int					ft_parse_new_line(char **line);
-int					ft_parse_nb(char **cursor, int depth);
-int					ft_parse_command(char **line, int depth, int *flag);
+int					ft_parse_nb(char **cursor, int depth, int option[]);
+int					ft_parse_command(char **line, int depth, int *flag, int option[]);
 t_lst				*ft_find_room_with_name(t_lst *node, const char *room_name, const int len);
 t_lst				*ft_find_room_with_ref(t_lst *node, const int len);
 
@@ -141,7 +143,7 @@ int					ft_iddsf(void);
 void				ft_print_matrix(void);
 void				ft_print_room_list(t_lst *head);
 void				ft_print_shortest_path_list(void);
-void				ft_print_parsing(const int depth,
+void				ft_print_parsing(int depth,
 									const char *name,
 									const char *line);
 void				ft_print_output(void);

@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 14:40:10 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/22 12:32:32 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/09/29 01:14:56 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 **
 ** 1st parameter : line to be checked
 */
-void			ft_parse_tube_list(char **line, int depth)
+void			ft_parse_tube_list(char **line, int depth, int option[])
 {
 	int		ret;
 	int		ref_1;
 	int		ref_2;
 
-	ft_print_parsing(depth, "tube_list", "");
+	option[0] ? ft_print_parsing(depth, "tube_list", "") : 0;
 	ret = 1;
 	if (!*line)
 		ft_exit(8);
@@ -37,7 +37,7 @@ void			ft_parse_tube_list(char **line, int depth)
 		}
 		if (!ret)
 		{
-			ret = ft_parse_tube_id(*line, &ref_1, &ref_2, depth + 1);
+			ret = ft_parse_tube_id(*line, &ref_1, &ref_2, depth + 1, option);
 			if (!ret)
 			{
 				ft_fprintf(FD, "%s\n", *line);
