@@ -238,7 +238,7 @@ Now that we have SP_NB shortest path, ants need to be sent on these paths. To mi
 - **Other paths** : an ant is sent if only it is less cost-effective to take the current path than the shortest one.
 
 ```C
-if ((PATH_LEN(current_path) <= ((ANT_NB - current_ant) * PATH_LEN(BEST_SHORTEST_PATH))
+if (PATH_LEN(current_path) <= ((ANT_NB - current_ant) * PATH_LEN(BEST_SHORTEST_PATH)))
 	ft_sent_ant(&PATH(current_path), &current_ant);
 ```
 
