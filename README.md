@@ -7,7 +7,7 @@ School Project : Algorithm (2)
 
 #   Subject   :pushpin:
 
-Lem_in is a path finding game. The goal is to find the quickest way to get all ants from an anthill from the entrance to the exit. At the **beginning of the game**, all the ants are in the room ##start. At **each turn**, an ant can only move once through a tube. Be careful, the receiving room must be empy because it can only contain one ant at a time (except for the ##end room). The game is done when all the ants are in the exit room.
+Lem_in is a path finding game. The goal is to find the quickest way to get all ants from an anthill from the entrance to the exit. At the **beginning of the game**, all the ants are in the room ##start. At **each turn**, an ant can only move once through a tube. Be careful, the receiving room must be empy because it can only contain one ant at a time (except for the ##end room). The game is done when all the ants are at the exit.
 
 Here is an example of an input :
 ```C
@@ -114,7 +114,7 @@ To find solutions I decided to implement an **Iterative Deepening Depth-First Se
 
 The IDDSF calls DFS for different depths starting from an initial value. In every call, DFS is restricted from going beyond given depth. Because it is a DSF executed in a BFS fashion, the algorithm is easy to adapt to find **multiples shortest paths** by giving different initial values.
 
------- image
+[graph](/img/readme.img.png)
 
 Top level nodes are visited **multiples times**. The last (or max depth) level is visited once, second last level is visited twice, and so on. It may seem expensive, but it turns out to be not so costly, since in a tree most of the nodes are in the bottom level. So it does not matter much if the upper levels are visited multiple times.
 
@@ -211,6 +211,7 @@ static int         ft_explore_adjacent(const int ref, const int limit)
 				to the shortest path list */
 				ft_lst_moveto_next(ft_find_room_with_ref(&ANTHILL, i), &PATH(SHORTEST_PATH.prev));
 				j = 0;
+				/* Removing the room from matrix by setting the value to 0 */
 				while (j < ROOM_NB)
 					ft_set_matrix(i, j++, 0);
 			}
