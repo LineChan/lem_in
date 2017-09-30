@@ -249,7 +249,7 @@ if (PATH_LEN(current_path) <= ((ANT_NB - current_ant) * PATH_LEN(BEST_SHORTEST_P
 - [x] Chose of the number of shortest paths that can be found
 - [x] Interactive anthill visualization
 
-[work in progress] : a short presentation of the visual
+![visual](/img/readme_visual.png)
 
 #  Sources :bookmark_tabs:
 
