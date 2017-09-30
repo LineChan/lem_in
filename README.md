@@ -114,7 +114,7 @@ To find solutions I decided to implement an **Iterative Deepening Depth-First Se
 
 The IDDSF calls DFS for different depths starting from an initial value. In every call, DFS is restricted from going beyond given depth. Because it is a DSF executed in a BFS fashion, the algorithm is easy to adapt to find **multiples shortest paths** by giving different initial values.
 
-[graph](/img/readme.img.png)
+[graph](/img/readme_img.png)
 
 Top level nodes are visited **multiples times**. The last (or max depth) level is visited once, second last level is visited twice, and so on. It may seem expensive, but it turns out to be not so costly, since in a tree most of the nodes are in the bottom level. So it does not matter much if the upper levels are visited multiple times.
 
