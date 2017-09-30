@@ -110,7 +110,7 @@ The anthill with its rooms and tubes can be analyzed as a graph that is:
 - **undirected** : there is no directed edges (an ant go through a tube in both directions)
 - **cyclic** : there are circles in the graph (possibility to go twice in the same room withe same ant)
 
-To find solutions I decided to implement an **Iterative Deepening Depth-First Search** (IDDFS). I chose that algorithm because it combines Breadth-First Search's ([BSF](http://www.geeksforgeeks.org/breadth-first-traversal-for-a-graph/)) fast search (for vertices closer to root) and Depth-Dirst Search's ([DSF](http://www.geeksforgeeks.org/depth-first-traversal-for-a-graph/)) space-efficiency.
+To find solutions I decided to implement an **Iterative Deepening Depth-First Search** (IDDFS). I chose that algorithm because it combines Breadth-First Search's ([BSF](http://www.geeksforgeeks.org/breadth-first-traversal-for-a-graph/)) fast search (for vertices closer to root) and Depth-Dirst Search's ([DSF](http://www.geeksforgeeks.org/depth-first-traversal-for-a-graph/)) space-efficiency. Also, the IDDSF guarentees that each path found is **the shortest one** available.
 
 The IDDSF calls DFS for different depths starting from an initial value. In every call, DFS is restricted from going beyond given depth. Because it is a DSF executed in a BFS fashion, the algorithm is easy to adapt to find **multiples shortest paths** by giving different initial values.
 
@@ -126,8 +126,7 @@ Because the IDDFS works only on **acyclic** graphs, I used an [adjacency matrix]
 ### IDDFS
 In our case, the **maximum depth** is the number of rooms (ROOM_NB). Indeed, if there is a solution, the longest path possible goes through all rooms once. Before starting the IDDFS, the **maximal number of shortest paths** (SP_NB) is also defined. We simply look the number of rooms linked to the ##start and ##end rooms and take the lower number.
 
-Example : the ##start rooms has 2 tubes and the ##end room has 3 tubes--> SP_NB = 2
-In the best case, both paths are shortest paths from ##start to **2 out of 3 adjacent rooms** of ##end.
+Example : the ##start rooms has 2 tubes and the ##end room has 3 tubes--> SP_NB = 2 . In the best case, both paths are shortest paths from ##start to **2 out of 3 adjacent rooms** of ##end.
 
 ```C
 int              ft_iddfs(void)
@@ -218,6 +217,8 @@ static int         ft_explore_adjacent(const int ref, const int limit)
 			else
 			{
 				/* Create a shortest path list and copy the ##end room at the end of it */
+				/* NB : Because the IDDFS always finds the shortest path,
+				solutions are sorted from the shortest to the longest) */
 				ft_add_shortest_path();
 				ft_copy_end_room_to_path();
 			}
@@ -231,6 +232,15 @@ static int         ft_explore_adjacent(const int ref, const int limit)
 ```
 
 ## Computing moves
+
+Now that we have SP_NB shortest path, ants need to be sent on these paths. To minimize the number of moves, paths are taken according to these rules :
+- **1st shortest path** (best solution) : an ant is sent at each turn
+- **Other paths** : an ant is sent if only it is less cost-effective to take the current path than the shortest one.
+
+```C
+if ((PATH_LEN(current_path) <= ((ANT_NB - current_ant) * PATH_LEN(BEST_SHORTEST_PATH))
+	ft_sent_ant(&PATH(current_path), &current_ant);
+```
 
 #  Bonuses
 
@@ -254,9 +264,10 @@ static int         ft_explore_adjacent(const int ref, const int limit)
 - Geek for geeks website :
 	- [*Iterative Deepening Search*](http://www.geeksforgeeks.org/iterative-deepening-searchids-iterative-deepening-depth-first-searchiddfs/)
 
-[*Path finding algorithm visualisation*](https://qiao.github.io/PathFinding.js/visual/)
+- Others :
+	- [*Path finding algorithm visualisation*](https://qiao.github.io/PathFinding.js/visual/)
 
-[*Lex and Yacc*](http://www.linux-france.org/article/devl/lexyacc/minimanlexyacc.html#toc2)
+	- [*Lex and Yacc*](http://www.linux-france.org/article/devl/lexyacc/minimanlexyacc.html#toc2)
 
 # Help :heavy_exclamation_mark:
 	> ./lem-in [--parsing] [--shortest_path=nb] < ant_farm_map.txt 
