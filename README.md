@@ -62,7 +62,6 @@ For the parsing I made a **grammatical analysis** of the input format and build 
 Note : Any unknown command is ignored (lines starting with ##) and any non compliant or empty lines will automatically stop the parsing. The programm process only the already acquired data.
 
 ```C
-// <new_line> to add
 <start>         : <ant> <new_line> <room_list> <new_line> <tube_list>
 
 <ant>           : <number>
