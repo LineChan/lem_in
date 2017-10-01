@@ -62,7 +62,8 @@ For the parsing I made a **grammatical analysis** of the input format and build 
 Note : Any unknown command is ignored (lines starting with ##) and any non compliant or empty lines will automatically stop the parsing. The programm process only the already acquired data.
 
 ```C
-<start>         : <ant> <room_list> <tube_list>
+// <new_line> to add
+<start>         : <ant> <new_line> <room_list> <new_line> <tube_list>
 
 <ant>           : <number>
 
@@ -80,9 +81,9 @@ Note : Any unknown command is ignored (lines starting with ##) and any non compl
                 | '#' <command_end>
                 | '#' <word>
 
-<command_start> : "start" '\n' <room_id>
+<command_start> : "start" <new_line> <room_id>
 
-<command_end>   : "end" '\n' <room_id>
+<command_end>   : "end" <new_line> <room_id>
 
 <tube_list>     : <tube_id> [<tube_list>]
                 | '#' <word> [<tube_list>]
@@ -99,6 +100,8 @@ Note : Any unknown command is ignored (lines starting with ##) and any non compl
                 | ['L',' ','#', '-', '.']
 
 <tube_id>       : <room_name> '-' <room_name> <new_line>
+
+<new_line>      : '\n'
 ```
 
 NB : you can visualize the parsing process with the **--parsing** option
