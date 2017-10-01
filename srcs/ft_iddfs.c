@@ -6,15 +6,16 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/01 22:58:44 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/29 18:56:52 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/01 21:47:59 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
 /*
-** Find all the shortest paths
+** Iterative Deepening Depth-First Search
 */
+
 static int				ft_explore_adjacent(const int ref, const int limit);
 static int				ft_dls(const int src_ref, const int limit);
 

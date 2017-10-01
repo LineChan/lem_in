@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 16:45:05 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/29 11:49:30 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/01 20:45:32 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ void			ft_add_room(const char *name,
 	t_room		*new;
 
 	if (!(new = ft_memalloc(sizeof(t_room))))
-		ft_exit(11);
+	{
+		ft_del_everything();
+		EXIT_FAIL("ERROR");
+	}
 	INIT_LST_HEAD(new->lst);
 	++ROOM_NB;
 	new->name = ft_strndup(name, size);

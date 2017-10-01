@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 17:15:32 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/29 00:34:08 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/01 22:35:14 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 
 int				ft_parse_nb(char **cursor, int depth, int option[])
 {
-	unsigned int		nb;
 	int					sign;
+	unsigned int		nb;
 
 	nb = 0;
 	sign = 1;
@@ -33,14 +33,17 @@ int				ft_parse_nb(char **cursor, int depth, int option[])
 	if ((**cursor == '-') || (**cursor == '+'))
 		++*cursor;
 	if (**cursor == ' ')
-		ft_exit(7);
+	{
+		ft_del_everything();
+		EXIT_FAIL("ERROR");
+	}
 	while (ft_isdigit(**cursor))
 		nb = (nb << 3) + (nb << 1) + *(*cursor)++ - 48;
-	if (!ft_isspace(**cursor))
-	{
-		if (**cursor != 0 ||
-				((nb > 2147483647) || ((nb > 2147483648) && (sign == -1))))
-			ft_exit(7);
-	}
+	if ((!ft_isspace(**cursor)) && (**cursor != 0 ||
+				((nb > 2147483647) || ((nb > 2147483648) && IS_NEG(sign)))))
+		{
+			ft_del_everything();
+			EXIT_FAIL("ERROR");
+		}
 	return (nb * sign);
 }

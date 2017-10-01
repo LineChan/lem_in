@@ -6,14 +6,13 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 00:31:35 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/29 11:49:12 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/01 21:44:36 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LEM_IN_H
 # define LEM_IN_H
 
-# include "../libs/libft/includes/libft.h"
 # include "../libs/liblst/includes/liblst.h"
 
 # define C_ROOM(it)		CONTAINEROF(it, t_room, lst)
@@ -23,6 +22,15 @@
 # define R_X(it)		(C_ROOM(it)->x)
 # define R_Y(it)		(C_ROOM(it)->y)
 # define R_ANT(it)		(C_ROOM(it)->ant)
+
+# define C_RESULT(it)	CONTAINEROF(it, t_result, lst)
+# define PATH(it)		(C_RESULT(it)->room_head)
+# define PATH_REF(it)	(C_RESULT(it)->ref)
+# define PATH_LEN(it)	(C_RESULT(it)->len)
+
+# define SHORTEST_PATH	(shortest_path()->result_head)
+# define SP_NB			(shortest_path()->shortest_path_nb)
+
 # define ANTHILL		(anthill()->room_head)
 # define FD				(anthill()->fd)
 # define ROOM_NB		(anthill()->room_nb)
@@ -30,17 +38,12 @@
 # define TUBE_NB		(anthill()->tube_nb)
 # define START_REF		(anthill()->start_ref)
 # define END_REF		(anthill()->end_ref)
-
-# define C_RESULT(it)	CONTAINEROF(it, t_result, lst)
-# define PATH_REF(it)	(C_RESULT(it)->ref)
-# define PATH_LEN(it)	(C_RESULT(it)->len)
-# define SHORTEST_PATH	(shortest_path()->result_head)
-# define SP_NB			(shortest_path()->shortest_path_nb)
-
 # define MATRIX			(matrix())
+
 /*
 ** Flags
 */
+
 # define FLAG_START		0x1
 # define FLAG_END		0x10
 # define COMMAND_START	(*flag & FLAG_START)
@@ -138,9 +141,8 @@ int					ft_parse_command(char **line, int depth, int *flag, int option[]);
 t_lst				*ft_find_room_with_name(t_lst *node, const char *room_name, const int len);
 t_lst				*ft_find_room_with_ref(t_lst *node, const int len);
 
-int					ft_iddsf(void);
+int					ft_iddfs(void);
 
-void				ft_print_matrix(void);
 void				ft_print_room_list(t_lst *head);
 void				ft_print_shortest_path_list(void);
 void				ft_print_parsing(int depth,

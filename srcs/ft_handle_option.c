@@ -6,11 +6,19 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/28 22:42:36 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/28 23:55:53 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/01 21:47:49 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
+
+/*
+** Handle options 
+**
+** 1st parameter : number of arguments
+** 2nd parameter : list of arguments
+** 3rd parameter : option
+*/
 
 void		ft_handle_option(int ac, char **av, int option[])
 {

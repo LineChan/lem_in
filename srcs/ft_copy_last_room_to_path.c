@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/05 13:58:31 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/05 14:29:38 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/01 21:21:15 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,11 @@ void				ft_copy_end_room_to_path(void)
 	t_room		*new;
 
 	if (!(new = ft_memalloc(sizeof(t_room))))
-		ft_exit(11);
+	{
+		ft_del_everything();
+		EXIT_FAIL("ERROR");
+	}
 	new->name = ft_strndup(R_NAME(ANTHILL.prev), R_SIZE(ANTHILL.prev));
 	ft_memcpy(new, C_ROOM(ANTHILL.prev), R_SIZE(ANTHILL.prev));
-	ft_lst_add_prev(&new->lst, &C_RESULT(SHORTEST_PATH.prev)->room_head);
+	ft_lst_add_prev(&new->lst, &PATH(SHORTEST_PATH.prev));
 }

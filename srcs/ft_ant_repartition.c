@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 16:20:16 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/29 10:31:35 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/01 21:06:31 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,16 +60,13 @@ void			ft_ant_repartition()
 		it = SHORTEST_PATH.next;
 		while (it != &SHORTEST_PATH)
 		{
-			ft_move_ant(&C_RESULT(it)->room_head, &finish);
+			ft_move_ant(&PATH(it), &finish);
 			if (current_ant <= ANT_NB)
 			{
-				if (current_ant != ANT_NB)
-				{
-					if ((PATH_LEN(it) <= ((ANT_NB - current_ant) * PATH_LEN(SHORTEST_PATH.next))) || (PATH_REF(it) == 0))
-						ft_send_ant(&C_RESULT(it)->room_head, &current_ant);
-				}
+				if ((current_ant != ANT_NB) && ((PATH_LEN(it) <= ((ANT_NB - current_ant) * PATH_LEN(SHORTEST_PATH.next))) || (PATH_REF(it) == 0)))
+						ft_send_ant(&PATH(it), &current_ant);
 				else if ((PATH_LEN(it) <= PATH_LEN(SHORTEST_PATH.next)) || (PATH_REF(it) == 0))
-					ft_send_ant(&C_RESULT(it)->room_head, &current_ant);
+					ft_send_ant(&PATH(it), &current_ant);
 			}
 			it = it->next;
 		}
