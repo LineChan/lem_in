@@ -6,19 +6,23 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/31 14:08:46 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/29 01:17:03 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/01 23:57:52 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
+
 /*
 ** Check is the line is a tube id
 **
-** 1st parameter : line to be checked
+** 1st parameter : input line
+** 2nd parameter : rooms' references
+** 3rd parameter : parsing depth
+** 4th parameter : option
 */
+
 int				ft_parse_tube_id(char *line,
-								int *ref_1,
-								int *ref_2,
+								int ref[],
 								int depth,
 								int option[])
 {
@@ -31,13 +35,13 @@ int				ft_parse_tube_id(char *line,
 		++len;
 	if (!(node_tmp = ft_find_room_with_name(&ANTHILL, line, len)))
 		return (0);
-	*ref_1 = R_REF(node_tmp);
+	ref[0] = R_REF(node_tmp);
 	line += ++len;
 	len ^= len;
 	while (*(line + len))
 		++len;
 	if (!(node_tmp = ft_find_room_with_name(&ANTHILL, line, len)))
 		return (0);
-	*ref_2 = R_REF(node_tmp);
+	ref[1] = R_REF(node_tmp);
 	return (1);
 }

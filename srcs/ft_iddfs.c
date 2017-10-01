@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/01 22:58:44 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/10/01 21:47:59 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/02 01:16:56 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,6 @@ int				ft_iddfs(void)
 	}
 	if (ft_lst_is_head(&SHORTEST_PATH))
 		return (0);
+	ft_lst_foreach(&ANTHILL, &ft_del_room);
 	return (1);
 }

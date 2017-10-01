@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 23:12:08 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/28 23:50:14 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/01 22:42:43 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*
 ** Check if the line is a new line
 **
-** 1st paremter : line to be check
+** 1st paremter : input line
 */
 int				ft_parse_new_line(char **line)
 {
