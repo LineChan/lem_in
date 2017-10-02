@@ -126,7 +126,7 @@ Because the IDDFS works only on **acyclic** graphs, I used an [adjacency matrix]
 - -1 : if the vertex has already been visited
 
 ### IDDFS
-In our case, the **maximum depth** is the number of rooms (ROOM_NB). Indeed, if there is a solution, the longest path possible goes through all rooms once. Before starting the IDDFS, the **maximal number of shortest paths** (SP_NB) is also defined. We simply look the number of rooms linked to the ##start and ##end rooms and take the lower number.
+In our case, the **maximum depth** is the number of rooms (ROOM_NB). Indeed, if there is a solution, the longest path possible goes through all rooms once. Before starting the IDDFS, the **maximal number of shortest paths** (SP_NB) is also defined. We simply look the number of rooms linked to the ##start and ##end rooms and take the lower one.
 
 Example : the ##start rooms has 2 tubes and the ##end room has 3 tubes--> SP_NB = 2 . In the best case, both paths are shortest paths from ##start to **2 out of 3 adjacent rooms** of ##end.
 
@@ -157,7 +157,6 @@ int              ft_iddfs(void)
 
 ### DLS
 Depth-Limit Search is a recursive function that starts from a given source and stops when the ##end room is found or the depth limit is reached (no solution). 
-At each source vertex given the adjacency matrix is 
 
 
 ```C
@@ -251,7 +250,6 @@ if (PATH_LEN(current_path) <= ((ANT_NB - current_ant) * PATH_LEN(BEST_SHORTEST_P
 - [x] Chose of the number of shortest paths that can be found
 - [x] Interactive anthill visualization
 
-![visual](/img/readme_visual.png)
 
 #  Sources :bookmark_tabs:
 
@@ -272,14 +270,23 @@ if (PATH_LEN(current_path) <= ((ANT_NB - current_ant) * PATH_LEN(BEST_SHORTEST_P
 	- [*Lex and Yacc*](http://www.linux-france.org/article/devl/lexyacc/minimanlexyacc.html#toc2)
 
 # Help :heavy_exclamation_mark:
+
+**Importing libraries in submodules** 
+
+	> git submodule update --init --recursive /* Import submodules */
+	> cd libs && git checkout master && git pull && cd .. /* Pull libraries */
+
 	> ./lem-in [--parsing] [--shortest_path=nb] < ant_farm_map.txt 
 
 **parsing** : shows the grammatical analysis of the parsing
+
 **shortest_path nb** : by default the program finds all possible shortest path. The proccess can be a bit slow for a hight number of rooms and tubes so it is possible to restrain the solutions with this option
+
 
 	> python3 main.c ant_farm_map.txt
 
 **visualisation** : (work in progress)
+![visual](/img/readme_visual.png)
 
 #  Result
 Peer evaluation not done yet.
