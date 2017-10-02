@@ -245,7 +245,7 @@ if (PATH_LEN(current_path) <= ((ANT_NB - current_ant) * PATH_LEN(BEST_SHORTEST_P
 
 #  Bonuses
 
-- [ ] Call and caller graphs of the project
+- [x] Program's Documentation
 - [x] Parsing details
 - [x] Chose of the number of shortest paths that can be found
 - [x] Interactive anthill visualization
@@ -276,17 +276,26 @@ if (PATH_LEN(current_path) <= ((ANT_NB - current_ant) * PATH_LEN(BEST_SHORTEST_P
 	> git submodule update --init --recursive /* Import submodules */
 	> cd libs && git checkout master && git pull && cd .. /* Pull libraries */
 
-	> ./lem-in [--parsing] [--shortest_path=nb] < ant_farm_map.txt 
+** Documentation **
+
+	> brew install doxygen /* Install Doxygen */
+	> doxygen Doxyfile /* Run settings file */
+	> open docs/html/main_8c.html
 
 **parsing** : shows the grammatical analysis of the parsing
 
 **shortest_path nb** : by default the program finds all possible shortest path. The proccess can be a bit slow for a hight number of rooms and tubes so it is possible to restrain the solutions with this option
 
+	> ./lem-in [--parsing] [--shortest_path=nb] < ant_farm_map.txt 
+
+
+**visualization** :
 
 	> python3 main.c ant_farm_map.txt
 
-**visualisation** : (work in progress)
 ![visual](/img/readme_visual.png)
+
+This visuali
 
 #  Result
 Peer evaluation not done yet.
