@@ -299,7 +299,7 @@ You need to install Pygame :
 
 ![visual](/img/readme_visual.png)
 
-This visualization was made in Python with Pygame.
+This visualization was made in Python with Pygame. Install [here](https://gist.github.com/connorshea/f539c91f210e72077ca9)
 Parameters :
 
 - Between 1 and 7 ants
