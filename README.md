@@ -291,6 +291,8 @@ if (PATH_LEN(current_path) <= ((ANT_NB - current_ant) * PATH_LEN(BEST_SHORTEST_P
 
 
 **Visualization**
+You need to install Pygame :
+	> ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 	> python3 main.c ant_farm_map.txt
 
