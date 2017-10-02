@@ -276,6 +276,7 @@ if (PATH_LEN(current_path) <= ((ANT_NB - current_ant) * PATH_LEN(BEST_SHORTEST_P
 	> git submodule update --init --recursive /* Import submodules */
 	> cd libs && git checkout master && git pull && cd .. /* Pull libraries */
 
+
 ** Documentation **
 
 	> brew install doxygen /* Install Doxygen */
@@ -289,7 +290,7 @@ if (PATH_LEN(current_path) <= ((ANT_NB - current_ant) * PATH_LEN(BEST_SHORTEST_P
 	> ./lem-in [--parsing] [--shortest_path=nb] < ant_farm_map.txt 
 
 
-**visualization** :
+**Visualization**
 
 	> python3 main.c ant_farm_map.txt
 
