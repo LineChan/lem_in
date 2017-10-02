@@ -296,6 +296,7 @@ if (PATH_LEN(current_path) <= ((ANT_NB - current_ant) * PATH_LEN(BEST_SHORTEST_P
 
 ![visual](/img/readme_visual.png)
 
+This visualization was made in Python with Pygame.
 Parameters :
 
 - Between 1 and 7 ants
