@@ -55,7 +55,6 @@ def moveAnt(ant, room) :
 def turn(turn) :
     move = turn.split()
     currentTurn = []
-    print('move : %s' % move )
     for each in move :
         split = each[1:].split('-')
         try :

@@ -8,7 +8,6 @@ from classes import Tube as Tube
 
 # -------------------- Room parsing ---------------------
 def startEndRoom(inputList) :
-    print(inputList)
     index = inputList.index('##start') + 1
     split = inputList[index].split()
     Room(0, split[0], int(split[1]), int(split[2]))

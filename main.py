@@ -47,6 +47,7 @@ def main(proc) :
         if event.type == pygame.KEYUP :
             if event.key == pygame.K_SPACE :
                 do = False
+            # -------- Reset the game -------
             if turn > turnMax :
                 execute.moveAntHome()
                 turn = -1 
@@ -57,8 +58,7 @@ def main(proc) :
     quit()
 
 
-
 if __name__ == "__main__" :
-    #subprocess.run(["make re"], shell = True, check = True)
+    subprocess.run(["make re"], shell = True, check = True)
     proc = subprocess.Popen(["./lem-in <" + sys.argv[1] + " 2> /dev/null"], shell = True, stdin = subprocess.PIPE, stdout = subprocess.PIPE, stderr = subprocess.PIPE)
     main(proc)
