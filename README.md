@@ -296,7 +296,13 @@ if (PATH_LEN(current_path) <= ((ANT_NB - current_ant) * PATH_LEN(BEST_SHORTEST_P
 
 ![visual](/img/readme_visual.png)
 
-This visuali
+Parameters :
+
+- Between 1 and 7 ants
+- Between 2 and 8 rooms
+- Rooms coordinates are percentages of the dimension of the screen
+- ESC to quit
+- SPACE to execute the next turn
 
 #  Result
 Peer evaluation not done yet.
