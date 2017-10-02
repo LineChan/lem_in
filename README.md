@@ -276,7 +276,6 @@ if (PATH_LEN(current_path) <= ((ANT_NB - current_ant) * PATH_LEN(BEST_SHORTEST_P
 	> git submodule update --init --recursive /* Import submodules */
 	> cd libs && git checkout master && git pull && cd .. /* Pull libraries */
 
-
 ** Documentation **
 
 	> brew install doxygen /* Install Doxygen */
