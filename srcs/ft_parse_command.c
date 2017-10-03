@@ -6,16 +6,16 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/27 20:16:19 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/10/01 22:18:31 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/03 16:31:00 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
 /*
-** Check if the line 
+** Check if there is a command
 **
-** 1st parameter : line to be checked
+** 1st parameter : input line
 ** 2nd parameter : parsing depth
 ** 3rd parameter : ##start ##end rooms flag
 ** 4th parameter : option

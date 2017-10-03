@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/31 16:52:21 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/10/01 21:20:08 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/03 18:04:29 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void			ft_clear_unlinked_room(void)
 		while (j < ROOM_NB)
 		{
 			if ((MATRIX[i][j] == 1) || (MATRIX[j][i] == 1))
-				break;
+				break ;
 			++j;
 			if (!(j ^ ROOM_NB))
 				ft_remove_room(&i);

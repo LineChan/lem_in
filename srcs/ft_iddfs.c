@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/01 22:58:44 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/10/02 01:16:56 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/03 17:45:19 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,7 @@
 ** Iterative Deepening Depth-First Search
 */
 
-static int				ft_explore_adjacent(const int ref, const int limit);
-static int				ft_dls(const int src_ref, const int limit);
-
-static int				ft_explore_adjacent(const int ref, const int limit)
+int				ft_explore_adjacent(const int ref, const int limit)
 {
 	int		i;
 	int		j;
@@ -38,10 +35,7 @@ static int				ft_explore_adjacent(const int ref, const int limit)
 					ft_set_matrix(i, j++, 0);
 			}
 			else
-			{
-				ft_add_shortest_path();
-				ft_copy_end_room_to_path();
-			}
+				ft_create_new_path();
 			++PATH_LEN(SHORTEST_PATH.prev);
 			return (1);
 		}
@@ -50,7 +44,7 @@ static int				ft_explore_adjacent(const int ref, const int limit)
 	return (0);
 }
 
-static int				ft_dls(const int src_ref, const int limit)
+int				ft_dls(const int src_ref, const int limit)
 {
 	int		i;
 
@@ -70,7 +64,7 @@ static int				ft_dls(const int src_ref, const int limit)
 	}
 	if (ft_explore_adjacent(src_ref, limit))
 		return (1);
-	return  (0);
+	return (0);
 }
 
 int				ft_iddfs(void)

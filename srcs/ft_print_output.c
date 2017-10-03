@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/05 18:13:54 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/29 11:10:56 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/03 16:30:02 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 /*
 ** Print well formated output
 */
+
 static void			ft_print_room_output(t_lst *head)
 {
 	t_lst		*it;

@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 20:50:22 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/10/01 22:44:16 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/03 16:47:11 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 ** 3rd parameter : parsing depth
 ** 4th parameter : option
 */
+
 int					ft_parse_room_id(char *line,
 										int coordinate[],
 										int depth,
@@ -32,13 +33,13 @@ int					ft_parse_room_id(char *line,
 	line += ++len;
 	if (*line == '-')
 		return (-1);
-	if ((*line++ != ' ') || (*line == ' ')) 
+	if ((*line++ != ' ') || (*line == ' '))
 	{
 		ft_del_everything();
 		EXIT_FAIL("ERROR");
 	}
 	coordinate[0] = ft_parse_nb(&line, depth + 1, option);
-	if (*line++ != ' ' || (*line == ' ')) 
+	if (*line++ != ' ' || (*line == ' '))
 	{
 		ft_del_everything();
 		EXIT_FAIL("ERROR");

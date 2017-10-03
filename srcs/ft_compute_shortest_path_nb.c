@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 13:55:44 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/13 17:03:50 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/03 18:05:22 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 /*
 ** Compute the maximum number of shortest paths
 */
+
 void			ft_compute_shortest_path_nb(void)
 {
 	int		count;
@@ -24,8 +25,8 @@ void			ft_compute_shortest_path_nb(void)
 	count = 0;
 	while (i < ROOM_NB)
 	{
-			if (MATRIX[START_REF][i])
-				++SP_NB;
+		if (MATRIX[START_REF][i])
+			++SP_NB;
 		++i;
 	}
 	i ^= i;

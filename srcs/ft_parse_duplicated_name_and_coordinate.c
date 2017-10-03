@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 16:35:12 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/10/01 22:25:10 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/03 17:23:32 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 ** 2nd parameter : name's size
 ** 3rd parameter : coordinate
 */
+
 void			ft_parse_duplicate_name_and_coordinate(const char *line,
 														const int size,
 														int coordinate[])

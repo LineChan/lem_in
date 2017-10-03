@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 00:31:35 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/10/02 02:00:11 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/03 18:22:19 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,71 +76,100 @@ typedef struct			s_anthill
 
 typedef struct			s_shortest_path
 {
-	int		shortest_path_nb;
-	t_lst	result_head;
+	int			shortest_path_nb;
+	t_lst		result_head;
 }						t_shortest_path;
 
 typedef struct			s_result
 {
-	int		ref;
-	int		len;
-	t_lst	lst;
-	t_lst	room_head;
+	int			ref;
+	int			len;
+	t_lst		lst;
+	t_lst		room_head;
 }						t_result;
 
 /*
 ** Prototypes
 */
 
-t_anthill			*anthill(void);
-void				ft_del_singl_anthill(void);
+t_anthill				*anthill(void);
+void					ft_del_singl_anthill(void);
 
-t_shortest_path		*shortest_path(void);
-void				ft_add_shortest_path(void);
-void				ft_del_shortest_path(t_lst *path);
+t_shortest_path			*shortest_path(void);
+void					ft_add_shortest_path(void);
+void					ft_del_shortest_path(t_lst *path);
+void					ft_create_new_path(void);
+void					ft_create_new_path(void);
 
-int					**matrix(void);
-void				ft_set_matrix(const int ref_1,
-									const int ref_2,
-									const int value);
-void				ft_del_matrix(void);
-void				ft_reset_matrix(void);
+int						**matrix(void);
+void					ft_set_matrix(const int ref_1,
+										const int ref_2,
+										const int value);
+void					ft_del_matrix(void);
+void					ft_reset_matrix(void);
 
-void				ft_del_singl_shortest_path(void);
-void				ft_del_everything(void);
+void					ft_del_singl_shortest_path(void);
+void					ft_del_everything(void);
 
-void				ft_add_room(const char *name,
-								const size_t size,
-								int coordinate[]);
-void				ft_del_room(t_lst *src);
+void					ft_add_room(const char *name,
+										const size_t size,
+										int coordinate[]);
+void					ft_del_room(t_lst *src);
 
-void				ft_parse(int ac, char **av, char **line, int option[]);
-void				ft_parse_ant(char **line, int depth, int option[]);
-int					ft_parse_room_list(char **line, int depth, int option[]);
-void				ft_parse_tube_list(char **line, int depth, int option[]);
-int					ft_parse_room_id(char *line, int coordinate[], int depth, int option[]);
-void				ft_parse_duplicate_name_and_coordinate(const char *line, const int ret, int coordinate[]);
-int					ft_parse_tube_id(char *line, int ref[], int depth, int option[]);
-int					ft_parse_room_name(char *line, int depth, int option[]);
-void				ft_parse_first_letter(char *line, int depth, int option[]);
-int					ft_parse_letter(char *line, int depth, int option[]);
-int					ft_parse_new_line(char **line);
-int					ft_parse_nb(char **cursor, int depth, int option[]);
-int					ft_parse_command(char **line, int depth, int *flag, int option[]);
+void					ft_parse(int ac, char **av, char **line, int option[]);
+void					ft_parse_ant(char **line, int depth, int option[]);
+int						ft_parse_room_list(char **line,
+										int depth,
+										int option[]);
+void					ft_parse_tube_list(char **line,
+										int depth,
+										int option[]);
+int						ft_parse_room_id(char *line,
+										int coordinate[],
+										int depth,
+										int option[]);
+void					ft_parse_duplicate_name_and_coordinate(
+										const char *line,
+										const int ret,
+										int coordinate[]);
+int						ft_parse_tube_id(char *line,
+										int ref[],
+										int depth,
+										int option[]);
+int						ft_parse_room_name(char *line,
+										int depth,
+										int option[]);
+void					ft_parse_first_letter(char *line,
+										int depth,
+										int option[]);
+int						ft_parse_letter(char *line, int depth, int option[]);
+int						ft_parse_new_line(char **line);
+int						ft_parse_nb(char **cursor, int depth, int option[]);
+int						ft_parse_command(char **line,
+										int depth,
+										int *flag,
+										int option[]);
 
-t_lst				*ft_find_room_with_name(t_lst *node, const char *room_name, const int len);
-t_lst				*ft_find_room_with_ref(t_lst *node, const int len);
+t_lst					*ft_find_room_with_name(t_lst *node,
+										const char *room_name,
+										const int len);
+t_lst					*ft_find_room_with_ref(t_lst *node, const int len);
 
-void				ft_compute_shortest_path_nb(void);
-void				ft_handle_option(int ac, char **av, int option[]);
-void				ft_clear_unlinked_room(void);
-int					ft_iddfs(void);
-void				ft_copy_end_room_to_path(void);
-void				ft_quick_solution(char **line);
-void				ft_ant_repartition(void);
+void					ft_compute_shortest_path_nb(void);
+void					ft_handle_option(int ac, char **av, int option[]);
+void					ft_clear_unlinked_room(void);
+void					ft_copy_end_room_to_path(void);
+void					ft_quick_solution(char **line);
+void					ft_ant_repartition(void);
 
-void				ft_print_shortest_path_list(void);
-void				ft_print_parsing(int depth, const char *name, const char *line);
-void				ft_print_output(void);
+int						ft_iddfs(void);
+int						ft_explore_adjacent(const int ref, const int limit);
+int						ft_dls(const int src_ref, const int limit);
+
+void					ft_print_shortest_path_list(void);
+void					ft_print_parsing(int depth,
+										const char *name,
+										const char *line);
+void					ft_print_output(void);
 
 #endif

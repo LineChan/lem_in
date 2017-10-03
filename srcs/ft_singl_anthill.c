@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/31 15:32:30 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/08/31 15:34:43 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/03 15:53:07 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 /*
 ** All anthill related functions
-**
 */
+
 t_anthill				*anthill(void)
 {
 	static t_anthill		*ptr = 0;
@@ -33,4 +33,3 @@ void					ft_del_singl_anthill(void)
 	ft_lst_foreach(&(ptr->room_head), &ft_del_room);
 	ft_memdel((void **)&ptr);
 }
-

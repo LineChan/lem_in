@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 17:15:32 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/10/01 22:35:14 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/03 16:37:28 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ int				ft_parse_nb(char **cursor, int depth, int option[])
 		nb = (nb << 3) + (nb << 1) + *(*cursor)++ - 48;
 	if ((!ft_isspace(**cursor)) && (**cursor != 0 ||
 				((nb > 2147483647) || ((nb > 2147483648) && IS_NEG(sign)))))
-		{
-			ft_del_everything();
-			EXIT_FAIL("ERROR");
-		}
+	{
+		ft_del_everything();
+		EXIT_FAIL("ERROR");
+	}
 	return (nb * sign);
 }

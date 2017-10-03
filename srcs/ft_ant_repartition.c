@@ -6,15 +6,17 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 16:20:16 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/10/01 21:06:31 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/03 18:03:02 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
+#define SHORTEST_PATH_LEN (PATH_LEN(SHORTEST_PATH.next))
 
 /*
-** Compute ants' repartation on shortest paths
+** Compute ants' repartition on shortest paths
 */
+
 void			ft_move_ant(t_lst *head, int *finish)
 {
 	t_lst		*it_b;
@@ -45,7 +47,7 @@ void			ft_send_ant(t_lst *head, int *ant_ref)
 	++*ant_ref;
 }
 
-void			ft_ant_repartition()
+void			ft_ant_repartition(void)
 {
 	int			current_ant;
 	int			finish;
@@ -62,12 +64,10 @@ void			ft_ant_repartition()
 		{
 			ft_move_ant(&PATH(it), &finish);
 			if (current_ant <= ANT_NB)
-			{
-				if ((current_ant != ANT_NB) && ((PATH_LEN(it) <= ((ANT_NB - current_ant) * PATH_LEN(SHORTEST_PATH.next))) || (PATH_REF(it) == 0)))
-						ft_send_ant(&PATH(it), &current_ant);
-				else if ((PATH_LEN(it) <= PATH_LEN(SHORTEST_PATH.next)) || (PATH_REF(it) == 0))
+				if ((((current_ant != ANT_NB) &&
+				((PATH_LEN(it) <= ((ANT_NB - current_ant) * SHORTEST_PATH_LEN))
+				|| !PATH_REF(it)))) || ((PATH_LEN(it) <= SHORTEST_PATH_LEN)))
 					ft_send_ant(&PATH(it), &current_ant);
-			}
 			it = it->next;
 		}
 		++move;

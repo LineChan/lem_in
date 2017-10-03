@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/31 13:37:06 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/10/01 21:38:55 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/03 18:04:50 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_lst			*ft_find_room_with_name(t_lst *head,
 									const char *room_name,
 									const int len)
 {
-	t_lst                *it;
+	t_lst		*it;
 
 	if (ft_lst_is_head(head))
 		return (0);

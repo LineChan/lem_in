@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 20:35:24 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/10/01 23:31:32 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/03 16:44:09 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 ** 2nd parameter : parsing dept
 ** 3rd parameter : option
 */
+
 static int		ft_find_command(char **line, int depth, int *flag, int option[])
 {
 	if (!((**line == '#') && (*(*line + 1) == '#')))
@@ -40,7 +41,7 @@ int				ft_parse_room_list(char **line, int depth, int option[])
 	int			coordinate[2];
 
 	flag = 0;
-	option[0] ? ft_print_parsing(depth, "room_list", *line): 0;
+	option[0] ? ft_print_parsing(depth, "room_list", *line) : 0;
 	ret = 1;
 	if (!*line)
 		ft_exit_room_list();
@@ -55,7 +56,7 @@ int				ft_parse_room_list(char **line, int depth, int option[])
 			ft_parse_duplicate_name_and_coordinate(*line, ret, coordinate);
 		}
 		if (IS_NEG(ft_parse_new_line(line)))
-				break ;
+			break ;
 	}
 	if (!((flag & FLAG_START) && (flag & FLAG_END)))
 		ft_exit_room_list();

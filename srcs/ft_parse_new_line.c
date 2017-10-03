@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 23:12:08 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/10/01 22:42:43 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/03 16:48:27 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,12 @@
 **
 ** 1st paremter : input line
 */
+
 int				ft_parse_new_line(char **line)
 {
 	if (line && *line)
 		ft_fprintf(FD, "%s\n", *line);
-	*line = ft_gnt(0,'\n');
+	*line = ft_gnt(0, '\n');
 	if (!*line)
 		return (-1);
 	if ((**line == '#') && (*(*line + 1) != '#'))

@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 10:52:50 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/10/01 23:55:59 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/03 16:27:36 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void		ft_print_room_list(t_lst *head)
 	write(1, "\n", 1);
 }
 
-void		ft_print_shortest_path_list(void)
+void			ft_print_shortest_path_list(void)
 {
 	t_lst		*it;
 
@@ -37,7 +37,7 @@ void		ft_print_shortest_path_list(void)
 	write(1, "\n", 1);
 	while (it != &SHORTEST_PATH)
 	{
-		ft_printf("[ {YELLOW:%d} ] %-5d", PATH_REF(it), PATH_LEN(it)); 
+		ft_printf("[ {YELLOW:%d} ] %-5d", PATH_REF(it), PATH_LEN(it));
 		ft_print_room_list(&PATH(it));
 		it = it->next;
 	}

@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/26 00:30:45 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/09/29 00:52:04 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/03 17:20:46 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 /*
 ** Check if there are letters in the input
 */
+
 int					ft_parse_letter(char *line, int depth, int option[])
 {
 	size_t		count;

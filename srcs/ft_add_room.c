@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 16:45:05 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/10/02 00:53:35 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/03 18:05:06 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 ** 2nd parameter : room's name size
 ** 3rd parameter : coordinate
 */
+
 void			ft_add_room(const char *name,
 							const size_t size,
 							int coordinate[])
