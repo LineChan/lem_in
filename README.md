@@ -276,8 +276,7 @@ if (PATH_LEN(current_path) <= ((ANT_NB - current_ant) * PATH_LEN(BEST_SHORTEST_P
 	> git submodule update --init --recursive /* Import submodules */
 	> cd libs && git checkout master && git pull && cd .. /* Pull libraries */
 
-
-** Documentation **
+**Documentation**
 
 	> brew install doxygen /* Install Doxygen */
 	> doxygen Doxyfile /* Run settings file */
@@ -292,11 +291,16 @@ if (PATH_LEN(current_path) <= ((ANT_NB - current_ant) * PATH_LEN(BEST_SHORTEST_P
 
 **Visualization**
 
+You need to install Pygame :
+
+	> ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
 	> python3 main.c ant_farm_map.txt
 
 ![visual](/img/readme_visual.png)
 
-This visualization was made in Python with Pygame.
+This visualization was made in Python with Pygame. Install [here](https://gist.github.com/connorshea/f539c91f210e72077ca9).
+
 Parameters :
 
 - Between 1 and 7 ants
