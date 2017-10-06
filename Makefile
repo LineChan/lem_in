@@ -1,47 +1,73 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mvillemi <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2017/10/06 15:55:28 by mvillemi          #+#    #+#              #
+#*   Updated: 2017/10/06 21:52:07 by mvillemi         ###   ########.fr       *#
+#                                                                              #
+# **************************************************************************** #
+
+# Define racine path if it does not exist.
+ifndef CUR_PROJECT_PWD
+ export CUR_PROJECT_PWD := $(shell /bin/pwd)
+endif
+
 NAME			:= lem-in
+NAME_CLEAR		:= lem_in
 
 # Directories
-SRCS			:= srcs
-OBJS			:= objs
 INCS			:= includes
+SRCS			:= sources
+LIBS			:= $(CUR_PROJECT_PWD)/libs
+OBJS			:= objs
+
+# Libaries
+LIB 			:= "libft liblst"
 
 # Subdirectories
 SRCS_DIR		:= $(shell find $(SRCS) -type d)
 OBJS_DIR		:= $(addprefix $(OBJS)/,$(SRCS_DIR))
 
-# Paths
-LIBS_PATH		:= libs/
+# Includes
+INCS_FILES		:= -I$(INCS)/
+INCS_FILES 		+= $(shell echo "$(foreach i, $(shell echo "$(LIB)"), -I$(LIBS)/$(i)/$(INCS))")
 
-# Libraries
-LFT				:= -Llibs -lft
-LLST			:= -Llibs -llst
-
-LIBRARIES		:= $(LLST) $(LFT)
+# Libraries link
+LIBS_FILES		:= $(shell echo "$(foreach i, $(shell echo "$(LIB)"), -L $(LIBS)/$(i) -$(shell basename "$(i)" | sed 's/lib/l/g'))")
 
 # Files
-SRCS_FILES		:= $(shell find $(SRCS) -type f -name "main.c" -o -name "ft_*.c")
+SRCS_FILES		:= $(shell find $(SRCS) -type f)
 OBJS_FILES		:= $(SRCS_FILES:%.c=$(OBJS)/%.o)
-INCS_FILES		:= $(shell find $(INCS)/ -type f -name "*.h")
 
 # Compiler and shell
 CC				:= gcc
-CFLAGS			:= -Werror -Wall -Wextra -g
 SIZE			:= $(shell echo "$(shell tput cols) - 16" | bc)
 INCLUDES		:= -I$(INCS)
 RM				:= rm -rf
 
+# Flags, depends on user input: `make DEBUG=1'
+ifeq ($(DEBUG),1)
+C_FLAGS		 	:= -MMD -g -DDEBUG -Wall -Wextra -Werror
+else
+C_FLAGS		 	:= -MMD -g -Wall -Wextra -Werror
+endif
+
 # Colors
 RED				= \033[31;1m
-GREEN			 = \033[32;1m
+GREEN		    = \033[32;1m
 YELLOW			= \033[33;1m
 BLUE			= \033[34;1m
 PURPLE			= \033[35;1m
 CYAN			= \033[36;1m
 LGREY			= \033[37;1m
 END_C			= \033[m
+CLEAR			= "\033[K"
 
 # String
-PRINT_KO        = printf "  [$(RED)✗$(END_C)]    $(RED)-->$(END_C)    %-*s\r\033[m" "$(SIZE)"
+PRINT_KO        = printf "  [$(RED)✗$(END_C)]    $(RED)-->$(END_C)    %-*s\033[0m\r" "$(SIZE)"
 PRINT_OK        = printf "  [$(GREEN)✓$(END_C)]   $(GREEN)%s$(END_C)\n"
 
 
@@ -49,32 +75,30 @@ PRINT_OK        = printf "  [$(GREEN)✓$(END_C)]   $(GREEN)%s$(END_C)\n"
 $(shell mkdir -p $(OBJS) $(OBJS_DIR))
 
 all :
-	make -j $(NAME)
+	make $(NAME)
 
 $(NAME) : $(OBJS_FILES)
-	make -C libs
-	$(CC) $(FLAGS) -o $@ $(INCLUDES) $(OBJS_FILES) $(LIBRARIES)
-	printf "\033[K"
-	$(PRINT_OK) $(NAME)
+	$(foreach i,$(shell echo "$(LIB)"),make -C "$(LIBS)/$(i)";)
+	$(CC) $(C_FLAGS) -o $@ $(INCS_FILES) $(OBJS_FILES) $(LIBS_FILES)
+	printf $(CLEAR) && $(PRINT_OK) $(NAME)
 
-$(OBJS)/%.o : %.c
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@ && $(PRINT_KO) $< || exit
+$(OBJS)/%.o: %.c
+	$(CC) $(C_FLAGS) $(INCS_FILES) -c $< -o $@ && $(PRINT_KO) $< || exit
 
 l :
 	$(RM) lem-in
 	make $(NAME)
 
 clean :
-	make -C libs clean
-
-fclean :
-	$(RM) lem-in
-	$(RM) lem-in.dSYM
 	$(RM) $(OBJS)
-	make -C libs fclean
+	$(foreach i,$(shell echo "$(LIB)"),make -C "$(LIBS)/$(i)" clean;)
 
-test :
-	./test/unit_tests.sh
+fclean : clean
+	$(RM) $(NAME)
+	$(foreach i,$(shell echo "$(LIB)"),make -C "$(LIBS)/$(i)" fclean;)
+
+debug : fclean
+	make DEBUG=1
 
 re : fclean all
 
