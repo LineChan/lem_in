@@ -6,14 +6,19 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 00:31:35 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/10/03 18:22:19 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/06 21:58:30 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LEM_IN_H
 # define LEM_IN_H
 
-# include "../libs/liblst/includes/liblst.h"
+# include "memory.h"
+# include "ft_printf.h"
+# include "convert.h"
+# include "get_next_line.h"
+# include "macro.h"
+# include "liblst.h"
 
 # define C_ROOM(it)		CONTAINEROF(it, t_room, lst)
 # define R_REF(it)		(C_ROOM(it)->ref)
