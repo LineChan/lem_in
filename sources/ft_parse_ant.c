@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 23:01:57 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/10/03 17:45:02 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/11 02:09:15 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 ** 3rd parameter : options
 */
 
-void			ft_parse_ant(char **line, int depth, int option[])
+void			ft_parse_ant(char **line, int depth)
 {
 	ft_parse_new_line(line);
-	option[0] ? ft_print_parsing(depth, "parse_ant", *line) : 0;
-	if ((0 > (ANT_NB = ft_parse_nb(line, depth + 1, option))) ||
+	DEBUG_MODE ? ft_print_parsing(depth, "parse_ant", *line) : 0;
+	if ((0 > (ANT_NB = ft_parse_nb(line, depth + 1))) ||
 			ft_strlen(*line) || !ANT_NB)
 	{
 		ft_del_everything();

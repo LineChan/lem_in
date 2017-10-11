@@ -6,12 +6,18 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 00:31:35 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/10/06 21:58:30 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/11 02:09:44 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LEM_IN_H
 # define LEM_IN_H
+
+#ifdef DEBUG
+# define DEBUG_MODE 1
+#else
+# define DEBUG_MODE 0
+#endif
 
 # include "memory.h"
 # include "ft_printf.h"
@@ -121,39 +127,29 @@ void					ft_add_room(const char *name,
 										int coordinate[]);
 void					ft_del_room(t_lst *src);
 
-void					ft_parse(int ac, char **av, char **line, int option[]);
-void					ft_parse_ant(char **line, int depth, int option[]);
-int						ft_parse_room_list(char **line,
-										int depth,
-										int option[]);
+void					ft_parse(int ac, char **av, char **line);
+void					ft_parse_ant(char **line, int depth);
+int						ft_parse_room_list(char **line, int depth);
 void					ft_parse_tube_list(char **line,
-										int depth,
-										int option[]);
+										int depth);
 int						ft_parse_room_id(char *line,
 										int coordinate[],
-										int depth,
-										int option[]);
+										int depth);
 void					ft_parse_duplicate_name_and_coordinate(
 										const char *line,
 										const int ret,
 										int coordinate[]);
 int						ft_parse_tube_id(char *line,
 										int ref[],
-										int depth,
-										int option[]);
-int						ft_parse_room_name(char *line,
-										int depth,
-										int option[]);
-void					ft_parse_first_letter(char *line,
-										int depth,
-										int option[]);
-int						ft_parse_letter(char *line, int depth, int option[]);
+										int depth);
+int						ft_parse_room_name(char *line, int depth);
+void					ft_parse_first_letter(char *line, int depth);
+int						ft_parse_letter(char *line, int depth);
 int						ft_parse_new_line(char **line);
-int						ft_parse_nb(char **cursor, int depth, int option[]);
+int						ft_parse_nb(char **cursor, int depth);
 int						ft_parse_command(char **line,
 										int depth,
-										int *flag,
-										int option[]);
+										int *flag);
 
 t_lst					*ft_find_room_with_name(t_lst *node,
 										const char *room_name,
@@ -161,7 +157,7 @@ t_lst					*ft_find_room_with_name(t_lst *node,
 t_lst					*ft_find_room_with_ref(t_lst *node, const int len);
 
 void					ft_compute_shortest_path_nb(void);
-void					ft_handle_option(int ac, char **av, int option[]);
+int						ft_handle_option(int ac, char **av);
 void					ft_clear_unlinked_room(void);
 void					ft_copy_end_room_to_path(void);
 void					ft_quick_solution(char **line);

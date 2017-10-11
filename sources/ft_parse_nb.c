@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 17:15:32 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/10/03 16:37:28 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/11 02:22:21 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,16 @@
 **
 ** 1st parameter : cursor to be checked
 ** 2nd parameter : parsing depth
-** 3rd parameter : option
 */
 
-int				ft_parse_nb(char **cursor, int depth, int option[])
+int				ft_parse_nb(char **cursor, int depth)
 {
 	int					sign;
 	unsigned int		nb;
 
 	nb = 0;
 	sign = 1;
-	option[0] ? ft_print_parsing(depth, "parse_nb", *cursor) : 0;
+	DEBUG_MODE ? ft_print_parsing(depth, "parse_nb", *cursor) : 0;
 	if (**cursor == '-')
 		sign *= -1;
 	if ((**cursor == '-') || (**cursor == '+'))
