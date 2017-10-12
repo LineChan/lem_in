@@ -283,10 +283,11 @@ if (PATH_LEN(current_path) <= ((ANT_NB - current_ant) * PATH_LEN(BEST_SHORTEST_P
 	> open docs/html/main_8c.html
 
 **parsing** : shows the grammatical analysis of the parsing
+	> make debug
 
 **shortest_path nb** : by default the program finds all possible shortest path. The proccess can be a bit slow for a hight number of rooms and tubes so it is possible to restrain the solutions with this option
 
-	> ./lem-in [--parsing] [--shortest_path=nb] < ant_farm_map.txt 
+	> ./lem-in [--shortest_path=nb] < ant_farm_map.txt 
 
 
 **Visualization**
