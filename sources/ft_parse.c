@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 16:16:33 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/10/11 01:57:00 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/16 17:52:51 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 /*
 ** Parsing ants' number, rooms' list and tubes' list
 **
-** 1st parameter : 
-** 2nd parameter : 
-** 3rd parameter :
+** 1st parameter : number of argument
+** 2nd parameter : list of argumetns
+** 3rd parameter : input line
 */
 
 void				ft_parse(int ac,

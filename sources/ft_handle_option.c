@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/28 22:42:36 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/10/11 01:24:37 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/16 17:52:14 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,10 @@ int			ft_handle_option(int ac, char **av)
 	if (ac > 1)
 	{
 		++av;
-		/*
-		if (!ft_strcmp("--parsing", *av))
-		{
-			option[0] = 1;
-			++av;
-		}
-		*/
 		if (*av && !ft_strncmp("--shortest_path=", *av, 16))
 		{
 			*av += 16;
-			return(ft_atoi(*av));
+			return (ft_atoi(*av));
 		}
 	}
 	return (0);
