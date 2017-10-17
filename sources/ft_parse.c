@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 16:16:33 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/10/16 17:52:51 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/17 12:41:46 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ void				ft_parse(int ac,
 	int		option;
 
 	option = ft_handle_option(ac, av);
-	FD = DEBUG_MODE ? open("input.txt", O_CREAT | O_RDWR | O_TRUNC, 0666) : 1;
+	FD = open("input.txt", O_CREAT | O_RDWR | O_TRUNC, 0666);
 	depth = 0;
 	ft_parse_ant(line, depth + 1);
-	*line = ft_gnt(0, '\n');
+	*line = ft_gnt(FD, '\n');
 	if (!*line)
 		ft_parse_new_line(line);
 	depth ^= depth;

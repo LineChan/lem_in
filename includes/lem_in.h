@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 00:31:35 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/10/17 12:32:18 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/17 13:07:05 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,6 +171,7 @@ void					ft_print_shortest_path_list(void);
 void					ft_print_parsing(int depth,
 										const char *name,
 										const char *line);
+void					ft_print_input(void);
 void					ft_print_output(void);
 
 #endif

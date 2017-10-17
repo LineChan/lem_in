@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/27 20:16:19 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/10/11 02:17:01 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/17 15:03:02 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,11 @@ static void		ft_parse_start_end(char *line, int depth)
 	int		coordinate[2];
 	int		ret;
 
-	ret = ft_parse_room_id(line, coordinate, depth + 1);
+	if (IS_NEG((ret = ft_parse_room_id(line, coordinate, depth + 1))))
+	{
+		ft_del_everything();
+		EXIT_FAIL("ERROR");
+	}
 	ft_add_room(line, ret, coordinate);
 	ft_parse_duplicate_name_and_coordinate(line, ret, coordinate);
 }

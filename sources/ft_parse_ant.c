@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/24 23:01:57 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/10/11 02:09:15 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/17 12:42:07 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 ** Check if if the line is an ant
 **
 ** 1st parameter : line from the input
-** 2nd parameter : parsing depthto check
-** 3rd parameter : options
+** 2nd parameter : parsing depth to check
 */
 
 void			ft_parse_ant(char **line, int depth)

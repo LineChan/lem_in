@@ -6,11 +6,23 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 01:28:27 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/10/11 02:35:37 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/17 13:16:13 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
+
+#if 0
+void		ft_print_input(void)
+{
+	char	*ret;
+
+	FD = open("input.txt", O_RDONLY, 0666);
+
+	while ((ret = ft_gnt(FD, '\n')))
+		ft_printf("%s\n", ret);
+}
+#endif
 
 int			main(int ac, char **av)
 {
@@ -30,9 +42,7 @@ int			main(int ac, char **av)
 		ft_quick_solution(&line);
 		return (0);
 	}
-	while ((FD != 1) && (line = ft_gnt(FD, '\n')) && DEBUG_MODE)
-		ft_printf("%s\n", line);
-	DEBUG_MODE ? ft_print_shortest_path_list() : 0;
+	DEBUG_MODE ? ft_print_shortest_path_list() : ft_print_input();
 	ft_ant_repartition();
 	close(FD);
 	ft_del_everything();
