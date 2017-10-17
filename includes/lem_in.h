@@ -6,18 +6,18 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/20 00:31:35 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/10/11 02:09:44 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/17 12:32:18 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LEM_IN_H
 # define LEM_IN_H
 
-#ifdef DEBUG
-# define DEBUG_MODE 1
-#else
-# define DEBUG_MODE 0
-#endif
+# ifdef DEBUG
+#  define DEBUG_MODE 1
+# else
+#  define DEBUG_MODE 0
+# endif
 
 # include "memory.h"
 # include "ft_printf.h"
