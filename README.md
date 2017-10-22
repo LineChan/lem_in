@@ -298,6 +298,7 @@ You need to install Pygame :
 	> python3 main.c ant_farm_map.txt
 
 ![visual](/img/readme_visual.png)
+![visual](/img/visual.gif)
 
 This visualization was made in Python with Pygame. Install [here](https://gist.github.com/connorshea/f539c91f210e72077ca9).
 
