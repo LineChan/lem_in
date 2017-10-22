@@ -59,6 +59,6 @@ def main(proc) :
 
 
 if __name__ == "__main__" :
-    subprocess.run(["make re"], shell = True, check = True)
+    subprocess.run(["make"], shell = True, check = True)
     proc = subprocess.Popen(["./lem-in <" + sys.argv[1] + " 2> /dev/null"], shell = True, stdin = subprocess.PIPE, stdout = subprocess.PIPE, stderr = subprocess.PIPE)
     main(proc)
