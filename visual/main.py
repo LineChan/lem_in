@@ -60,5 +60,9 @@ def main(proc) :
 
 if __name__ == "__main__" :
     subprocess.run(["make"], shell = True, check = True)
+<<<<<<< HEAD:main.py
     proc = subprocess.Popen(["./lem-in <" + sys.argv[1] + " 2> /dev/null"], shell = True, stdin = subprocess.PIPE, stdout = subprocess.PIPE, stderr = subprocess.PIPE)
+=======
+    proc = subprocess.Popen(["./lem-in < " + sys.argv[1] + " 2> /dev/null"], shell = True, stdin = subprocess.PIPE, stdout = subprocess.PIPE, stderr = subprocess.PIPE)
+>>>>>>> 83921a20f19dd039976da0164e1d468d9bd8e8f2:visual/main.py
     main(proc)

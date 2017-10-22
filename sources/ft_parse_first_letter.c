@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 21:07:24 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/10/03 17:21:37 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/11 02:18:29 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 ** 3rd parameter : option
 */
 
-void				ft_parse_first_letter(char *line, int depth, int option[])
+void				ft_parse_first_letter(char *line, int depth)
 {
-	option[0] ? ft_print_parsing(depth, "first_letter", "") : 0;
+	DEBUG_MODE ? ft_print_parsing(depth, "first_letter", "") : 0;
 	if (!(*line &&
 			(((ft_isalpha(*line)) && (*line != 'L')) || ft_isdigit(*line))))
 	{

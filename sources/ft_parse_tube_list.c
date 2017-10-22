@@ -6,7 +6,7 @@
 /*   By: mvillemi <mvillemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/28 14:40:10 by mvillemi          #+#    #+#             */
-/*   Updated: 2017/10/02 01:06:09 by mvillemi         ###   ########.fr       */
+/*   Updated: 2017/10/11 02:00:25 by mvillemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ static void		ft_exit_tube_list(void)
 	EXIT_FAIL("ERROR");
 }
 
-void			ft_parse_tube_list(char **line, int depth, int option[])
+void			ft_parse_tube_list(char **line, int depth)
 {
 	int		ret;
 	int		ref[2];
 
-	option[0] ? ft_print_parsing(depth, "tube_list", "") : 0;
+	DEBUG_MODE ? ft_print_parsing(depth, "tube_list", "") : 0;
 	ret = 1;
 	if (!*line)
 		ft_exit_tube_list();
@@ -42,7 +42,7 @@ void			ft_parse_tube_list(char **line, int depth, int option[])
 			ft_fprintf(FD, "%s\n", *line);
 		if (!ret)
 		{
-			ret = ft_parse_tube_id(*line, ref, depth + 1, option);
+			ret = ft_parse_tube_id(*line, ref, depth + 1);
 			if (!ret)
 			{
 				ft_fprintf(FD, "%s\n", *line);
