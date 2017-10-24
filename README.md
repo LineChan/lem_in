@@ -248,8 +248,9 @@ if (PATH_LEN(current_path) <= ((ANT_NB - current_ant) * PATH_LEN(BEST_SHORTEST_P
 - [x] Program's Documentation
 - [x] Parsing details
 - [x] Chose of the number of shortest paths that can be found
-- [x] Interactive anthill visualization
+- [x] Interactive anthill visualization with Pygame
 
+![visual](/img/visual.gif)
 
 #  Sources :bookmark_tabs:
 
@@ -292,13 +293,11 @@ if (PATH_LEN(current_path) <= ((ANT_NB - current_ant) * PATH_LEN(BEST_SHORTEST_P
 
 **Visualization**
 
-You need to install Pygame :
+You need to install Pygame (version 1.9.4.dev0):
 
 	> ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-	> python3 main.c ant_farm_map.txt
-
-![visual](/img/visual.gif)
+	> python3 visual/main.c ant_farm_map.txt
 
 This visualization was made in Python with Pygame. Install [here](https://gist.github.com/connorshea/f539c91f210e72077ca9).
 
