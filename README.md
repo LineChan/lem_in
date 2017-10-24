@@ -103,7 +103,7 @@ Note : Any unknown command is ignored (lines starting with ##) and any non compl
 <new_line>      : '\n'
 ```
 
-NB : you can visualize the parsing process with the **--parsing** option
+NB : you can visualize the parsing process by compiling with "make debug".
 
 ## Path finding algorithm
 
