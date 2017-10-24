@@ -103,7 +103,7 @@ Note : Any unknown command is ignored (lines starting with ##) and any non compl
 <new_line>      : '\n'
 ```
 
-NB : you can visualize the parsing process by compiling with "make debug".
+NB :  you can visualize the parsing process by doing "make debug".
 
 ## Path finding algorithm
 
@@ -310,4 +310,5 @@ Parameters :
 - SPACE to execute the next turn
 
 #  Result
-Peer evaluation not done yet.
+
+Project achived at 125%.
