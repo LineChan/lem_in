@@ -49,7 +49,7 @@ L7-r_end
 
 **Allowed function** : write, read, malloc, free, exit, strerror, perror
 
-Find the subject [here](subject.lem-in.en.pdf)
+Find the subject [here](subject.lem-in.en.pdf).
 
 ### Libraries :books:
 - **libft** : personnal library with functions from libc.h (printf from stdio.h for instance)
