@@ -49,6 +49,8 @@ L7-r_end
 
 **Allowed function** : write, read, malloc, free, exit, strerror, perror
 
+Find the subject [here](subject.lem-in.en.pdf)
+
 ### Libraries :books:
 - **libft** : personnal library with functions from libc.h (printf from stdio.h for instance)
 - **liblst** : personnal library with a set of tools to manipulate Linux-like linked lists
