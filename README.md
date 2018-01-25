@@ -60,8 +60,8 @@ Find the subject [here](subject.lem-in.en.pdf).
 
 ## Parsing
 
-For the parsing I made a **grammatical analysis** of the input format and build my function according to it.
-Note : Any unknown command is ignored (lines starting with ##) and any non compliant or empty lines will automatically stop the parsing. The programm process only the already acquired data.
+For the parsing I made a **grammatical analysis** of the input format.
+Note : Any unknown command is ignored (lines starting with ##) and any non compliant or empty lines will automatically stop the parsing. The programm runs only the data already acquired.
 
 ```C
 <start>         : <ant> <new_line> <room_list> <new_line> <tube_list>
@@ -105,14 +105,14 @@ Note : Any unknown command is ignored (lines starting with ##) and any non compl
 <new_line>      : '\n'
 ```
 
-NB :  you can visualize the parsing process by doing "make debug".
+NB :  you can visualize the parsing process by compiling with "make debug".
 
 ## Path finding algorithm
 
 The anthill with its rooms and tubes can be analyzed as a graph that is:
-- **unweighted** : all the edges have the same weight (it costs one turn each time an ant moves)
-- **undirected** : there is no directed edges (an ant go through a tube in both directions)
-- **cyclic** : there are circles in the graph (possibility to go twice in the same room withe same ant)
+- **unweighted** : all the edges have the same weight (it costs one turn to move an ant once)
+- **undirected** : there is no directed edges (an ant can go through a tube in both directions)
+- **cyclic** : there are circles in the graph (possibility can go twice in the same room withe same ant)
 
 To find solutions I decided to implement an **Iterative Deepening Depth-First Search** (IDDFS). I chose that algorithm because it combines Breadth-First Search's ([BSF](http://www.geeksforgeeks.org/breadth-first-traversal-for-a-graph/)) fast search (for vertices closer to root) and Depth-Dirst Search's ([DSF](http://www.geeksforgeeks.org/depth-first-traversal-for-a-graph/)) space-efficiency. Also, the IDDSF guarentees that each path found is **the shortest one** available.
 
@@ -209,8 +209,8 @@ static int         ft_explore_adjacent(const int ref, const int limit)
 		{
 			if (i != END_REF)
 			{
-				/* If it isn't the ##end room, move the room from the anthill
-				to the shortest path list */
+				/* If it isn't the ##end room, it is moved from the anthill's list
+				to the shortest path's list */
 				ft_lst_moveto_next(ft_find_room_with_ref(&ANTHILL, i), &PATH(SHORTEST_PATH.prev));
 				j = 0;
 				/* Removing the room from matrix by setting the value to 0 */
@@ -238,7 +238,7 @@ static int         ft_explore_adjacent(const int ref, const int limit)
 
 Now that we have SP_NB shortest path, ants need to be sent on these paths. To minimize the number of moves, paths are taken according to these rules :
 - **1st shortest path** (best solution) : an ant is sent at each turn
-- **Other paths** : an ant is sent if only it is less cost-effective to take the current path than the shortest one.
+- **Other paths** : an ant is sent if only it is less cost-effective to take the current path than waiting for the shortest one to be avaible.
 
 ```C
 if (PATH_LEN(current_path) <= ((ANT_NB - current_ant) * PATH_LEN(BEST_SHORTEST_PATH)))
@@ -307,7 +307,7 @@ Parameters :
 
 - Between 1 and 7 ants
 - Between 2 and 8 rooms
-- Rooms coordinates are percentages of the dimension of the screen
+- Rooms coordinates are percentages of the screen dimension
 - ESC to quit
 - SPACE to execute the next turn
 
